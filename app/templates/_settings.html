@@ -1,0 +1,163 @@
+{%  block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}" />
+<style>
+    .columns-50-50{
+        grid-template-columns: 30% 10% 30% ;
+
+        display: grid;
+        width:500px;
+    }
+
+.change-icon{
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-left:40%;
+    margin-right:auto;
+}
+
+#pushBtn{
+    background: rgb(80, 80, 145);
+    padding: 16px;
+    border-radius: 1em;
+    border: 0;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+}
+
+</style>
+{% endblock %}
+<div class="setting-cols">
+<div class="form change-avatar">
+    <div class="hello">{{  title  }}</div>
+
+
+
+        
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="box">
+                {{ form2.avatar.label }}
+                <div class="profile-user-image columns-50-50">
+                    <img src="{{ url_for('avatar_photo', id=current_user.id) }}"
+                         alt="profile-avatar" />
+<div class="change-icon">
+    <h1>>>></h1>
+
+</div>
+
+                     <img id="blah" src="{{ url_for('static', filename='images/blank_avatar.jpg') }}" alt="Preview"/>
+                </div>
+            </div>
+            <div class="box">
+                {{ form2.hidden_tag() }}
+         
+                         {{ form2.avatar(id="imgInp") }}
+
+                <span id="message"></span>
+
+                         {% for error in form2.avatar.errors %}
+               <span style="color: red;">{{_("Avatar") }} : {{ error }}</span>
+               {% endfor %}
+            
+           
+        </div>
+        <div class="box-submit">
+            {{ form2.submitAvatar }}
+         
+        </div>
+        
+        
+        </form>
+
+    </div>
+
+<div class="form change-password">
+    <div class="hello hello-change-password">{{ _("Change Password") }}</div>
+
+    <form action="" method="post">
+
+    
+     <div class="box">
+        {{ form.hidden_tag() }}
+        {{ form.password.label }}
+        {{ form.password(placeholder=_("New Password"))}}
+        {% for error in form.password.errors %}
+         <span style="color: red;">{{ _("Password: ") }} {{ error }}</span>
+               {% endfor %}  
+        </div>
+        <div class="box">
+		{{ form.password2.label }}
+			   {{ form.password2(placeholder= _("Confirm Password"))}}
+               {% for error in form.password2.errors %}
+               <span style="color: red;">{{ _("Repeat Password: ") }} {{ error }}</span>
+               {% endfor %}  
+               
+        </div>
+        <div class="box-submit">
+            {{ form.submit() }}
+
+    </div>
+               
+
+     </form>
+     
+    </div>
+</div>
+{% if 'staff' in current_user.show_role() %}
+<div></div>
+{% else %}
+<div class="form">
+    <div class="hello"><h2>{{ _("Push Notifications") }}</h2></div>
+    <div class="box" style="margin-left:30px;margin-top:10px;">
+        <p> {{_("Push notifications look like SMS text messages and mobile alerts, but they only reach users who have installed this app. It is recommended to enable this feature.")}}</p>
+        <button id="pushBtn" style="margin-top:10px;">Enable Push Notifications</button>
+    </div>
+</div>
+
+
+{% endif %}
+
+</div>
+
+ <script>
+
+
+        imgInp.onchange = evt => {
+              const [file] = imgInp.files
+              let fileSize = file.size
+              let mbSize =  parseInt(fileSize / 1024 / 1024)
+              if (file) {
+                blah.src = URL.createObjectURL(file)
+
+                if (fileSize > parseInt(2 * 1024 * 1024)){
+
+                    document.querySelector("#message").innerHTML = `{{_("Your file is bigger than 2MiB, upload another file, size: ")}}${mbSize} MiB`;
+                    document.querySelector("#message").style.color = "red";
+                    document.querySelector("#submitAvatar").disabled = true;
+                    document.querySelector("#submitAvatar").value = `{{_("Upload another file !")}}`;
+                    imgInp.value = "";
+
+              }
+              else if( /\.(jpe?g|png)$/i.test(file.name) === false){
+                document.querySelector("#message").innerHTML = `{{_("Allowed files: jpg, png.")}}`;
+                    document.querySelector("#message").style.color = "red";
+                    document.querySelector("#submitAvatar").disabled = true;
+                    document.querySelector("#submitAvatar").value = `{{_("Upload another file !")}}`;
+                    imgInp.value = "";
+
+              }
+              else{
+
+                    document.querySelector("#message").innerHTML = "";
+                    document.querySelector("#message").style.color = "red";
+                    document.querySelector("#submitAvatar").disabled = false;
+                    document.querySelector("#submitAvatar").type = 'submit';
+                    document.querySelector("#submitAvatar").value = `{{_("Set new avatar!")}}`;
+
+
+              }
+            }
+            }
+
+
+    </script>

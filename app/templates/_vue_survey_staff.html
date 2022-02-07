@@ -1,0 +1,29 @@
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='src/vue/dist/css/chunk-vendors.css') }}">
+{% endblock %}
+<!--
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/v-calendar"></script>
+<script src="{{ url_for('static', filename='jquery/calendar-module.js') }}"></script>
+
+
+<div id="app-calendar">
+[[ greeting ]]
+
+<v-calendar></v-calendar>
+<v-date-picker v-model="selectedDate" />
+  
+
+    
+</div>
+
+tutaj dodaj scripty do jquery calendar
+-->
+
+<div id="app-survey-staff">
+
+
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='src/vue-survey-staff/dist/js/chunk-vendors.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='src/vue-survey-staff/dist/js/app.js') }}"></script>

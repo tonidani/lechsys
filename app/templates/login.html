@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
+    {% endblock stylesheet %}
+
+
+
+{% block content %}
+
+
+	<form action="" method="post">
+	  {{ form.hidden_tag() }}
+	  <div class="login-box">
+		   {% include '_alerts.html' %}
+        <img src="static/images/logo.png" alt="Logo">
+          {{ form.username(size=32, placeholder=_("username or email"))}}
+		   {% for error in form.username.errors %}
+		   <span style="color: red;">{{ _("Username: ") }} {{ error }}</span>
+		   {% endfor %}
+			   {{ form.password(size=32, placeholder=_("password")) }}
+
+       
+	   <span> {{ _("Remember me?") }} {{ form.remember_me() }} </span>
+	   {{ form.submit() }}
+        <a href="{{ url_for('reset_request') }}">{{ _("Forgot password?") }}</a>
+   
+
+		  <br><p style="font-size:10">Zespół statSys 2022</p><br>
+	  </div>
+
+	 </form>
+	
+	
+{% endblock %}

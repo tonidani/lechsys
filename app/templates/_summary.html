@@ -1,0 +1,539 @@
+<style>
+    .container {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        display: grid; 
+        grid-auto-columns: 1fr 1fr 1fr 1fr 1fr; 
+        grid-template-columns: 20% 40% 40%; 
+        grid-template-rows: 0.4fr 0.4fr 2.8fr 0.4fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            "players month1 month2"
+            "players week1 week2"
+            "players chart1 chart2"
+            "players sum1 sum2"; 
+    }
+
+    .month1 { 
+        grid-area: month1;
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+        overflow-y: scroll;
+        padding: 5px 5px 5px 5px;
+
+    }
+    .week1 { 
+        grid-area: week1;
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+        overflow-y: scroll;
+        padding: 5px 5px 5px 5px;
+     }
+    .month2 { 
+        grid-area: month2;
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+        overflow-y: scroll;
+        padding: 5px 5px 5px 5px;
+    }
+    .week2 { 
+        grid-area: week2;
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+        overflow-y: scroll;
+        padding: 5px 5px 5px 5px;
+    }
+    .players { 
+        grid-area: players;
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+    }
+    .sum1 { 
+        grid-area: sum1;
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+    }
+    .sum2 { 
+        grid-area: sum2;
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+    }
+    .chart1 { 
+        grid-area: chart1;
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+    }
+    .chart2 { 
+        grid-area: chart2; 
+        border-style: solid;
+        border-color: #313340;
+        border-width: thin;
+        
+    }
+
+    .date {
+        color: #2B6ABC;
+        width: 10%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    .button_date {
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        background-color: #2B6ABC;
+        border-style: solid;
+        border-color: #313340;
+        
+    }
+
+    .button_date:hover {
+        background-color: #002F63;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+    .users-table-messages{
+            border-collapse:collapse;
+            border-radius: 20px 15px 0px 0px;
+            width:100%;
+    
+        }
+        .scrollable-table{
+             overflow-y: scroll;
+             height: 80%;
+        }
+
+        .scrollable-weeks{
+             overflow-x: scroll;
+             /* height: 80%; */
+        }
+    
+        .users-table-messages tr{
+            background: #23232F;
+            font-family: 'Chakra Petch', sans-serif;
+        }
+    
+    
+    
+    
+        .users-table-messages td{
+            padding:20px;
+            color:white;
+        }
+    
+    
+        .users-table-messages tr:nth-child(2n){
+    
+            background: none;
+    
+        }
+    
+         .users-table-messages tr:hover{
+            background: #081c29;
+    
+        }
+    
+        .users-table-messages th {
+    
+            font-family: 'Chakra Petch', sans-serif;
+            font-size:20px;
+            padding:10px;
+            color:#0C53A6;
+            text-align: left;
+            background-color: #1F3654;
+        }
+    
+         a.td-linkname{
+             color: #82CAD0;
+             text-decoration: none;
+    
+         }
+    
+         td.td-role{
+            color: rgb(153, 19, 19);
+             font-style: italic;
+        }
+    
+        td.td-action, th.td-action{
+            text-align: center;
+            font-size:20px;
+        }
+
+
+      
+    
+
+    
+    
+        .profile-avatars-users{
+    
+    
+                width: 50.55px;
+                height: 50px;
+                border: 2px solid #2E303D;
+                border-radius: 100px;
+            }
+            .title {
+            text-align: center;
+            font-size: 20px;
+            color: #0c53a6;
+            padding: 0%;
+        }
+    
+    
+    
+    
+        @media screen and (max-width: 600px) {
+    
+        .users-table-messages td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+      }
+    
+       .users-table-messages th {
+           display:none;
+       }
+       .users-table-messages tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+      }
+    
+        .users-table-messages td {
+    
+            display: block;
+            font-size: .8em;
+            text-align: right;
+      }
+        .users-table-messages td.td-action{
+            text-align: right;
+            font-size: .8em;
+        }
+      }
+    
+</style>
+
+<div class="container">
+    <div id = "monthView"  class="month1">
+
+    </div>
+    <div id = "weeksView" class="week1">
+
+    </div>
+    <div id = "monthView2" class="month2">
+
+    </div>
+    <div id = "weeksView2" class="week2">
+
+    </div>
+    <div class="players">
+        <div class="title"><h3>{{ _("Wybierz użytkownika lub team") }}</h3>
+            <input style ="width: 100%; background-color: #313340; color:white; border-style: none;"id="search-player-messages" type="text"
+                           placeholder="{{ _('Search people by name and team') }}" class="form-control"
+                           onkeyup="search()"  Required /></div>
+               
+           <div class="scrollable-table">
+       
+           <table class="users-table-messages" id="users-table-messages-search">
+       
+               {%  for user in users  %}
+                 {% if 'player' in user.show_role()  %}
+                   <tr>
+                       <td onclick="getEventsPlayer({{user.id}})" class="td-profile-avatars" data-label="-----"><a class="td-linkname" ><img
+                               class="profile-avatars-users"
+                       src="{{
+                               url_for('avatar_photo', id=user.id) }}"
+                                   alt="profile-avatar" /></a></td>
+           
+                   <td  onclick="getEventsPlayer({{user.id}})" class="td-name" data-label="Name"><a class="td-linkname" ><span class="td-name-span">  {{  user.first_name }} {{  user.last_name
+                               }}<br>{{  user.show_team() }}<br /></span></a></td>
+                   </tr>
+                   {% endif %}
+               {% endfor %}
+           </table>
+           </div>
+    </div>
+    <div class="sum1">
+
+    </div>
+    <div class="sum2">
+        
+    </div>
+    <div class="chart1">
+
+    </div>
+    <div class="chart2">
+
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="dist/jquery.scroltable.min.js"></script>
+    <script>
+        var MyApp = {}
+
+        function search() {
+          var input, filter, table, tr, td, i, txtValue, span;
+          input = document.getElementById("search-player-messages");
+    
+          filter = input.value.toUpperCase();
+    
+          table = document.getElementById("users-table-messages-search");
+    
+          tr = table.getElementsByTagName("tr");
+    
+          for (i = 0; i < tr.length; i++)
+          {
+            td = tr[i].getElementsByTagName("td")[1];
+            span = td.getElementsByTagName("span");
+    
+                    if (span) {
+                      txtValue = span[0].innerText || span[0].textContent;
+                      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                      } else {
+                        tr[i].style.display = "none";
+                        }
+    
+            }
+          }
+        }
+
+        function getEventsPlayer(idP) {
+          var path = "http://localhost:5000/api/users/" + idP + "/events"
+          fetch(path)
+          .then(
+            function(response) {
+              if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+                return;
+              }
+              
+              response.json().then(function(data) {
+                sortWeeks(data)
+                sortMonth(data)
+                // console.log(data);
+              });
+            }
+          )
+          .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+          }); 
+
+          
+
+
+
+        }
+
+        function get_player(idplayer) {
+            MyApp.currentIdPlayer = idplayer 
+            return getEvents(MyApp.currentIdPlayer)
+  
+        }
+
+        function showId() {
+          alert(MyApp.currentIdPlayer)
+        }
+        
+
+        function getEvents(idP) {
+          id = idP
+          var path = "http://localhost:5000/api/users/" + id + "/events"
+          fetch(path)
+          .then(
+            function(response) {
+              if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+                return;
+              }
+              
+              response.json().then(function(data) {
+                MyApp.events = data
+                console.log(MyApp.events);
+              });
+            }
+          )
+          .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+          });
+          return sortWeeks(MyApp.events)
+
+        }
+        function sortWeeks(even){
+          if(even == undefined){
+            alert("Wybierz użytkownika")
+          }
+          var week_eventId = []
+          var weeks = []
+          event = even
+          for(var i = 0; i < event.length; i++) {
+            var wk = new Date(event[i].end)
+            wk = getWeekNumber(wk)
+            week_eventId.push([wk, event[i].id])
+            if(weeks.indexOf(wk) < 0){
+              weeks.push(wk)
+            }
+          }
+          MyApp.w_evId = week_eventId
+          console.log(week_eventId)
+        //   console.log(weeks)
+          MyApp.weeks = weeks
+
+          return printEventsByWeeks(weeks), printEventsByWeeks2(weeks)
+        }
+
+        function sortMonth(even){
+          if(even == undefined){
+            alert("Wybierz użytkownika")
+          }
+          var month_eventId = []
+          var month = []
+          event = even
+          for(var i = 0; i < event.length; i++) {
+            var wk = new Date(event[i].end)
+            wk = wk.getMonth()
+            month_eventId.push([wk, event[i].id])
+            if(month.indexOf(wk) < 0){
+              month.push(wk)
+            }
+          }
+          MyApp.m_evId = month_eventId
+          console.log(month_eventId)
+        //   console.log(month)
+
+          return printEventsByMonths(month), printEventsByMonths2(month)
+        }
+
+
+        function getMotoric() {
+          id = MyApp.currentIdPlayer
+          var path = "http://localhost:5000/api/users/" + id + "/motoric"
+          fetch(path)
+          .then(
+            function(response) {
+              if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+                return;
+              }
+              
+              response.json().then(function(data) {
+                MyApp.events = data
+                console.log(MyApp.events);
+              });
+            }
+          )
+          .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+          });
+
+        }
+
+        function printEventsByWeeks(w) {
+          $("#weeksView").html("");
+          event = w
+          if(event == undefined){
+            alert("Wybierz użytkownika")
+          }
+          for(var i = 0; i < event.length; i++) {
+
+            $('#weeksView').append('<button id="kk" onClick="getIdEvent()" class = "button_date" value=event[i]>'+event[i]+'</button>');
+            // console.log(event[i])
+          }
+        }
+
+        function getIdEvent() {
+            ev_id = $('#kk').text()
+            ev_id = parseInt(ev_id)
+            console.log(MyApp.m_evId)
+            console.log(MyApp.w_evId)
+            for( var i = 0; i < MyApp.w_evId.length; i++) {
+                console.log(MyApp.w_evId[i][0])
+                console.log(MyApp.w_evId[i][1])
+                console.log(ev_id)
+                // if(MyApp.w_evId[i][0] == ev_id ){
+                //     console.log(MyApp.w_evId[i][0])
+                // }
+            }
+        }
+
+        function printEventsByWeeks2(w) {
+          $("#weeksView2").html("");
+          event = w
+          if(event == undefined){
+            alert("Wybierz użytkownika")
+          }
+          for(var i = 0; i < event.length; i++) {
+
+            $('#weeksView2').append('<button onClick="printEventsByMonths()" class = "button_date">'+event[i]+'</button>');
+            // console.log(event[i])
+          }
+        }
+
+        function printEventsByMonths(m) {
+            $("#monthView").html("");
+          event = m
+          if(event == undefined){
+            alert("Wybierz użytkownika")
+          }
+          for(var i = 0; i < event.length; i++) {
+
+            $('#monthView').append('<button onClick="printEventsByMonths()" class = "button_date">'+event[i]+'</button>');
+            // console.log(event[i])
+          }
+        }
+
+        function printEventsByMonths2(m) {
+            $("#monthView2").html("");
+          event = m
+          if(event == undefined){
+            alert("Wybierz użytkownika")
+          }
+          for(var i = 0; i < event.length; i++) {
+
+            $('#monthView2').append('<button onClick="printEventsByMonths()" class = "button_date">'+event[i]+'</button>');
+            // console.log(event[i])
+          }
+        }
+
+        function sortEventsByWeeks() {
+          var date = []
+          var weeks = []
+          event = MyApp.events
+          for(var i = 0; i < event.length; i++) {
+            var wk = new Date(event[i].end)
+            wk = getWeekNumber(wk)
+            date.push([wk, event[i].id])
+            if(weeks.indexOf(wk) < 0){
+              weeks.push(wk)
+            }
+          }
+        //   console.log(date)
+        //   console.log(weeks)
+          MyApp.weeks = weeks
+        }
+
+        function getWeekNumber(dt) {
+          d = dt
+          var dayNum = d.getUTCDay() || 7;
+          d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+          var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+          return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
+        }
+        
+
+    </script>

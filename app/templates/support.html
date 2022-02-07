@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+
+{% endblock stylesheet %}
+
+
+{% block content %}
+{% set active_page = "support" %}
+<body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    <div class="main">
+	<div class="content" >
+        {% if current_user.language in "pl" %}
+          
+            {% if 'player' in current_user.show_role()  %}
+
+                {% include '_sup_player_pl.html'  %}
+    
+             {% elif 'admin' in current_user.show_role()  %}
+
+                {% include '_sup_admin_pl.html'  %}
+
+             {% else %}
+                {% include '_sup_stuff_pl.html'  %}
+          {% endif %}
+        {% else %}
+
+        {% if 'player' in current_user.show_role()  %}
+
+        {% include '_sup_player.html'  %}
+
+     {% elif 'admin' in current_user.show_role()  %}
+
+        {% include '_sup_admin.html'  %}
+
+     {% else %}
+        {% include '_sup_stuff.html'  %}
+  {% endif %}
+
+        {% endif %}
+		</div>
+    </div>
+    
+</body>
+</html>
+
+{% endblock %}

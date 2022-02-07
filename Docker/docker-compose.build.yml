@@ -1,0 +1,11 @@
+version: "3.6"
+
+services:
+  ui_app:
+    build:
+      context: .
+      dockerfile: ./
+  # nginx:
+  #   build:
+  #     context: .
+  #     dockerfile: : ./nginxdockerfile

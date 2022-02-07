@@ -1,0 +1,67 @@
+
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.form input[type="text"], .form input[type="password"], .form select, .form input[type="checkbox"], .form input[type="number"], .form input[type="date"] {
+    background: #3F4254;
+    display: block;
+    margin: 2em auto;
+    padding-left: 1em;
+    padding: 1em;
+
+    border-radius: 0.5em;
+    border: none;
+
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.747);
+    position: relative;
+    width: 80%;
+}
+
+.form label {
+    display: block;
+    font-size: 1em;
+    margin-left: 2em;
+    font-size: 1.2em;
+    color: white;
+}
+
+.form img {
+    margin-left: 40%;
+}
+
+.form input[type="submit"] {
+    background: rgb(80, 80, 145);
+    padding: 16px;
+    border-radius: 1em;
+    border: 0;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+
+}
+
+.box-submit{
+        margin-left:25%;
+        margin-right: 25%;
+        margin-top: 10%;
+        margin-bottom: 25%;
+	}
+
+@media screen and (max-width: 600px) {
+
+    .form{
+        grid-template-columns:none;
+        display: block;
+    }
+
+    .box-submit{
+		margin-left:25%;
+        margin-right: 25%;
+
+	}
+
+}

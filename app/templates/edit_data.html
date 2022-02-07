@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+
+
+    {% endblock stylesheet %}
+
+
+
+
+{% block content %}
+{% set active_page = "surveys" %}
+<body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    <div class="main">
+	<div class="content">
+        <div class="hello"><h2>{{ _("Edit data") }}</h2></div>
+
+        {% include '_alerts.html' %}
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+    .event-space {
+        /* background: var(--leadcolor);
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);*/
+         /* border-radius: 20px;*/
+        font-family: 'Roboto', sans-serif;
+        padding: 30px 20px;
+        color: white;
+      
+        margin-left:16px;
+        margin-right:16px;
+
+    }
+
+
+.form input[type="file"] {
+    background: #3F4254;
+    display: block;
+
+    padding: 1em;
+
+    #border-radius: 0.5em;
+    border: none;
+
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.747);
+    position: relative;
+    width: 80%;
+}
+
+     .columns-30-40-30{
+
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        grid-gap:3%;
+    }
+
+       .columns-11{
+
+        display: grid;
+        grid-template-columns: repeat(11, 1fr);
+        
+    }
+
+    .form input[type="submit"], #submitManually {
+    background: rgb(80, 80, 145);
+    padding: 16px;
+    #border-radius: 1em;
+    border: 0;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+
+}
+
+
+
+
+input[type="number"]{
+    background: #3F4254;
+    display: inline-block;
+    margin: 2em auto;
+    border: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.747);
+}
+
+
+
+
+input[type="date"], select{
+    background: #3F4254;
+    display: inline-block;
+    margin: 2em auto;
+
+    padding: 1em;
+
+    border-radius: 0.5em;
+    border: none;
+
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.747);
+}
+
+
+div.input-box > input{
+        width:80px;
+        height:40px;
+}
+
+div.input-box{
+
+ display: grid;
+  grid-template-rows: auto  auto;
+
+}
+
+
+@media screen and (max-width: 767px) {
+
+        .columns-11 {
+        grid-template-columns: repeat(3, 1fr);
+        display: grid;
+                        }
+        }
+
+</style>
+
+
+<div class="event-space columns-30-40-30" >
+
+   <div><h3>{{event.name}}</h3>
+      <p>{{event.start.strftime('%d-%m-%Y')}} | {{event.end.strftime('%d-%m-%Y')}}</p>
+        <p>{{ _("Start:")}} : {{ event.start.strftime('%d.%m.%Y')}} </p>
+              <p>{{ _("End:")}} : {{ event.end.strftime('%d.%m.%Y')}} </p>
+              <p>{{ _("Type")}} :
+                {% if event.type_id == 4 %} {{_("Training") }}
+                  {% elif event.type_id == 3 %} {{_("Match - International") }}
+                  {% elif event.type_id == 2 %} {{_("Match - Cup") }}
+                  {% elif event.type_id == 1 %} {{_("Match - League") }}
+                  {% else %}
+                  {{_("Medical") }}
+                  {% endif %}
+
+
+              </p>
+
+               <p>{% if event.details != '' %} {{event.details}} {% endif %}</p>
+
+
+
+
+   </div>
+
+
+    <div>
+
+        <h3>{{ _("Participants") }}</h3>
+        <div>
+
+             <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}}</a>
+
+
+        </div>
+    </div>
+    <div></div>
+<div class="import-errors">
+    <br>
+    {{message}}
+
+
+</div>
+
+</div>
+
+<div class="hello"><br><h2>{{ _("Edit Motoric data") }}</h2></div>
+
+<div class="event-space">
+       <div class="form">
+
+          <form action="" method="post">
+
+
+                    {% if  ("COMPLETE" in player.get_motoric_of_event(event.id)[0].state)  %}
+
+                        <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}} {{ _("WAS HEALTHY") }} </a>
+                    {% else %}
+                  <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}} - {{ _("CONTUSION") }}</a>
+                    {% endif %}
+              <hr>
+              <div class="columns-11" >
+                    {{  form.hidden_tag() }}
+                    {% for i in form if i.widget.input_type != 'hidden' %}
+                  <div class="input-box">
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;">{{ i.label }}</h5></div>
+
+                        {{ i }}
+                    </div>
+
+                    {% endfor %}
+
+<br>
+
+
+
+               
+               
+
+
+                   
+
+
+               </div>
+
+
+
+
+          </form>
+    </div>
+
+
+
+    </div>
+
+{% if event.has_kinase == True %}
+<div class="hello"><br><h2>{{ _("Edit Kinase data") }}</h2></div>
+
+<div class="event-space">
+       <div class="form">
+
+          <form action="" method="post">
+
+
+                    {% if  ("COMPLETE" in player.get_kinase_of_event(event.id)[0].state)  %}
+
+                        <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}} {{ _("WAS HEALTHY") }} </a>
+                    {% else %}
+                  <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}} - {{ _("CONTUSION") }}</a>
+                    {% endif %}
+              <hr>
+              <div class="columns-11">
+                    {{  kform.hidden_tag() }}
+                    {% for i in kform if i.widget.input_type != 'hidden' %}
+                  <div class="input-box">
+                       <div style="height:50px;"><h5 style="margin-bottom:2%;">{{ i.label }}</h5></div>
+                        {{ i }}
+                    </div>
+
+                    {% endfor %}
+
+<br>
+
+
+
+
+
+
+
+
+
+
+               </div>
+
+
+
+
+          </form>
+    </div>
+
+
+
+    </div>
+{% endif %}
+{% endblock %}
+
+

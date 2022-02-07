@@ -1,0 +1,175 @@
+ <div class="profile" onclick="showMore()">
+			<div class="profile-header">
+				<div class="profile-bg-image">
+				<div class="profile-user-image">
+                    <img src="/files/{{user.id}}/avatars"
+                         alt="profile-avatar" />
+                </div>
+				</div>
+
+			</div>
+			<div class="profile-info-title">{{ _("BASIC INFORMATION") }}<br>{{ user.first_name }} {{ user
+			.last_name
+			}}
+			</div>
+	 {% if 'staff' or 'player' in user.show_role() %}
+	 	 <div class="profile-info-team profile-info-title">
+			 {{ user.show_team() }}
+						 	<center><hr width="80%"></center>
+		 </div>
+
+	 {% endif %}
+
+	  {% if 'admin' in user.show_role() %}
+	 <style>
+		 .button{
+		 	padding: 10px;
+		 	width:200px;
+		 	background-color: var(--blackleadcolor);
+		 	color:white;
+		 	border:none;
+		 }
+
+		 .button:hover{
+		 	background-color: var(--leadcolor);
+		 }
+
+	 </style>
+	 	 <div class="profile-info-team profile-info-title">
+			 {{ _("Fast access") }}
+
+
+			 <div class="profile_menu_navbar" style="margin-top:2%;">
+
+ <div>
+     <form>
+        <button class="button" formaction='{{ url_for("add_users") }}' >
+
+            {{ _("Add user ")  }} <i class="fas fa-user-plus"></i>
+
+        </button>
+    </form>
+ </div>
+				 <br>
+    <div>
+    <form>
+    <button class="button" formaction='{{ url_for("import_users") }}'  >
+
+            {{ _("Import Players")  }} <i class="fas fa-file-import"></i>
+            </a>
+        </button>
+    </form>
+</div>
+				 	 <br>
+    <div>
+    <form>
+        <button class="button" formaction='{{ url_for("add_team") }}'>
+
+            {{ _("Add team ")  }} <i class="fas fa-plus-circle"></i>
+
+        </button>
+    </form>
+
+    </div>
+				 <br>
+				 	<center><hr width="80%"></center>
+</div>
+
+		 </div>
+
+	 {% endif %}
+
+	 	{% if 'player' in user.show_role()  %}
+
+			<div class="profile-info">
+
+				<div class="info-square">
+					<div class="info-title">
+					{{ _("Height") }}
+					</div>
+					<div class="info-info">
+						{{ user_info.height }} cm
+					</div>
+				</div>
+				<div class="info-square">
+					<div class="info-title">
+					{{ _("Weight") }}
+					</div>
+					<div class="info-info">
+					{{ user_info.weight }} kg
+					</div>
+				</div>
+				<div class="info-square">
+					<div class="info-title">
+					{{ _("Position") }}
+					</div>
+					<div class="info-info">
+					{{ position }}
+					</div>
+				</div>
+				<div class="info-square">
+					<div class="info-title">
+					{{ _("Birth date") }}
+					</div>
+					<div class="info-info">
+						{{  user.birth_date.strftime('%d.%m.%Y')  }}
+					</div>
+				</div>
+				<div class="info-square">
+					<div class="info-title">
+					{{ _("Nationality") }}
+					</div>
+					<div class="info-info">
+						{{ nationality }}
+					</div>
+				</div>
+				<div class="info-square">
+					<div class="info-title">
+					{{ _("Shirt") }}
+					</div>
+					<div class="info-info">
+										{{ user_info.shirt }}
+					</div>
+				</div>
+
+			{% if user.last_seen %}
+				<div class="info-square">
+					<div class="info-title">
+					{{ _("Last time seen:") }}
+					</div>
+					<div class="info-info">
+					<p style="text-align:center">{{ user.last_seen.strftime("%d.%m.%Y %H:%M:%S") }}</p>
+					</div>
+				</div>
+				{% endif %}
+				<div class="info-square" style="border-right: 0">
+					<div class="info-title">
+					{{ _("Health State:") }}
+					</div>
+					<div class="info-info">
+					{% if user.state in "CONTUSION" %}<p style="color:red; text-align:center"><i class="fas fa-user-injured"></i> {{ _("INJURIED") }}</p>{% else %} <p style="color:green; text-align:center"><i class="fas fa-user-check"></i> {{ _("HEALTHY") }}</p>{% endif %}
+					</div>
+				</div>
+				</div>
+
+	{% endif %}
+			</div>
+
+<script>
+	function showMore(){
+			let prof =  document.querySelector('.profile');
+			let info = document.querySelector('.profile-info');
+
+			prof.style.height = '800px';
+			info.style.display = 'grid';
+			info.style.opacity = 1;
+
+
+	}
+
+
+
+</script>
+
+
+

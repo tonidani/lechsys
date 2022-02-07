@@ -1,0 +1,350 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+
+    .inpSearch {
+
+	background: url('static/images/search.svg') no-repeat 5%;
+	background-color:#414457;
+	padding-left: 10%;
+	width: 80%;
+	height:5%;
+	font-size: 100%;
+	border: 0px;
+
+	border-right:  1px solid black;
+    border-left:   1px solid black;
+
+	color:white;
+
+
+}
+.search-bar{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+
+    .users-table{
+        border-collapse:collapse;
+        border-radius: 20px 15px 0px 0px;
+        margin-left:auto;
+        margin-right: auto;
+        width:80%;
+        border-right:  1px solid black;
+        border-left:   1px solid black;
+    }
+
+    .users-table tr{
+        background: #23232F;
+        font-family: 'Chakra Petch', sans-serif;
+    }
+    .users-table td{
+        padding:20px;
+        color:white;
+    }
+
+
+    .users-table tr:nth-child(2n){
+
+        background: none;
+
+    }
+
+    .users-table th {
+
+        font-family: 'Chakra Petch', sans-serif;
+        font-size:20px;
+        padding:10px;
+        color:white;
+        text-align: left;
+        background-color: #1F3654;
+    }
+
+     a.td-linkname{
+         color: #82CAD0;
+         text-decoration: none;
+
+     }
+
+     td.td-role{
+        color: gray;
+         font-style: italic;
+    }
+
+    td.td-action, th.td-action{
+        text-align: center;
+        font-size:20px;
+    }
+
+    .users-bottom-pagination{
+        padding-bottom: 20px;
+        text-align: center;
+    }
+  
+
+
+    .profile_menu_navbar {
+        grid-template-columns:repeat(3, 1fr);
+
+
+        border-top:    1px solid black;
+        border-right:  1px solid black;
+        border-left:   1px solid black;
+
+
+
+
+
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align:center;
+        width:80%;
+        margin-left:auto;
+        margin-right:auto;
+        background-color: var(--bgcolor);
+
+    }
+
+    .profile_menu_navbar > div{
+       /* display: flex; */
+        width:100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-menu-header {
+      position: relative;
+      padding: 1rem 2rem 0.5rem 2.5rem;
+      color: #000000;
+      border: 3px solid #776e62;
+      -webkit-transition: padding 0.3s ease-in-out;
+      transition: padding 0.3s ease-in-out;
+}
+
+
+    .button {
+          padding: 10px 20px;
+          color: #fff;
+          background-color: var(--bgcolor);
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+          border:none;
+          width:100%;
+
+    }
+
+    .button:hover {
+          background-color: #1F3654;
+             transition:0.3s;
+
+    }
+
+
+
+
+    .profile-avatars-users{
+
+
+            width: 50.55px;
+            height: 50px;
+            border: 2px solid #2E303D;
+            border-radius: 100px;
+        }
+
+
+
+
+    @media screen and (max-width: 600px) {
+
+    .users-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+  }
+
+   .users-table th {
+       display:none;
+   }
+   .users-table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+    .users-table td {
+
+        display: block;
+        font-size: .8em;
+        text-align: right;
+  }
+    .users-table td.td-action{
+        text-align: right;
+        font-size: .8em;
+    }
+
+    .button{
+        font-size:10px;
+    }
+
+    }
+
+</style>
+<div class="hello">{{ _("All users") }}</div>
+<div class="users-result">
+ {% if 'admin' in current_user.show_role() %}
+     <div class="profile_menu_navbar" style="margin-top:2%;">
+
+ <div>
+     <form>
+        <button class="button" formaction='{{ url_for("add_users") }}' >
+
+            {{ _("Add user ")  }} <i class="fas fa-user-plus"></i>
+
+        </button>
+    </form>
+ </div>
+    <div>
+    <form>
+    <button class="button" formaction='{{ url_for("import_users") }}'  >
+
+            {{ _("Import Players")  }} <i class="fas fa-file-import"></i>
+            </a>
+        </button>
+    </form>
+</div>
+    <div>
+    <form>
+        <button class="button" formaction='{{ url_for("add_team") }}'>
+
+            {{ _("Add team ")  }} <i class="fas fa-plus-circle"></i>
+
+        </button>
+    </form>
+
+    </div>
+</div>
+
+
+
+ {%  endif %}
+
+    <div class="search-bar">
+    <input class="inpSearch" id="search-player-messages" type="text" placeholder="{{_('Search people by name') }}" onkeyup="search()" required="">
+        </div>
+    <table class="users-table">
+       <tr>
+                 <th>
+            {{ _("Name")  }}
+        </th>
+          <th>
+
+        </th>
+
+            <th>
+                {{ _("Teams")  }}
+            </th>
+           <th>
+                {{ _("Health")  }}
+            </th>
+
+
+           {% if 'admin' in current_user.show_role() %}
+                <th>
+            {{ _("Mail")  }}
+        </th>
+
+               <th>
+                {{ _("Role")  }}
+            </th>
+               <th>
+                {{ _("Active")  }}
+            </th>
+           <th class="td-action">
+                {{ _("Actions")  }}
+            </th>
+           {% endif %}
+             </tr>
+        {%  for user in users %}
+
+        <tr>
+            <td class="td-profile-avatars" data-label="-----"><a class="td-linkname" href="users/{{ user.id }}"><img
+                    class="profile-avatars-users"
+            src="{{
+                    url_for('avatar_photo', id=user.id) }}"
+                         alt="profile-avatar" /></a></td>
+
+        <td class="td-name" data-label="Name"><a class="td-linkname" href="users/{{ user.id }}"><span class="td-name-span">  {{  user.first_name }} {{  user.last_name
+                    }}</span></a></td>
+
+
+
+
+                 <td data-label="Teams" class="td-role">{{  user.show_team() }}</td>
+            <td data-label="Health" class="td-role">{% if user.show_role() in "player" and user.state in "CONTUSION" %}<p style="color:red"><i class="fas fa-user-injured"></i> {{ _("INJURIED") }}</p>{% elif user.show_role() in "player" and user.state in "HEALTHY" %} <p style="color:green"><i class="fas fa-user-check"></i> {{ _("HEALTHY") }}</p>{% else %} <center>-</center> {% endif %}</td>
+             {% if 'admin' in current_user.show_role() %}
+                  <td data-label="Mail">{{  user.email }}</td>
+
+                <td data-label="Role" class="td-role">{% if user.show_role() in "player" %}<p style="color:green"> <i class="fas fa-running"></i> {{ _("Player") }}</p>{% elif user.show_role() in "staff"  %}<p style="color:blue"><i class="fas fa-user-times"></i>{{ _("Staff") }}</p> {% else %} {% endif %}</td>
+                 <td data-label="Active">{% if user.active == True %}<p style="color:green"><i class="fas fa-check-circle"></i></p> {% else %}<p style="color:white"><i class="fas fa-window-close"></i></p> {% endif %}  </td>
+                 <td data-label="Actions" class="td-action"><a href="users/edit/{{  user.id }}"><i class="fa fa-edit"></i></a>           <a href="users/delete/{{  user.id }}"><i class="fa fa-trash"></i></a> </td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    </table>
+<div class="users-bottom-pagination">
+<br>
+    {% if prev_url %}
+    <a href="{{ prev_url }}">< < Prev Page </a>
+    {% endif %}
+    {{ page }}
+    {% if next_url %}
+    <a href="{{ next_url }}"> Next Page > ></a>
+    {% endif %}
+</div>
+
+    <!--
+<button class="add-user-btn">
+            < < Prev Page
+        </button>
+ <button class="add-user-btn">
+            Next Page > >
+        </button>
+-->
+
+</div>
+
+<script>
+     function search() {
+      var input, filter, table, tr, td, i, txtValue, span;
+      input = document.getElementById("search-player-messages");
+
+      filter = input.value.toUpperCase();
+
+      table = document.querySelector(".users-table");
+
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 1; i < tr.length; i++)
+      {
+        td = tr[i].getElementsByTagName("td")[1];
+        span = td.getElementsByTagName("span");
+
+                if (span) {
+                  txtValue = span[0].innerText || span[0].textContent;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                    }
+
+        }
+      }
+    }
+
+
+</script>

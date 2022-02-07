@@ -1,0 +1,341 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+    .users-table-messages{
+        border-collapse:collapse;
+        border-radius: 20px 15px 0px 0px;
+        width:100%;
+
+    }
+    .scrollable-table{
+         overflow-y: scroll;
+         min-height: 200px;
+         height: 700px;
+    }
+
+    .users-table-messages tr{
+        background: #23232F;
+        font-family: 'Chakra Petch', sans-serif;
+    }
+
+
+
+
+    .users-table-messages td{
+        padding:20px;
+        color:white;
+    }
+
+
+    .users-table-messages tr:nth-child(2n){
+
+        background: none;
+
+    }
+
+     .users-table-messages tr:hover{
+        background: #3498DB;
+        cursor: pointer;
+
+    }
+
+    .users-table-messages th {
+
+        font-family: 'Chakra Petch', sans-serif;
+        font-size:20px;
+        padding:10px;
+        color:white;
+        text-align: left;
+        background-color: #1F3654;
+    }
+
+     a.td-linkname{
+         color: #82CAD0;
+         text-decoration: none;
+
+     }
+
+     td.td-role{
+        color: gray;
+         font-style: italic;
+    }
+
+    td.td-action, th.td-action{
+        text-align: center;
+        font-size:20px;
+    }
+    .users-menu{
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-bottom: 20px;
+        text-align: center;
+        display: grid;
+
+
+    }
+    .users-bottom-pagination{
+        padding-bottom: 20px;
+        text-align: center;
+    }
+  
+
+    .add-user-btn {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size:15px;
+      position: relative;
+      padding: 15px;
+      color: white;
+      border: 3px solid #1F3654;
+      border-radius: 10px;
+      -webkit-transition: padding 0.3s ease-in-out;
+      background-color: #2E303D;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+    .add-user-btn:hover {
+        background-color: #1F3654;
+        transition: 0.8s;
+        color: white;
+         box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.inpSearch {
+
+	background: url('static/images/search.svg') no-repeat 5%;
+	background-color:#414457;
+	padding-left: 10%;
+	width: 80%;
+	height:5%;
+	font-size: 100%;
+	border: 0px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	color:white;
+	margin-bottom:2%;
+}
+
+
+
+    .profile-avatars-users{
+
+
+            width: 50.55px;
+            height: 50px;
+            border: 2px solid #2E303D;
+            border-radius: 100px;
+        }
+
+    .scrollable-table::-webkit-scrollbar{
+
+        border-radius: 20px;
+        width:5px;
+        }
+
+.scrollable-table::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+
+    @media screen and (max-width: 600px) {
+
+    .users-table-messages td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+  }
+
+   .users-table-messages th {
+       display:none;
+   }
+   .users-table-messages tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+    .users-table-messages td {
+
+        display: block;
+        font-size: .8em;
+        text-align: right;
+  }
+    .users-table-messages td.td-action{
+        text-align: right;
+        font-size: .8em;
+    }
+
+    }
+
+</style>
+
+<div>
+
+    <div class="hello"><h1>{{ _("Surveys List ") }}</h1></div>
+     
+    <input class="inpSearch" id="search-player-messages" type="text"
+                    placeholder="{{ _('Search Event by name and team') }}" 
+                    onkeyup="search()"  Required />
+   
+                    
+    <div class="scrollable-table">
+
+    <table class="users-table-messages" id="users-table-messages-search">
+
+        {%  for event in events %}
+
+        <tr onclick='show_event({{event.id}}, this)'>
+            <td class="td-profile-avatars" data-label="-----"></td>
+
+        <td class="td-name" data-label="Name"><a class="td-linkname"><span class="td-name-span">  {{  event.name }} <br>{{  event.start.strftime('%d.%m.%Y') }} - {{  event.end.strftime('%d.%m.%Y')  }}<br /></span></a></td>
+
+
+
+
+
+
+
+        </tr>
+
+        {% endfor %}
+    </table>
+    </div>
+</div>
+
+
+
+<script>
+    function search() {
+      var input, filter, table, tr, td, i, txtValue, span;
+      input = document.getElementById("search-player-messages");
+
+      filter = input.value.toUpperCase();
+
+      table = document.getElementById("users-table-messages-search");
+
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 0; i < tr.length; i++)
+      {
+        td = tr[i].getElementsByTagName("td")[1];
+        span = td.getElementsByTagName("span");
+
+                if (span) {
+                  txtValue = span[0].innerText || span[0].textContent;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                    }
+
+        }
+      }
+    }
+
+
+    function show_event(x, where){
+
+
+            let wellnessArea = document.querySelector("#wellness-area");
+            let rpeArea = document.querySelector("#rpe-area");
+
+            
+
+
+        fetch('api/wellness/'+x).then(res => res.json()).then(res => {
+
+
+                    let wellness= "";
+                    let completed = 0;
+                    let notCompleted = 0;
+                    let contusion = 0;
+                 
+
+                        
+                    let state = res.state;
+
+                    if (state == "TO-COMPLETE"){
+                          state = `<i class="fas fa-exclamation" style="color:red"></i> {{ _("NOT COMPLETED") }} <a href="${x}/wellness-survey">{{_("Complete it here!")}}</a>`
+                          notCompleted++
+                            }
+                           
+                    else if(state == "CONTUSION"){
+                        state = '<i class="fas fa-user-injured" style="color:white"></i>'
+                        contusion++}
+                    
+                     else{
+                           state = '<i class="fas fa-check-double" style="color:green"></i> {{ _("COMPLETED") }}'
+                           completed++}
+
+
+                        wellness +=`<p style="color:var(--text-light)"><br> {{_("Energy")}}: ${res.energy} <br> {{_("Fatigue")}}: ${res.fatigue} <br> {{_("Mood")}}: ${res.mood} <br> {{_("Muscle Soreness")}}: ${res.muscle_soreness}  <br> {{_("Sleep Quality")}}: ${res.sleep_quality} <br>    ${state}</p>`
+             
+
+                    
+                    
+                    
+                    wellnessArea.innerHTML = wellness + '<br>{{_("Total Completed:")}} '+ completed + ' {{_("Not Completed:")}}'+ notCompleted + ' {{_("Injured:")}}' + contusion;
+
+                    
+
+                    //where.style.background = "BLUE";
+
+
+                
+
+
+                        });
+
+
+
+                        fetch('api/rpe/'+x).then(res => res.json()).then(res => {
+
+
+                        let rpe= "";
+                        let completed = 0;
+                        let notCompleted = 0;
+                        let contusion = 0;
+
+
+                            
+                        let state = res.state;
+
+                        if (state == "TO-COMPLETE"){
+                            state = `<i class="fas fa-exclamation" style="color:red"></i> {{_("TO COMPLETE")}} <a href="${x}/rpe-survey">{{_("Complete it here!")}}</a>`
+                            notCompleted++
+                                }
+                            
+                        else if(state == "CONTUSION"){
+                            state = '<i class="fas fa-user-injured" style="color:white"></i> {{_("Injuried")}}'
+                            contusion++}
+
+                        else{
+                            state = '<i class="fas fa-check-double" style="color:green"></i> {{_("COMPLETED")}}'
+                            completed++}
+
+
+                            rpe +=`<p style="color:var(--text-light)">{{_("Rpe Borge Scale")}}: ${res.value}  <br>    ${state}</p>`
+
+
+
+
+
+                        rpeArea.innerHTML = rpe + '<br>{{_("Total Completed:")}} '+ completed + ' {{_("Not Completed:")}}'+ notCompleted + ' {{_("Injured:")}}' + contusion;
+
+
+
+                        //where.style.background = "BLUE";
+
+
+
+
+
+                            });
+
+
+
+                    }
+
+
+
+</script>
+
+

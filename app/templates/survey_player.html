@@ -1,0 +1,99 @@
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='src/vue/dist/css/chunk-vendors.css') }}">
+
+
+
+<style>
+    .messages-two-columns{
+            grid-template-columns: 30% 70%;
+            display:grid;
+
+   }
+
+   .messages-area{
+           background-color:rgba(0, 0, 0, 0.4);
+           height:100%;
+           color: white;
+           padding:2%;
+
+           grid-template-rows:auto;
+
+
+   }
+
+
+     .message-recieved, .message-sent{
+           border-radius: 10px;
+           padding:5px;
+           width:50%;
+           display:block;
+           margin:5px;
+
+    }
+     .message-sent{
+            background-color:red;
+    }
+     .message-recieved{
+            background-color:blue;
+    }
+
+
+    @media screen and (max-width: 767px) {
+
+ .messages-two-columns{
+           display:inline-block;
+           width:100%;
+
+   }
+
+   #search-player-messages
+   {
+   width:100%;
+   }
+
+}
+</style>
+
+{% endblock stylesheet %}
+
+
+{% block content %}
+
+
+
+            <div class="messages-two-columns">
+
+                {% include'_event_surveys_list_player.html' %}
+
+                <div class="messages-area">
+
+                    <h1><i class="fas fa-users"></i> {{_("Event")}}</h1>
+                    <hr>
+                    <div id="participants-area">
+
+                        </div>
+                    <h1><i class="fas fa-clipboard-list"></i>  {{_("Wellness Survey Resume")}} </h1>
+                    <hr>
+                    <div id="wellness-area">
+
+                        </div>
+
+                    <h1><i class="fas fa-list-ol"></i>  {{_("Rpe Survey Resume")}} </h1>
+                    <hr>
+                    <div id="rpe-area">
+
+                        </div>
+
+
+
+                    </div>
+            </div>
+
+
+
+
+</body>
+</html>
+
+{% endblock %}

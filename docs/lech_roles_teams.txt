@@ -1,0 +1,44 @@
+Roles
+------
+0 Zawodnik: Player
+1 Pierwszy trener: Manager / Coach
+2 Asystent trenera: Assistant Manager
+3 Trener pomocniczy ds. m³odzie¿y: Youth Academy Manager
+4 Trener bramkarzy: Goalkeeping Coach
+5 Trener od przygotowania fizycznego: Conditioning Coach
+6 Kierownik dru¿yny: Squad leader / Team manager
+7 Analitycy: Chief Analist
+8 *Specjalista ds. suplementacji:  Supplementation specialist
+9 Sztab medyczny: Medical Staff
+10 *Magazynier: Warehouseman
+11 Prezydent: President
+12 Wice-prezydent: Vice-President
+13 Prezes klubu: Chief Executive Officer
+14 Dyrektor sportowy: Sporting Director
+15 Szef skautingu: Head of Scouting
+16 Fizjoterapeuta: Physiatrist
+17 Doktor: Doctor
+
+
+
+Kierownik dzia³u sportu: Piotr Bar³óg
+Rzecznik prasowy klubu: Maciej Henszel
+Dyrektor ds. bezpieczeñstwa: Henryk Szlachetka
+Dyrektor ds. finansów: Tomasz Kacprzycki
+Dyrektor handlowy: Marcin Wierzejewski
+Kierownik dzia³u sprzeda¿y: Jan Wojciak
+Dyrektor ds. administracji: Konrad Klecha
+Kierownik dzia³u promocji i reklamy: Wojciech Terpi³owski
+Kierownik dzia³u biletowego: Daniel Zieliñski
+
+
+
+
+Teams
+---------
+0 KKS Lech Poznan I: First Team
+1 KKS Lech Poznan R: Reserves
+2 Starsi Juniorzy: Older Juniors
+3 M³odsi Juniorzy: Younger Juniors
+4 Trampkarze: Trampkarze
+5 Akademia Lecha Poznañ

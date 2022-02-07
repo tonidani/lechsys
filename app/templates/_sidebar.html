@@ -1,0 +1,48 @@
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    {% endblock stylesheet %}
+
+<div class="sidebar">
+        <a href="#"><img class="logo_our" src="{{ url_for('static', filename='images/logo_our.png')  }}" alt="Logo"></a>
+        <ul class="ul-top">
+
+            <li class="{{'menu-active' if active_page=="home" else '' }}"><a href="{{ url_for('home') }}">
+                <span class="icon"><i class="fas fa-home"></i></span>    {{ _("Dashboard")  }}</a></li>
+
+            {%  if ('admin' in current_user.show_role()) %}
+                <li class="{{'menu-active' if active_page=="users" else '' }}"><a href="{{ url_for('users') }}">
+                    <span class="icon"><i class="fas fa-user"></i></span>     {{ _("Users")  }}</a></li>
+            {% endif %}
+         {%  if ('staff' in current_user.show_role()) %}
+                <li class="{{'menu-active' if active_page=="users" else '' }}"><a href="{{ url_for('users') }}">
+                    <span class="icon"><i class="fas fa-user"></i></span>    Players</a></li>
+            {% endif %}
+
+            <li class="{{'menu-active' if active_page=="surveys" else '' }}" {% if 'staff' in current_user.show_role() %} style="display:none" {% endif %}><a href="{{ url_for('survey') }}">
+                <span class="icon"><i class="fas fa-file-signature"></i></span> {%  if ('admin' in current_user.show_role()) %}   {{ _("Event Data")  }}{% else %} {{_("Surveys")}} {% endif %} </a></li>
+            <li class="{{'menu-active' if active_page=="calendar" else '' }}"><a href="{{ url_for('calendar') }}">
+                <span class="icon"><i class="fas fa-calendar"></i></span>    {{ _("Calendar")  }}</a></li>
+            <li class="{{'menu-active' if active_page=="settings" else '' }}"><a href="{{ url_for('profile_settings') }}">
+                <span class="icon"><i class="fas fa-cog"></i></span> {{ _("Settings")  }}</a></li>
+            <li class="{{'menu-active' if active_page=="support" else '' }}"><a href="{{ url_for('support') }}">
+                <span class="icon"><i class="fas fa-question"></i></span>    {{ _("Support")  }}</a></li>
+        </ul>
+        <ul class="ul-bottom">
+            <li> <a href="{{ url_for('auth_bp.logout') }}"> <span class="icon"><i class="fas fa-power-off"></i></span>{{ _("Log Out")}}</a></li>
+        </ul>
+    </div>
+
+
+         <div class="{{ 'sidebar-mobile-admin' if ('admin' in current_user.show_role()) else 'sidebar-mobile' }}">
+            <div class="{{'mobile-menu-active' if active_page=="home" else '' }}"><a href="{{ url_for('home') }}"><i class="fas fa-home"></i></a></div>
+             {%  if ('admin' in current_user.show_role()) or ('staff' in current_user.show_role()) %}
+             <div class="{{'mobile-menu-active' if active_page=="users" else '' }}"><a href="{{ url_for('users') }}"><i class="fa fa-user"></i></a> </div>
+             {%  endif %}
+            <div class="{{'mobile-menu-active' if active_page=="surveys" else '' }}" {% if 'staff' in current_user.show_role() %} style="display:none" {% endif %}><a href="{{ url_for('survey') }}"><i class="fas fa-file-signature"></i></a></div>
+            <div class="{{'mobile-menu-active' if active_page=="calendar" else '' }}"><a href="{{ url_for('calendar') }}"><i class="far fa-calendar"></i></a></div>
+            <div><a href="{{ url_for('auth_bp.logout') }}"><i class="fas fa-power-off"></i></a></div>
+
+        </div>
+
+

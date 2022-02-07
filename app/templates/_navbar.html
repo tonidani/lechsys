@@ -1,0 +1,450 @@
+{% block scripts %}
+<script>
+
+
+
+window.addEventListener("click", function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementById("myDropdown");
+    dropdowns.style.opacity = 0;
+    dropdowns.style.display = "none";
+
+
+  }
+});
+</script>
+
+{% endblock scripts %}
+
+<style>
+
+    .profile-avatars-users, .profile-avatars-users-small{
+
+
+            width: 50.55px;
+            height: 50px;
+            border: 2px solid #2E303D;
+            border-radius: 100px;
+        }
+
+        .profile-avatars-users-small{
+            width: 30.55px;
+            height: 30px;
+            margin-top:auto;
+            margin-bottom:auto;
+            right:0;
+
+
+        }
+
+  .player-firstname {
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 8px;
+
+  }
+
+
+ .autocomplete-result-list{
+
+      position: absolute;
+      background-color:var(--bgcolor);
+      display:none;
+      overflow: auto;
+      min-width: 600px;
+      z-index: 1;
+
+ }
+
+
+
+
+.show { display:block; }
+.dropbtn {
+  background-color: var(--bgcolor);
+  color: white;
+  padding: 5px;
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+    margin-top:auto;
+  margin-bottom:auto;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(31, 34, 35);
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: gray;}
+
+
+.m-fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.m-fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+
+.col-30-40-30{
+  grid-template-columns: 30% 40% 30%;
+  display: grid;
+
+}
+
+.notification i{
+
+    font-size: 30px;
+    color:white;
+}
+.notification button{
+    adding: 0;
+    border: none;
+    background: none;
+}
+.notification .badge {
+  top:1px;
+  position: absolute;
+  padding: 4px 10px;
+  border-radius: 100%;
+  background-color: red;
+  color: white;
+  display:none;
+}
+
+
+.notification li{
+    text-align:left;
+}
+
+.notification-element:hover{
+    background-color: var(--leadcolor);
+    transition: 0.3s;
+}
+
+.notification-element{
+    padding:16px;
+}
+
+
+.notification-result-list li > a{
+    color: var(--text-light);
+}
+
+
+   .notification-result-list{
+
+      border-radius:5px;
+
+      position: fixed;
+      margin-top:10px;
+      background-color: var(--bgcolor);
+      color:white;
+      box-shadow:  0px 4px 4px rgba(0, 0, 0, 0.25);
+      padding-top:15px;
+      width: auto;
+      height:90%;
+      z-index: 100;
+      display:none;
+      overflow-y:scroll;
+      right: 2;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+
+
+
+
+
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.notification-result-list::-webkit-scrollbar{
+
+        border-radius: 20px;
+        width:2px;
+        }
+
+.notification-result-list::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+.result-notification-header{
+
+    display:grid;
+
+
+}
+
+.result-notification-list{
+
+
+}
+
+@media (max-width: 700px) {
+ .notification-result-list{
+   margin-left:-300px;
+   width:100%;
+  }
+
+  .result-notification-header{
+   text-align:center;
+
+
+}
+
+
+#myDropdown{
+    position:fixed;
+    width:100%;
+    z-index:2;
+    visibility: visible;
+    opacity:0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.dropbtn {
+padding:0;}
+}
+@media screen and (max-width: 767px) {
+#autocomplete-result-list{
+    left:0;
+    width: 400px;
+    display: block;
+   }
+   .col-30-40-30{
+    width:80%;
+   }
+   .small-prof{
+    display:block;
+   }
+   #prof-name{
+    display:none;
+   }
+}
+</style>
+
+
+<div class="navbar">
+
+
+<div class="dropdown">
+  <button onclick='document.getElementById("myDropdown").style.opacity = 1; document.getElementById("myDropdown").style.display = "block";' class="dropbtn"><i class="fas fa-globe-europe"></i></button>
+  <div id="myDropdown" class="dropdown-content">
+   {% if current_user.language == 'pl' %}
+     <a href="/language/en">{{ _('ENGLISH') }}</a>
+        {% else %}
+        <a href="/language/pl">{{ _('POLISH') }}</a>  <!---<a href="/language/en">{{ _('ENGLISH') }}</a> -->
+    {% endif %}
+  </div>
+</div>
+
+
+  {% if ('admin' in current_user.show_role()) or ('staff' in current_user.show_role()) %}
+
+
+  <div id="autocomplete" class="autocomplete">
+
+
+    <input type="text" id="inpSearch" class="inpSearch" placeholder="{{ _('Search for players') }}" />
+  <div id="autocomplete-result-list" class="autocomplete-result-list"></div>
+  </div>
+
+
+
+
+
+  <script>
+    let search_name = document.getElementById('inpSearch');
+
+
+    const debounce = (callback) => {
+      let timeout;
+
+      return (argument) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => callback(argument), 300);
+      };
+    };
+    function search({ target }) {
+
+      fetch('/api/users/q?name=' + target.value).then(function (response) {
+        // The API call was successful!
+        response.json().then(function (data) {
+
+          document.getElementById('autocomplete-result-list').innerHTML = "";
+
+          for (var i = 0; i < data.length; i++) {
+
+            var state = data[i].state;
+            if (state == "CONTUSION"){
+                state = '<p style="color:red"><i class="fas fa-user-injured"></i>'}
+            else{
+                state = '<p style="color:green"><i class="fas fa-user-check"></i>'}
+
+            var result = `<div class="notification-element"><div class="col-30-40-30"><div class="profile-avatars-users"><img class="profile-avatars-users" src="/files/${data[i].id}/avatars" alt="profile-avatar" /></div><a style="margin-top:auto; margin-bottom:auto; margin-left:0;" href="/users/${data[i].id}">${data[i].first_name} ${data[i].last_name}</a> <span style="margin-top:auto; margin-bottom:auto; margin-left:0;" >${state}</span></div><hr>`;
+            document.getElementById('autocomplete-result-list').innerHTML += result;
+            document.getElementById("autocomplete-result-list").style.display = 'block';
+          };
+          /*
+        }).catch(function (err) {
+          // There was an error
+          console.warn('Something went wrong.', err);
+          https://www.youtube.com/watch?v=wxz5vJ1BWrc */
+        });
+      });
+    }
+
+
+    const debouncedOnInput = debounce(search);
+
+    search_name.addEventListener("keyup", debouncedOnInput)
+
+  </script>
+
+
+
+
+  {% else %}
+  <div></div>
+  {% endif %}
+  <div></div>
+  <div class="notification">
+ {% if ('admin' in current_user.show_role()) or ('player' in current_user.show_role()) %}
+      <div>
+      <button onclick="show_notifications()"><i class="far fa-bell" ></i></button><span id="badge" class="badge" ></span>
+
+  </div>
+
+        <div id="notification-result-list" class="notification-result-list">
+
+               <div class="result-notification-header"><h3>{{ _("Notifications") }}</h3>
+
+                   <span style="position: fixed; margin-top: -25px; font-size: 40px; cursor:pointer; color:gray;  border-radius: 10px;" class="close" onclick="getElementById('notification-result-list').style.opacity = 0; getElementById('notification-result-list').style.display = 'none'";>&times</span>
+
+
+
+                </div>
+                 <hr>
+            <div id="result-notification-list"></div>
+
+        </div>
+    {% endif %}
+  </div>
+  <div class="small-prof" style="grid-template-columns: 20% 15% 30%; display:grid;"><div></div><div class="prof-img"><a href="{{ url_for('profile_settings') }}"><img href="{{ url_for('profile_settings') }}" class="profile-avatars-users-small" src="/files/{{current_user.id}}/avatars" alt="profile-avatar" /></a></div><a id="prof-name" href="{{ url_for('profile_settings') }}" style="margin-top:auto; margin-bottom:auto; margin-left:0;" >{{ current_user.username }}</a></div>
+
+</div>
+
+
+
+<script>
+
+
+window.setTimeout(function () {
+
+
+fetch("{{ url_for('notifications') }}").then(function (response) {
+
+response.json().then(function (data) {
+
+document.getElementById('result-notification-list').innerHTML = "";
+let count=0;
+for (var i = data.length - 1; i >= 0; i--) {
+  let obj = data[i];
+let checked = obj['checked'];
+
+if(checked != 1){
+count ++;
+}
+
+if(count == 0) document.getElementById('badge').style.display = 'none'
+if(count != 0){ document.getElementById('badge').style.display = 'inline-block'; document.getElementById('badge').innerHTML = count;}
+
+}})}, 30000)});
+
+
+
+
+    function show_notifications() {
+
+      fetch("{{ url_for('notifications') }}").then(function (response) {
+
+        response.json().then(function (data) {
+
+        document.getElementById('result-notification-list').innerHTML = "";
+           let count=0;
+           const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+          for (var i = data.length - 1; i >= 0; i--) {
+              let obj = data[i];
+              let link = obj['link'];
+              {%if current_user.language == 'pl' %}
+                let name = obj['name_pl'];
+                let details = obj['details_pl'];
+              {% else %}
+              let name = obj['name'];
+              let details = obj['details'];
+              {% endif %}
+              let checked = obj['checked'];
+              let date = new Date(obj['timestamp'] * 1000);
+              let userTimezoneOffset = date.getTimezoneOffset() * 60000;
+              let time = new Date(date.getTime() + userTimezoneOffset).toLocaleDateString({%if current_user.language == 'pl' %}'pl-PL'{% else %} 'en-En' {% endif %} , options).replace('GMT', '');
+
+
+              let result = `<div class="notification-element" style="padding:16px">${time}<ul class="notification-name"><li><a href="${link}"> ${name} </a><p> ${details} </p><li></ul></div><hr>`;
+
+            if(checked != 1){
+             count++;
+             document.getElementById('result-notification-list').innerHTML += result;
+            }
+          }
+            if(count == 0) document.getElementById('result-notification-list').innerHTML = `<div class="notification-element">{{_('No notifications to show!')}}</div><hr>`;
+
+            document.getElementById("notification-result-list").style.display = "block";
+            document.getElementById("notification-result-list").style.opacity = 1;
+
+
+
+          
+
+          })
+        }
+      );
+ }
+
+
+
+
+
+
+
+  </script>

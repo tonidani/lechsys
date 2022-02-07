@@ -1,0 +1,269 @@
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href ="{{ url_for('static', filename='css/event-carousel.css')}}" />
+
+
+<div class="event-carousel">
+    <h2><i class="fas fa-calendar-alt"></i> {{ _("Events") }}</h2>
+    <hr>
+
+  <div class="slider-events">
+       {% if events is defined and events|length > 0 %}
+         {% for event in events %}
+
+          <div class="event-details">
+              <h2 style="color: var(--text-light)">{{ event.name }}</h2>
+              <p>{{ _("Start:")}} : {{ event.start.strftime('%d.%m.%Y')}} </p>
+              <p>{{ _("End:")}} : {{ event.end.strftime('%d.%m.%Y')}} </p>
+              <p>{{ _("Type")}} :
+                {% if event.type_id == 4 %} {{_("Training") }}
+                  {% elif event.type_id == 3 %} {{_("Match - International") }}
+                  {% elif event.type_id == 2 %} {{_("Match - Cup") }}
+                  {% elif event.type_id == 1 %} {{_("Match - League") }}
+                  {% else %}
+                  {{_("Medical") }}
+                  {% endif %}
+
+
+              </p>
+              <p>{% if event.details != '' %} {{event.details}} {% endif %}</p>
+          </div>
+
+
+      {% endfor %}
+      {% else %}
+
+      {{_("No events to show !") }}
+
+  {% endif %}
+  </div>
+     <br>
+ <div class="next-survey-component">
+    <h2>  {% if 'admin' in current_user.show_role()  %}<i class="fas fa-file-export"></i> {{ _("Next Import to add") }} {% elif 'player' in current_user.show_role()  %} <i class="fas fa-edit"></i>{{ _("Next Surveys") }}{% endif %}</h2>
+    <hr>
+    {% if events is defined and events|length > 0 %}
+       {% for n in range(events|length) %}
+
+
+            <div class="next-survey-details columns-50-50">
+                <h3>{{ events[n].name }} {{ events[n].type }}
+                    {% if 'admin' in current_user.show_role()  %}
+                        {{ _("Import") }}
+                    {% elif 'player' in current_user.show_role()  %}
+                        {{ _("Survey") }}
+                    {% endif %}
+
+                    {% if 'admin' in current_user.show_role()  %}
+
+                    <span  style="color:gray"> <a href="{{ url_for('import_motoric', event_id=events[n].id)}}">{{ _("ACTIVE") }}</a> {% else %} {{ _("NOT ACTIVE") }}{% endif %}</span> </h3>
+                <h3 style="text-align:right" id="survey-timer{{ events[n].id }}"></h3>
+
+                <script>
+ window.addEventListener("load",function(){
+  var countDownDate = new Date("{{ events[n].end}}").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="survey-timer"
+        document.getElementById("survey-timer{{events[n].id}}").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("survey-timer{{events[n].id}}").innerHTML = '<i class="fas fa-stopwatch"></i> {{ _("EXPIRED") }}';
+        }
+      }, 1000);}, false);
+</script>
+
+  </div>
+
+      {% endfor %}
+
+        {% elif 'player' in current_user.show_role()  %}
+
+
+     {{ _("No Surveys to complete !") }}
+     {% else %}
+     {{ _("No imports to complete.")}}
+    {% endif %}
+
+
+</div>
+ <br>
+
+
+    {% if 'admin' in current_user.show_role()  %}
+    <div class="columns-50-50">
+    <div class="event-carousel">
+    <h2><i class="fas fa-syringe"></i> {{ _("Kinase data to add") }}</h2>
+    <hr>
+
+  <div class="kinasis-box">
+       {% if events_kinase is defined and events_kinase|length > 0 %}
+         {% for kevent in events_kinase %}
+
+          <div class="event-details">
+              <a href="{{ url_for('import_kinasis', event_id=kevent.id) }}"><h2 style="color: var(--text-light)">{{ kevent.name }}</h2></a>
+
+              <p>{{ _("End:")}} : {{ kevent.end}} </p>
+              <p>{{ _("Type")}} :
+                {% if kevent.type_id == 4 %} {{_("Training") }}
+                  {% elif kevent.type_id == 3 %} {{_("Match - International") }}
+                  {% elif kevent.type_id == 2 %} {{_("Match - Cup") }}
+                  {% elif kevent.type_id == 1 %} {{_("Match - League") }}
+                  {% else %}
+                  {{_("Medical") }}
+                  {% endif %}
+
+
+              </p>
+              <p>{% if kevent.details != '' %} {{kevent.details}} {% endif %}</p>
+          </div>
+
+      {% endfor %}
+      {% else %}
+
+      {{_("No KINASE events to show !") }}
+
+
+  {% endif %}
+</div>
+</div>
+  <div class="event-carousel">
+    <h2><i class="fas fa-running"></i> {{ _("Motoric data to import") }}</h2>
+    <hr>
+
+  <div class="kinasis-box">
+       {% if events_motoric is defined and events_motoric|length > 0 %}
+         {% for mevent in events_motoric %}
+
+          <div class="event-details">
+              <a href="{{ url_for('import_motoric', event_id=mevent.id) }}"><h2 style="color: var(--text-light)">{{ mevent.name }}</h2></a>
+
+              <p>{{ _("End:")}} : {{ mevent.end.strftime('%d.%m.%Y')}} </p>
+              <p>{{ _("Type") }} :
+                  {% if mevent.type_id == 4 %} {{_("Training") }}
+                  {% elif mevent.type_id == 3 %} {{_("Match - International") }}
+                  {% elif mevent.type_id == 2 %} {{_("Match - Cup") }}
+                  {% elif mevent.type_id == 1 %} {{_("Match - League") }}
+                  {% else %}
+                  {{_("Medical") }}
+                  {% endif %}
+
+
+              </p>
+               <p>{% if mevent.details != '' %} {{mevent.details}} {% endif %}</p>
+          </div>
+
+      {% endfor %}
+      {% else %}
+
+      {{_("No Motoric data to import!") }}
+
+
+</div>
+    </div>
+
+      {% endif %}
+{% endif %}
+
+
+{% if 'player' in current_user.show_role()  %}
+    <div class="columns-50-50">
+    <div class="event-carousel">
+    <h2><i class="fas fa-poll-h"></i> {{ _("Wellness data to complete") }}</h2>
+    <hr>
+
+  <div class="kinasis-box">
+       {% if event_wellness is defined and event_wellness|length > 0 %}
+         {% for wevent in event_wellness %}
+
+          <div class="event-details">
+              <a href="{{ url_for('wellness_survey', event_id=wevent.id) }}"><h2 style="color: var(--text-light)">{{ wevent.name }}</h2></a>
+
+              <p>{{ _("End:")}} : {{ wevent.end}} </p>
+               <p>{{ _("Type") }} :
+                  {% if wevent.type_id == 4 %} {{_("Training") }}
+                  {% elif wevent.type_id == 3 %} {{_("Match - International") }}
+                  {% elif wevent.type_id == 2 %} {{_("Match - Cup") }}
+                  {% elif wevent.type_id == 1 %} {{_("Match - League") }}
+                  {% else %}
+                  {{_("Medical") }}
+                  {% endif %}
+
+
+              </p>
+              <p>{% if wevent.details != '' %} {{wevent.details}} {% endif %}</p>
+          </div>
+
+      {% endfor %}
+      {% else %}
+
+      {{_("No Wellness events to show !") }}
+
+  {% endif %}
+</div>
+</div>
+
+     <div class="event-carousel">
+        <h2><i class="fas fa-thermometer-half"></i> {{ _("Rpe data to complete") }}</h2>
+    <hr>
+
+  <div class="kinasis-box">
+       {% if event_rpe is defined and event_rpe|length > 0 %}
+         {% for revent in event_rpe %}
+
+          <div class="event-details">
+              <a href="{{ url_for('rpe_survey', event_id=revent.id) }}"><h2 style="color: var(--text-light)">{{ revent.name }}</h2></a>
+
+              <p>{{ _("End:")}} : {{ revent.end}} </p>
+               <p>{{ _("Type") }} :
+                  {% if revent.type_id == 4 %} {{_("Training") }}
+                  {% elif revent.type_id == 3 %} {{_("Match - International") }}
+                  {% elif revent.type_id == 2 %} {{_("Match - Cup") }}
+                  {% elif revent.type_id == 1 %} {{_("Match - League") }}
+                  {% else %}
+                  {{_("Medical") }}
+                  {% endif %}
+
+
+              </p>
+               <p>{% if revent.details != '' %} {{revent.details}} {% endif %}</p>
+          </div>
+
+      {% endfor %}
+      {% else %}
+
+      {{_("No RPE Surveys to show !") }}
+
+
+
+  </div>
+  {% endif %}
+
+
+    </div>
+        {% endif %}
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{{ url_for('static', filename='jquery/event-carousel.js') }}"></script>
+
+

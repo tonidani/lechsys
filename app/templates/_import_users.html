@@ -1,0 +1,49 @@
+{%  block stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}" />
+{% endblock %}
+    <div class="hello">{{  title  }}</div>
+    <div class="form">
+ <style>
+     #players_file{
+         margin:30px;
+     }
+
+ </style>
+    <form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+     <div class="box">
+
+             {{ form.players_file.label }}
+          {{ form.players_file(placeholder=_("Add File"))}}
+		   {% for error in form.players_file.errors %}
+		   <span style="color: red;">{{ _("File error:  ")}}{{ error }}</span>
+		   {% endfor %}
+         <br>
+         <div style="margin-left:10%;">
+         <p><i class="fas fa-download"></i> Przykladowy plik</p>
+         <hr>
+             <ul><li><a style="color: var(--text-light)" href="{{ url_for('download_player_file') }}"> Import player file</a></li></ul>
+
+
+
+             </div>
+         <br>
+
+
+     </div>
+      <div class="box">
+          {{ form.team.label }}
+			   {{ form.team(placeholder=_("Select team")) }}
+           </div>
+
+
+
+
+
+    <div class="box-submit">
+        {{ form.submit() }}
+    </div>
+
+
+</form>
+    </div>

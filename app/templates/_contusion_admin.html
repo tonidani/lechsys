@@ -1,0 +1,362 @@
+
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href ="{{ url_for('static', filename='css/event-carousel-contusion.css')}}" />
+<style>
+    .injury-space{
+    background-image: url({{ url_for('static', filename='images/body_injury1.png') }});
+    }
+    @media screen and (max-width: 767px) {
+        .contusion-box{
+
+            height:500px;
+                        }
+        }
+
+
+</style>
+
+<div class="event-carousel">
+      <div class="slider-events">
+    <div class="event-details">
+        <div class="user-content-right">
+
+
+<div class="table-box">
+
+
+
+                     <h2> <i class="fas fa-id-card-alt"></i> {{ _("Injury data About Player") }}</h2>
+                     <hr>
+
+
+<div class="event-carousel contusion-box">
+
+
+                         {% set count_past = {'value': 0} %}
+                        {% for con in contusion if con.state in "PAST" %}
+                        {% if count_past.update({'value': (count_past.value + 1)}) %} {% endif %}
+
+
+
+                     <div class="event-details">
+                         <h2 style="color: var(--text-light)"> {{con.start.strftime("%d/%m/%Y") }} - {{con.end.strftime("%d/%m/%Y")}}</h2>
+
+                         <h3>{{ _("Days") }}: {{ (con.end - con.start).days }}</h3>
+
+
+                         {{ con.__repr__(current_user.language) }}
+                         <br>
+                         <h4> {{_("Details")}}</h4>
+                         <p> {{ con.details }}</p>
+                     </div>
+
+                        {% endfor %}
+                        {% if count_past.value < 1 %}
+                            {{ _("No injury data about the player.") }}
+                        {% endif %}
+</div>
+</div>
+
+<div class="active-contusion">
+        <h2> <i class="fas fa-id-card-alt"></i> {{ _("Active Injuries") }}</h2>
+    <hr>
+
+             {% set count = {'value': 0} %}
+             {% for con in contusion if con.state in "ACTIVE" %}
+                {% if count.update({'value': (count.value + 1)}) %} {% endif %}
+             <div class="scene scene--card">
+                <input id="card" type="checkbox" style="display: none;">
+                <label for="card">
+
+                <div class="card">
+                <div class="card__face card__face--front">
+                <div class="event-details">
+                <h1 id="time3"> {{con.start.strftime("%d-%m-%Y") }} - {{con.end.strftime("%d-%m-%Y")}} <br>  {{ (con.end - con.start).days }} {{ _("Days") }}</h1>
+                <h3>{{con.state}}</h3>
+                {{ con.__repr__(current_user.language) }}
+                <h4>{{ _("Details") }}</h4>
+                <p>{{con.details}}</p>
+                    <br> {{_("Touch for edit") }}
+                </div>
+                </div>
+                <div class="card__face card__face--back">
+                     <div class="event-details">
+                    <h1> > {{ _("Edit Injury") }}</h1>
+
+                    <form action="" method="post" id="EditInjuryForm">
+
+                        {{editform.hidden_tag()}}
+                <div class="columns-30-30-30">
+                    <div class="boxed">
+
+                <label>  <h3>{{ _("Body part")}}</h3></label>
+                         {{ editform.edit_body_part }}
+                </div>
+
+                <div class="boxed">
+
+                <label>  <h3>{{ _("Tissue")}}</h3></label>
+                         {{editform.edit_tissue}}
+                </div>
+                <div class="boxed">
+              <label>  <h3>{{ _("Trauma") }}</h3></label>
+                    {{ editform.edit_trauma }}
+                </div>
+
+                         <div class="boxed">
+
+
+
+
+                </div>
+
+
+
+
+                </div>
+                 <h3>{{ _("Start date") }} - {{_("End date (prediction)") }}</h3>
+               {{editform.edit_start}} -  {{editform.edit_end}}
+
+
+
+                <div class="boxed">
+                        <div class="box">
+
+                            <h3>{{ _("Additional info") }}</h3>
+                            <p>{{ _("Please, provide more information about the injury") }}</p>
+                           <div> {{editform.edit_details}}</div>
+
+                    <div class="box"> {{ editform.edit_submit}} </div>
+
+                </div>
+
+                </div>
+
+                 </form>
+                </div>
+
+    </div>
+                </div>
+                      </label>
+             </div>
+                {% endfor %}
+                {% if count.value < 1 %}
+                    {{ _("No injury active on this player.") }}
+                {% endif %}
+
+             </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+ <div class="event-details">
+ <form action="" method="post" id="injuryForm">
+                      {{ form.hidden_tag() }}
+         <div class="user-content-right">
+
+
+
+
+        <div class="table">
+            <div class="hello">
+                     <h2><i class="fas fa-user-injured"></i> {{ _("Select injuried part") }}</h2>
+                <hr>
+                 </div>
+
+
+                <table class="injury-space">
+
+                     <tr style="text-align:center; height:50px"><td colspan="12"><input type="radio"  data-type="{{_('Head') }}" value="1" onclick="showPart()" name="body_part"></td></tr>
+
+                                 <tr>
+                            <td colspan="5" style="text-align:right"><input type="radio"  data-type="{{_('Left shoulder') }}" onclick="showPart()" value="2" name="body_part" required="required"></td>
+                         <td colspan="2" style="width:30px;"></td>
+                         <td colspan="5" style="text-align:center"><input type="radio"  data-type="{{_('Right shoulder') }}" value="3" onclick="showPart()" name="body_part"></td>
+                                 </tr>
+                         <tr style="text-align:center" >
+                                 <td colspan="5" ><input type="radio" name="body_part" onclick="showPart()"  data-type="{{_('Left arm') }}" value="4"></td>
+                                 <td colspan="2"></td>
+                                 <td colspan="5" ><input type="radio"  data-type="{{_('Right arm') }}" value="5" onclick="showPart()" name="body_part"></td>
+                             </tr>
+
+                     </tr>
+                                   <tr style="height:30px">
+                                 <td colspan="5" style="text-align:center" ><input type="radio" data-type="{{_('Left elbow') }}" value="6" onclick="showPart()" name="body_part"></td>
+                                <td colspan="2"></td>
+                                 <td colspan="5" style="text-align:center"><input type="radio" data-type="{{_('Right elbow') }}" value="7" onclick="showPart()" name="body_part"></td>
+                             </tr>
+
+                          <tr>
+                                 <td colspan="5" style="text-align:center" ><input type="radio" data-type="{{_('Left forearm') }}" name="body_part" onclick="showPart()" value="8"></td>
+                                 <td colspan="2"></td>
+                                 <td colspan="5" style="text-align:center"><input type="radio" data-type="{{_('Right forearm') }}" value="9" onclick="showPart()" name="body_part"></td>
+                             </tr>
+
+                                 <tr>
+                                 <td colspan="3" style="text-align:right" ><input type="radio" data-type="{{_('Left wrist') }}" value="10" onclick="showPart()" name="body_part"></td>
+                                    <td>&nbsp</td>
+                                     <td colspan="1" style="text-align:center" ><input type="radio" data-type="{{_('Left hip') }}" value="11" onclick="showPart()" name="body_part"></td>
+                                        <td colspan="2">&nbsp</td>
+                                     <td colspan="1" style="text-align:right;" ><input type="radio" data-type="{{_('Right hip') }}" onclick="showPart()" value="12" name="body_part"></td>
+
+                                     <td colspan=3" style="text-align:center"><input type="radio" data-type="{{_('Right wrist') }}"  name="body_part" onclick="showPart()" value="13"></td>
+                             </tr>
+
+                                   <tr>
+                                 <td colspan="3" style="text-align:left" ><input type="radio" data-type="{{_('Left hand') }}"  value="14" onclick="showPart()" name="body_part"></td>
+                                 <td> </td>
+                                 <td colspan="4"></td>
+                                       <td ></td>
+                                 <td colspan="3" style="text-align:right" ><input type="radio" data-type="{{_('Right hand') }}"  value="15" onclick="showPart()" name="body_part"></td>
+                             </tr>
+
+
+                                 <tr>
+                                 <td colspan="3" style="text-align:right" ></td>
+                               <td colspan="2" style="text-align:right" ><input type="radio" data-type="{{_('Left thigh') }}"  value="16" onclick="showPart()" name="body_part"></td>
+                                 <td colspan="2"></td>
+                                     <td colspan="2" style="text-align:left" ><input type="radio"  data-type="{{_('Right thigh') }}" value="17" onclick="showPart()" name="body_part"></td>
+                                 <td colspan="3"></td>
+                             </tr>
+                                <tr>
+                                    <td colspan="12" style="height:10px"></td>
+
+                                </tr>
+
+                                 <tr style="height:30px">
+                                 <td colspan="3" style="text-align:right" ></td>
+                               <td colspan="2" style="text-align:right" ><input type="radio" onclick="showPart()" data-type="{{_('Left knee') }}" value="18" name="body_part"></td>
+                                 <td colspan="2"></td>
+                                     <td colspan="2" style="text-align:left" ><input type="radio" onclick="showPart()" data-type="{{_('Right knee') }}" value="19" name="body_part"></td>
+                                 <td colspan="3"></td>
+                             </tr>
+
+                                 <tr style="height:30px">
+                                 <td colspan="3" style="text-align:right" ></td>
+                               <td colspan="2" style="text-align:right" ><input type="radio" data-type="{{_('Left Tibia') }}" value="20" onclick="showPart()" name="body_part"></td>
+                                 <td colspan="2"></td>
+                                     <td colspan="2" style="text-align:left" ><input type="radio" data-type="{{_('Right Tibia') }}"  value="21" onclick="showPart()" name="body_part"></td>
+                                 <td colspan="3"></td>
+                             </tr>
+                                  <tr>
+                                 <td colspan="3" style="text-align:right" ></td>
+                               <td colspan="2" style="text-align:right" ><input type="radio" data-type="{{_('Left ankle') }}" value="22" onclick="showPart()" name="body_part"></td>
+                                 <td colspan="2"></td>
+                                     <td colspan="2" style="text-align:left" ><input type="radio" data-type="{{_('Right ankle') }}" value="23" onclick="showPart()" name="body_part"></td>
+                                 <td colspan="3"></td>
+                             </tr>
+                                   <tr>
+                                 <td colspan="3" style="text-align:right" ></td>
+                               <td colspan="2" style="text-align:right" ><input type="radio" data-type="{{_('Left foot') }}"  value="24" onclick="showPart()" name="body_part"></td>
+                                 <td colspan="2"></td>
+                                     <td colspan="2" style="text-align:left" ><input type="radio" data-type="{{_('Right foot') }}"  value="25" onclick="showPart()" name="body_part"></td>
+                                 <td colspan="3"></td>
+                             </tr>
+
+
+
+
+
+
+
+
+                 </table>
+                       </div>
+
+
+
+
+
+
+
+            <div class="part-right-header">
+                <div class="hello" style="margin-bottom:2%"><h2><i class="fas fa-user-md"></i> {{ _("Complete bellow") }}</h2><hr></div>
+
+
+
+
+            <div class="part-right">
+				<h3>{{ _("Selected Part: ") }} <div style="display:inline-block; color:red;" id="selected-part"></div></h3>
+
+                <br>
+                <div class="columns-30-30-30">
+                <div class="boxed">
+                <label>  <h3>{{ _("Tissue")}}</h3></label>
+                    {{ form.tissue }}
+                </div>
+                <div class="boxed">
+              <label>  <h3>{{ _("Trauma") }}</h3></label>
+                 {{ form.trauma }}
+                </div>
+
+                         <div class="boxed">
+            <!-- <h3>{{ _("Days:") }}</h3>
+
+                             <div id="count-days"> 23 dni</div>
+                -->
+                </div>
+
+
+
+
+                </div>
+                 <h3>{{ _("Start date") }} - {{_("End date (prediction)") }}</h3>
+                {{form.start}} - {{ form.end}}
+
+
+
+                <div class="boxed">
+                        <div class="box">
+
+                            <h3>{{ _("Additional info") }}</h3>
+                            <p>{{ _("Please, provide more information about the injury") }}</p>
+                           <div><textarea id="description" name="details"  style="color:white" required></textarea> </div>
+
+                    <div class="box"> {{form.submit}} </div>
+
+            </div>
+
+
+  </div>
+
+
+            </div>
+
+    </div>
+
+
+       </div>
+       </form>
+        </div>
+
+		</div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{{ url_for('static', filename='jquery/event-carousel-contusion.js') }}"></script>
+
+
+
+
+
+<script>
+    function showPart(){
+    let bodyPart = document.querySelector('input[name="body_part"]:checked').getAttribute('data-type');
+    let info = document.querySelector('#selected-part').innerHTML = bodyPart;
+
+    }
+
+
+
+
+
+
+</script>

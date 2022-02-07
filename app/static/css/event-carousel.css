@@ -1,0 +1,77 @@
+.event-carousel{
+            height:25%
+
+          }
+
+.event-details{
+     padding: 10px;
+     margin-left:10px;
+     margin-top:10px;
+     border-radius: 20px;
+     background-color: var(--bgcolor);
+
+
+}
+
+.kinasis-box{
+    height:400px;
+    overflow-y:scroll
+}
+
+.next-survey-details{
+
+    margin-left:10px;
+    margin-top:10px;
+
+}
+
+.columns-50-50{
+    display:grid;
+    grid-template-columns: 50% 50%;
+
+}
+
+.kinasis-box::-webkit-scrollbar{
+
+        border-radius: 20px;
+        width:2px;
+        }
+
+.kinasis-box::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+
+
+
+    @media (max-width: 1460px) and (min-width: 768px) {
+
+          .event-carousel {
+            width: 95%;
+          }
+    }
+
+     @media (max-width: 768px) {
+
+          .event-carousel {
+            width: 300px;
+          }
+    }
+
+     @media (max-width: 600px) {
+
+          .event-carousel {
+            width: 100%;
+
+          }
+
+          .event-carousel > h1{
+            margin-top:25px;
+            margin-left: 10px;
+
+
+          }
+          .slick-next{
+
+          display:none;}
+    }

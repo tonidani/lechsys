@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+
+            <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+          
+        <style>
+        .user-content {
+        grid-template-columns: 380px  80%;
+        grid-gap:20px;
+        display: grid;
+
+    }
+        .user-content-right {
+        grid-template-columns: 30% 50%;
+        grid-gap:20px;
+        display: grid;
+
+    }
+
+        @media (max-width: 768px) {
+             .user-content {
+                  display: block;
+                  }
+
+
+             .user-content {
+                  display: block;
+                }
+
+
+
+}
+}
+
+
+  </style>
+    {% endblock stylesheet %}
+
+
+
+
+{% block content %}
+{% set active_page = "users" %}
+<body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    
+    <div class="main">
+	<div class="content">
+    {% include "_alerts.html" %}
+        <div class="hello">{{ user_page }}</div>
+
+
+        {% include '_profile_header_menu.html' %}
+
+        <div class="user-content">
+        {% include'_profile.html' %}
+
+            {% if 'admin' in current_user.show_role() %}
+
+
+           {% include '_contusion_admin.html' %}
+        </div>
+            {% endif %}
+          {% if 'staff' in current_user.show_role() %}
+
+
+           {% include '_contusion.html' %}
+        </div>
+            {% endif %}
+
+        </div>
+
+
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Main Page</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+body{
+    margin-right: 300px;
+    margin-left: 300px;
+    margin-top: 100px;
+    color:white;
+    background-color: #001818;
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+
+header{
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+
+}
+.navbar-r{
+    display: flex;
+    justify-content: right;
+}
+
+.title{
+    font-size:large;
+    font-weight: bold;
+}
+
+
+.used-stack{
+    width:500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:20px;
+
+
+
+}
+
+.box{
+    
+    border-radius: 5px;
+    padding-left:10px;
+
+    background-color: #002e2e;
+}
+
+
+
+.cards{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+}
+
+.card{
+    border-radius: 10px;
+    padding:20px;
+    background-color: #002e2e;
+}
+
+
+@media only screen and (max-width: 1440px) {
+    .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+  body {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .cards {
+    display: block;
+  }
+  body {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .used-stack{ width:400px}
+
+}
+
+</style>
+
+
+<body>
+<header>
+<div class="navbar-logo">STAT SYS</div>
+
+<div class="navbar-r"><i>BETA v0.1</i></div>
+</header>
+<main>
+    <div class="title"><h1> Stat Sys</h1></div>
+    <div class="paragraph"><p> Wnieś monitorowanie sportowców oraz swojego klubu na inny poziom.</p></div>
+    <div class="content">
+    <div class="used-stack">
+    <div class="box"><p><i class="fab fa-figma"></i> Figma</p></div>
+    <div class="box"><p><i class="fab fa-python"></i> Python </p> </div>
+    <div class="box"><p><i class="fab fa-vuejs"></i> Vue.js</p> </div>
+</div>
+ <div class="cards">
+    <div class="card">
+        <h1><i class="fas fa-poll"></i> Monitoruj</h1>
+        <p>Dzięki systemowi ankiet, można kontrolowac sportowca, tak aby znać jego odczucia na bieżąco.</p>
+    </div>
+
+   
+    <div class="card">
+        <h1><i class="fas fa-user-injured"></i> Kontuzje</h1>
+        <p>Dzięki historii kontuzji, łatwiej możesz zarządzać wydolnością zawodnika i przeciwdziałać im.</p>
+        </div>
+
+      
+    <div class="card">
+        <h1><i class="fas fa-calendar-day"></i></i> Planuj</h1>
+        <p>Trzymaj dyscyplinę i odpowiednio aktualizuj harmonogram swoich spotkań, to właśnie wydarzenia zorganizują Ci dane.</p>
+
+    </div>
+
+    <div class="card">
+        <h1><i class="far fa-chart-bar"></i> Dane</h1>
+    
+        <p>Dzięki współpracy z analitykami sportowymi, system daje ułatwiania w celu poprawy wydolności sportowca. Nie musisz znać się na liczbach, wystarczy, że system się zna.</p>
+    
+    </div>
+    
+
+   
+ 
+
+<div class="card">
+    <h1><i class="fas fa-language"></i> Języki</h1>
+
+    <p>Twój zespół składa się z wielu barwnych narodowości? System jest dostępny w 2 warianatach językowych - Polski oraz Angielski</p>
+
+</div>
+<div class="card">
+    <h1><i class="far fa-bell"></i> Powiadomienia</h1>
+
+    <p>Nikt nie zostanie z tyłu, system powiadomień zadba o to, aby każdy dostał odpowiednie przypomnienie o swoich obowiązkach.</p>
+
+    </div>
+
+<div class="card">
+    <h1><i class="fas fa-plus-circle"></i> i więcej</h1>
+
+    <p>Dopasuj system do swoich potrzeb
+        Stat Sys to narzędzie modułowe, jesteśmy w stanie dopasować go pod każdego sportowca.</p>
+
+    </div>
+
+    <div class="card" style="background-color: blueviolet;">
+        <h1><i class="fas fa-sign-in-alt"></i> Ruszyła beta</h1>
+    
+        <p>Jesteśmy w trakcie zamkniętej bety, <h1><a href="/login" style="color:white">chcesz poklikać?</a></h1> </p>
+    
+        </div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+</main>
+<footer>
+    <p style="text-align: center;">Zespół statSys 2021</p>
+</footer>
+
+
+</body>
+</html>

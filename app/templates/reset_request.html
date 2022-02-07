@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
+    {% endblock stylesheet %}
+
+
+
+{% block content %}
+
+
+	<form action="" method="post" novalidate>
+	  {{ form.hidden_tag() }}
+	  <div class="login-box">
+        <img src="static/images/logo.png" alt="Logo">
+          {{ form.email(placeholder=_("Put your email"))}}
+		   {% for error in form.email.errors %}
+		   <span style="color: red;">Email: {{ error }}</span>
+		   {% endfor %}
+
+
+	   {{ form.submit() }}
+        <a href="{{ url_for('auth_bp.login') }}">{{ _("Go back for login!") }}</a>
+		</div>
+	 </form>
+	
+	
+{% endblock %}

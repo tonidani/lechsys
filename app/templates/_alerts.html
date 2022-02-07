@@ -1,0 +1,55 @@
+<style>
+
+#alerts {
+    grid-template-columns: 80% 20%;
+    display: grid;
+    padding:10px;
+    z-index:5;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:10px;
+    background-color:rgba(63, 66, 84, 0.6);
+    border-radius: 10px
+}
+
+
+@media (max-width: 767px) {
+  #alerts {
+    margin-top: 80px;
+    width:80%;
+    padding:0px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #alerts {
+    margin-top: 60px;
+  }
+}
+
+
+</style>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              <div id="alerts" class="console-debug-flash">
+                  <div>
+
+
+
+            {% for category, message in messages %}
+              {% if category in "success" %}<p style="color:green"><i class="far fa-thumbs-up"></i>{{ message }}</p>
+                      {% elif category in "error" %}<p style="color:red"><i class="fas fa-exclamation-triangle"></i>{{ message }}</p>
+                      {% else %}
+                        <p style="color:var(--text-light)"><i class="fas fa-info"></i> {{ message }}</p>
+                      {% endif %}
+            {% endfor %}
+            </ul>
+              </div>
+            <span style="display:flex; justify-content:right; font-size: 50px; cursor:pointer; color:gray;" class="close" onclick="getElementById('alerts').style.display = 'none'">&times</span>
+              </div>
+          {% endif %}
+
+
+            {% endwith %}

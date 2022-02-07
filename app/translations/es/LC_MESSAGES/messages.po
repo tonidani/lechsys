@@ -1,0 +1,1851 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-01-10 18:05+0100\n"
+"PO-Revision-Date: 2021-10-02 21:36+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: app/routes.py:142
+msgid "You Have to confirm mail!"
+msgstr "Musisz potwierdzić e-mail!"
+
+#: app/routes.py:152
+#, python-format
+msgid " Added user %s and sent activation link"
+msgstr " Dodaj użytkownika %s i wyślij link aktywacyjny"
+
+#: app/routes.py:156
+msgid "bad mail"
+msgstr "Błąd poczty"
+
+#: app/routes.py:172
+#, python-format
+msgid "New team %s added!"
+msgstr "Nowa drużyna %s została dodana!"
+
+#: app/routes.py:236
+#, python-format
+msgid "User %s %s added"
+msgstr "Użytkownik %s %s został dodany"
+
+#: app/routes.py:242
+msgid ""
+"you have some errors in your file, please see If the names not contain "
+"spaces before and after!"
+msgstr ""
+"w twoim pliku jest błąd, proszę sprawdź czy imie zawodnika nie zawiera "
+"odstępów przed i po!"
+
+#: app/routes.py:256
+msgid "You can not delete yourself!"
+msgstr "Nie możesz siebie usunąć"
+
+#: app/routes.py:260
+#, python-format
+msgid "User %d deleted"
+msgstr "Użytkownik o danym id: %d - został usunięty"
+
+#: app/routes.py:270
+msgid "You can not edit other admins :>!"
+msgstr "Nie możesz edytować kont innych administratorów :>!"
+
+#: app/routes.py:294
+msgid "User edited!"
+msgstr "Użytkownik został zmieniony!"
+
+#: app/routes.py:315
+#, python-format
+msgid "Error in the %s field - %s"
+msgstr "Błąd w %s polu - %s"
+
+#: app/routes.py:329 app/routes.py:436 app/routes.py:468 app/routes.py:500
+#: app/routes.py:532 app/routes.py:1241
+msgid "This person does not exist in the system!"
+msgstr ""
+
+#: app/routes.py:333
+msgid "Staff and admins do not have pages!"
+msgstr "Pracownicy i administratorzy nie mają stron!"
+
+#: app/routes.py:424 app/routes.py:455 app/routes.py:487 app/routes.py:519
+#: app/routes.py:551
+msgid "You can not see people who are not in your team!"
+msgstr ""
+
+#: app/routes.py:440 app/routes.py:472 app/routes.py:504 app/routes.py:536
+msgid "Staff and admins dont have pages!"
+msgstr "Pracownicy i administratorzy nie mają stron!"
+
+#: app/routes.py:561 app/routes.py:562
+msgid "The link has expired, do you want to get a new one?"
+msgstr ""
+
+#: app/routes.py:567
+msgid "No user with this mail in the system!"
+msgstr "Użytkownik o tym e-mailu nie istnieje"
+
+#: app/routes.py:572
+msgid "Your account has been activated!"
+msgstr ""
+
+#: app/routes.py:610
+msgid "Your account has been activated! Please log in"
+msgstr "Twoje konto zostało ustawione na aktywne!"
+
+#: app/routes.py:625
+msgid "You can reset your password!!"
+msgstr ""
+
+#: app/routes.py:628
+#, python-format
+msgid "Reset link sent to %s"
+msgstr "Link resetujący został wysłany do %s"
+
+#: app/routes.py:638
+msgid "Invalid or expired token"
+msgstr ""
+
+#: app/routes.py:647 app/routes.py:688
+msgid "Your new password has been updated!"
+msgstr ""
+
+#: app/routes.py:707
+msgid "Your new Avatar has been set!"
+msgstr "Twoje nowe hasło zostało ustawione!"
+
+#: app/routes.py:793 app/routes.py:845 app/routes.py:890
+msgid "This event does not exist!"
+msgstr "Ta osoba nie istnieje w systemie!"
+
+#: app/routes.py:823 app/routes.py:866
+msgid "Survey completed!"
+msgstr "Ankieta zakończona!"
+
+#: app/routes.py:826 app/routes.py:869
+msgid "Fill all inputs"
+msgstr "Wypełnij wszystkie pola"
+
+#: app/routes.py:829 app/routes.py:881
+msgid "You have completed this survey!"
+msgstr "Już wypełniłeś tę ankietę!"
+
+#: app/routes.py:833
+msgid "survey is not ready to be completed!"
+msgstr "ankieta nie jest gotowa do wypełnienia!"
+
+#: app/routes.py:873
+#, python-format
+msgid ""
+"You have not completed your Wellness survey! Do it before here: <a "
+"href='%s'>Complete Wellness</a>"
+msgstr ""
+"Nie wypełniłeś ankiety Wellness! Zrób to tutaj: <a href='%s'>Ukończ "
+"Wellness</a>"
+
+#: app/routes.py:877
+msgid "No rpe or wellness created obj"
+msgstr "Żadne rpe ani wellness nie zostały stworzone"
+
+#: app/routes.py:987
+msgid "This import has been already completed!"
+msgstr "Ten import został już zakończony!"
+
+#: app/routes.py:1044 app/routes.py:1137
+msgid "Not added"
+msgstr "Nie dodano"
+
+#: app/routes.py:1045 app/routes.py:1138
+msgid "Added"
+msgstr "Dodano"
+
+#: app/routes.py:1061 app/routes.py:1152
+msgid "Data to this event has been added before"
+msgstr "Dane do tego wydarzenia zostały już dodane"
+
+#: app/routes.py:1073
+msgid "This Motoric import has been completed"
+msgstr "Import danych motorycznych został ukończony"
+
+#: app/routes.py:1095
+#, python-format
+msgid ""
+"this event dont have motric data added! do it before here: <a "
+"href='%s'>Add motoric data</a>"
+msgstr ""
+"to wydarzenie nie ma dodanych danych motric! zrób to wcześniej tutaj: <a "
+"href='%s'>Dodaj dane motoryczne</a>"
+
+#: app/routes.py:1158
+msgid "This import has been completed"
+msgstr "Import został ukończony"
+
+#: app/routes.py:1189
+msgid "event id past checked!!"
+msgstr "id wydarzenia zostało sprawdzone!!"
+
+#: app/routes.py:1201
+msgid "event wellness past checked!!"
+msgstr "wellness wydarzenia zostało sprawdzone!!"
+
+#: app/routes.py:1245
+msgid "This person is not part of this event!"
+msgstr "Ta osoba nie istnieje w systemie!"
+
+#: app/routes.py:1249
+msgid "This event does not exist in the system!"
+msgstr "To wdarzenie nie istnieje w systemie!"
+
+#: app/routes.py:1253
+msgid "This event does not have completed data!"
+msgstr "Te wydarzenie nie ma uzupełnionych danych!"
+
+#: app/routes.py:1277 app/routes.py:1352
+msgid "Motoric data edited"
+msgstr "Dane motoryczne zostały edytowane"
+
+#: app/routes.py:1309
+msgid "Kinase data edited"
+msgstr "Kinaza została edytowana"
+
+#: app/api/api.py:132
+msgid "You can not add event without participants!"
+msgstr "Nie możesz dodać wydarzenia bez uczestników!"
+
+#: app/api/api.py:135
+msgid "You can not add event without type!"
+msgstr "Nie możesz dodać wydarzenia bez typu!"
+
+#: app/api/api.py:138
+msgid "Type of event do not match with \"Match, Medical or Training\""
+msgstr "Rodzaj wydarzenia nie pasuje do opcji \"Mecz, Medyczne lub Trening\""
+
+#: app/api/api.py:141
+msgid "You can not add event ending in the past!\""
+msgstr "Nie możesz dodać wydarzenia kończące się w przeszłości"
+
+#: app/api/api.py:170
+msgid "You can not edit a past event"
+msgstr "Nie możesz eydtować ukończonego wydarzenia"
+
+#: app/api/api.py:197
+msgid "No event with this id!"
+msgstr "Brak wydarzenia o podanym id"
+
+#: app/api/api.py:201
+msgid "You can not delete a past event"
+msgstr "Nie możesz usunąć ukończonego wydarzenia\""
+
+#: app/api/api.py:205
+msgid "Event deleted!"
+msgstr "Wydarzenie usunięte"
+
+#: app/auth/auth.py:36 app/auth/auth.py:45
+msgid "Invalid username or password"
+msgstr ""
+
+#: app/auth/auth.py:41
+msgid "Your account is innactive"
+msgstr ""
+
+#: app/forms/forms.py:17
+#, python-format
+msgid "File size must be less than %d MB"
+msgstr "Plik musi być mniejszy niż %d MB"
+
+#: app/forms/forms.py:25 app/forms/forms.py:165
+msgid "Username"
+msgstr ""
+
+#: app/forms/forms.py:26 app/forms/forms.py:142 app/forms/forms.py:192
+#: app/templates/confirmmail.html:83
+msgid "Password"
+msgstr ""
+
+#: app/forms/forms.py:27
+msgid "Remember me"
+msgstr ""
+
+#: app/forms/forms.py:28
+msgid "Sign In"
+msgstr ""
+
+#: app/forms/forms.py:33 app/forms/forms.py:166 app/templates/_adduser.html:18
+msgid "First name"
+msgstr ""
+
+#: app/forms/forms.py:34 app/forms/forms.py:167
+msgid "Last name"
+msgstr ""
+
+#: app/forms/forms.py:35 app/forms/forms.py:168 app/forms/forms.py:183
+msgid "Email"
+msgstr ""
+
+#: app/forms/forms.py:36 app/forms/forms.py:169
+msgid "Select a role"
+msgstr ""
+
+#: app/forms/forms.py:38 app/forms/forms.py:119 app/forms/forms.py:171
+msgid "Select a team"
+msgstr ""
+
+#: app/forms/forms.py:41 app/forms/forms.py:100
+msgid "Select nationality"
+msgstr "Wybierz narodowość"
+
+#: app/forms/forms.py:44 app/forms/forms.py:99 app/templates/_profile.html:112
+msgid "Birth date"
+msgstr "Data urodzenia"
+
+#: app/forms/forms.py:48 app/forms/forms.py:95
+msgid "Height (in cm)"
+msgstr "Wysokość (w cm)"
+
+#: app/forms/forms.py:48
+msgid "Please, select a number between 100 cm and 250 cm"
+msgstr "Proszę wybrać liczbę pomiędzy 100 cm a 250 cm"
+
+#: app/forms/forms.py:49 app/forms/forms.py:96
+msgid "Weight (in kg)"
+msgstr "Waga (w kg)"
+
+#: app/forms/forms.py:49
+msgid "Please, select a number between 40 kg and 200 kg"
+msgstr "Proszę wybrać liczbę od 40 kg do 200 kg"
+
+#: app/forms/forms.py:53 app/forms/forms.py:97
+msgid "Select position"
+msgstr "Wybierz pozycje"
+
+#: app/forms/forms.py:57 app/forms/forms.py:102
+msgid "Shirt number"
+msgstr "Nr. koszulki"
+
+#: app/forms/forms.py:57
+msgid "Please, select a shirt number between 0 and 100"
+msgstr "Proszę wybrać numer koszulki od 0 do 100"
+
+#: app/forms/forms.py:59 app/forms/forms.py:104
+msgid "Add Basic Info!"
+msgstr "Dodaj podstawowe informacje!"
+
+#: app/forms/forms.py:64
+msgid "Add User"
+msgstr ""
+
+#: app/forms/forms.py:69
+msgid "Please use a different email address."
+msgstr ""
+
+#: app/forms/forms.py:74
+msgid "Name should contain ony letters."
+msgstr "Imię powinno zawierać wyłącznie litery"
+
+#: app/forms/forms.py:78
+msgid "Last name should contain ony letters."
+msgstr "Nazwisko powinno zawierać wyłącznie litery"
+
+#: app/forms/forms.py:83 app/forms/forms.py:108
+msgid "Please use a different date because you can not live more than 100 years!"
+msgstr "Proszę użyć innej daty, ponieważ nie możesz żyć dłużej niż 100 lat!"
+
+#: app/forms/forms.py:85 app/forms/forms.py:110
+msgid "Select a date in the past"
+msgstr "Wybierz przeszłą datę"
+
+#: app/forms/forms.py:87 app/forms/forms.py:112
+msgid "Minimum 3 years"
+msgstr "Minimum 3 lata"
+
+#: app/forms/forms.py:118
+msgid "Add players file"
+msgstr ""
+
+#: app/forms/forms.py:122
+msgid "Import players"
+msgstr ""
+
+#: app/forms/forms.py:125
+msgid "Team name"
+msgstr "Nazwa drużyny"
+
+#: app/forms/forms.py:126
+msgid "Add Team to the system"
+msgstr "Dodaj zespół do systemu"
+
+#: app/forms/forms.py:131
+msgid "Import motoric resume"
+msgstr ""
+
+#: app/forms/forms.py:134
+msgid "Select a Event"
+msgstr ""
+
+#: app/forms/forms.py:141 app/forms/forms.py:202
+msgid "Image"
+msgstr ""
+
+#: app/forms/forms.py:144 app/forms/forms.py:194
+msgid "Repeat Password"
+msgstr ""
+
+#: app/forms/forms.py:145 app/templates/confirmmail.html:128
+msgid "Set user and password"
+msgstr ""
+
+#: app/forms/forms.py:152
+msgid "Please use a different username."
+msgstr ""
+
+#: app/forms/forms.py:156 app/forms/forms.py:199
+msgid "You password should contain at least 10 characters!"
+msgstr "Twoje hasło powinno zawierać co najmniej 10 znaków!"
+
+#: app/forms/forms.py:160
+msgid "File size must be less than 1 MB"
+msgstr "Rozmiar pliku musi być mniejszy niż 1 MB"
+
+#: app/forms/forms.py:173 app/templates/_users.html:264
+msgid "Active"
+msgstr ""
+
+#: app/forms/forms.py:175
+msgid "Save User"
+msgstr ""
+
+#: app/forms/forms.py:180 app/forms/forms.py:189
+msgid "No match for account with this email!"
+msgstr ""
+
+#: app/forms/forms.py:184
+msgid "Request password"
+msgstr ""
+
+#: app/forms/forms.py:195
+msgid "Set new password!"
+msgstr ""
+
+#: app/forms/forms.py:203 app/templates/_settings.html:151
+msgid "Set new avatar!"
+msgstr "Ustaw nowe zdjęcie!"
+
+#: app/forms/forms.py:208
+msgid "Message"
+msgstr "Wiadomość"
+
+#: app/forms/forms.py:210 app/forms/forms.py:316
+msgid "Submit"
+msgstr "Potwierdź"
+
+#: app/forms/forms.py:227
+msgid "Sleep quality"
+msgstr "Jakość snu"
+
+#: app/forms/forms.py:227
+msgid "Insomnia"
+msgstr "Bezsenność"
+
+#: app/forms/forms.py:228
+msgid "Restless sleep"
+msgstr "Niespokojny sen"
+
+#: app/forms/forms.py:229
+msgid "Difficulty falling asleep"
+msgstr "Trudności z zasypianiem"
+
+#: app/forms/forms.py:230
+msgid "Good"
+msgstr "Dobrze"
+
+#: app/forms/forms.py:231
+msgid "Very restful"
+msgstr "Bardzo spokojny"
+
+#: app/forms/forms.py:233
+msgid "Muscle soreness"
+msgstr "Ból mięśni"
+
+#: app/forms/forms.py:233
+msgid "Very sore"
+msgstr "Bardzo bolesne"
+
+#: app/forms/forms.py:234
+msgid "Increase in soreness / tightness"
+msgstr "Zwiększenie bolesności / ucisku"
+
+#: app/forms/forms.py:235 app/forms/forms.py:253 app/forms/forms.py:259
+#: app/forms/forms.py:265
+msgid "Normal"
+msgstr "Normalny"
+
+#: app/forms/forms.py:236
+msgid "Feeling good"
+msgstr "Dobre samopoczucie"
+
+#: app/forms/forms.py:237
+msgid "Feeling great"
+msgstr "Wyśmienite samopoczucie"
+
+#: app/forms/forms.py:245 app/templates/_event_surveys_list_player.html:269
+msgid "Mood"
+msgstr "Nastrój"
+
+#: app/forms/forms.py:245
+msgid "Highly irritable / annoyed / down"
+msgstr "Bardzo drażliwy / zirytowany / zdołowany"
+
+#: app/forms/forms.py:246
+msgid "Snappy with team-mates, family and friends"
+msgstr "Na pieńku z kolegami z drużyny, rodziną i przyjaciółmi"
+
+#: app/forms/forms.py:247
+msgid "Less interested in others / activities"
+msgstr "Mniej zainteresowany innymi aktywnościami"
+
+#: app/forms/forms.py:248
+msgid "Generally good mood"
+msgstr "Generalnie dobry nastrój"
+
+#: app/forms/forms.py:249
+msgid "Very positive mood"
+msgstr "Bardzo pozytywny nastrój"
+
+#: app/forms/forms.py:251
+msgid "Stress"
+msgstr "Zestresowany"
+
+#: app/forms/forms.py:251
+msgid "Highly stressed"
+msgstr "Bardzo zestresowany"
+
+#: app/forms/forms.py:252
+msgid "Feeling stressed"
+msgstr "Zestresowany"
+
+#: app/forms/forms.py:254
+msgid "Relaxed"
+msgstr "Zrelaksowany"
+
+#: app/forms/forms.py:255
+msgid "Very Relaxed"
+msgstr "Bardzo zrelaksowany"
+
+#: app/forms/forms.py:257 app/templates/_event_surveys_list_player.html:269
+msgid "Fatigue"
+msgstr "Zmęczenie"
+
+#: app/forms/forms.py:257
+msgid "Always tired"
+msgstr "Zawsze zmęczony"
+
+#: app/forms/forms.py:258
+msgid "More tired than normal"
+msgstr "Bardziej zmęczony niż normalnie"
+
+#: app/forms/forms.py:260
+msgid "Fresh"
+msgstr "Rześki"
+
+#: app/forms/forms.py:261
+msgid "Very fresh"
+msgstr "Bardzo rześki"
+
+#: app/forms/forms.py:263
+msgid "Mental focus"
+msgstr "Skupienie mentalne"
+
+#: app/forms/forms.py:263
+msgid "Distracted"
+msgstr "Rozproszony"
+
+#: app/forms/forms.py:264
+msgid "More distracted than normal"
+msgstr "Bardziej roztargniony niż normalnie"
+
+#: app/forms/forms.py:266
+msgid "Focused"
+msgstr "Skupiony"
+
+#: app/forms/forms.py:267
+msgid "Very focused"
+msgstr "Bardzo skupiony"
+
+#: app/forms/forms.py:291
+msgid "Save"
+msgstr "Zapisz"
+
+#: app/forms/forms.py:295
+msgid "Motoric file"
+msgstr "Plik danych Motorycznych"
+
+#: app/forms/forms.py:296
+msgid "Import data"
+msgstr "Zaimportuj dane"
+
+#: app/forms/forms.py:300
+msgid "total_distance"
+msgstr "Dystans całkowity"
+
+#: app/forms/forms.py:301
+msgid "Sprint"
+msgstr "Sprint"
+
+#: app/forms/forms.py:303
+msgid "total_player_load"
+msgstr "całkowite_przeciążenie_zawodnika"
+
+#: app/forms/forms.py:304
+msgid "hsr"
+msgstr "hsr"
+
+#: app/forms/forms.py:306
+msgid "acceleration"
+msgstr "przyśpieszenie"
+
+#: app/forms/forms.py:307
+msgid "deceleration"
+msgstr "zmniejszenie_prędkości"
+
+#: app/forms/forms.py:308
+msgid "field_time"
+msgstr "pole_czasu"
+
+#: app/forms/forms.py:310
+msgid "maximum_velocity"
+msgstr "maksymalna prędkość"
+
+#: app/forms/forms.py:311
+msgid "meterage_per_minute"
+msgstr "metry_na_minuty"
+
+#: app/forms/forms.py:312
+msgid "max_vel_per_max"
+msgstr "max_prędk_na_max"
+
+#: app/forms/forms.py:314
+msgid "running"
+msgstr "bieg"
+
+#: app/forms/forms.py:320
+msgid "Total distance (m)"
+msgstr "Totalny dystans (m)"
+
+#: app/forms/forms.py:321
+msgid "Sprint (m)"
+msgstr "Sprint (m)"
+
+#: app/forms/forms.py:323
+msgid "Total player load"
+msgstr "Całkowite przeciążenie zawodnika"
+
+#: app/forms/forms.py:324
+msgid "HSR"
+msgstr "HSR"
+
+#: app/forms/forms.py:326
+msgid "Acceleration"
+msgstr "Przyśpieszenie"
+
+#: app/forms/forms.py:327
+msgid "Deceleration"
+msgstr "Zmniejszenie prędkości"
+
+#: app/forms/forms.py:328
+msgid "Field time"
+msgstr "Czas na polu"
+
+#: app/forms/forms.py:330
+msgid "Max. velocity"
+msgstr "Maksymalna prędkość"
+
+#: app/forms/forms.py:331
+msgid "M. per minute"
+msgstr "M. na minute"
+
+#: app/forms/forms.py:332
+msgid "Max. vel. per. max"
+msgstr "Max. prędk. na max"
+
+#: app/forms/forms.py:334
+msgid "Running"
+msgstr "Bieg"
+
+#: app/forms/forms.py:336
+msgid "Edit motoric data"
+msgstr "Edytuj dane motoryczne"
+
+#: app/forms/forms.py:340
+msgid "The value of total distance cannot be less than 0 or greater than 20000"
+msgstr ""
+"Wartość całkowitego dystansu nie może być mniejsze niż 0 ani większe niż "
+"20000"
+
+#: app/forms/forms.py:344
+msgid "The value of sprint cannot be less than 0 or greater than 10000"
+msgstr "Wartość sprintu nie może być mniejsze niż 0 ani większe niż 10000"
+
+#: app/forms/forms.py:348
+msgid "The value of total player load cannot be less than 0 or greater than 10000"
+msgstr ""
+"Wartość całkowitego przeciążnia zawodnika nie może być mniejsze niż 0 ani"
+" większe niż 10000"
+
+#: app/forms/forms.py:352
+msgid "The value of hsr cannot be less than 0 or greater than 10000"
+msgstr "Wartość hsr nie może być mniejsze niż 0 ani większe niż 10000"
+
+#: app/forms/forms.py:356
+msgid "The value of acceleration cannot be less than 0 or greater than 10000"
+msgstr "Wartość przyśpieszenia nie może być mniejsza niż 0 ani większe niż 10000"
+
+#: app/forms/forms.py:360
+msgid "The value of deceleration cannot be less than 0 or greater than 10000"
+msgstr ""
+"Wartość zmniejszenie prędkości nie może być mniejsze niż 0 ani większe "
+"niż 10000"
+
+#: app/forms/forms.py:364
+msgid ""
+"The value of deceleration cannot be less than 0 or greater than 200 "
+"minutes"
+msgstr ""
+"Wartość zmniejszenie prędkości nie może być mniejsze niż 0 ani większe "
+"niż 200"
+
+#: app/forms/forms.py:368
+msgid "The value of maximum valocity cannot be less than 0 or greater than 100"
+msgstr ""
+"Wartość maksymalnej prędkości nie może być mniejsze niż 0 ani większe niż"
+" 100"
+
+#: app/forms/forms.py:372
+msgid "The value of meterage per minute cannot be less than 0 or greater than 100"
+msgstr "Wartość metrażu na minutę nie może być mniejsze niż 0 ani większe niż 100"
+
+#: app/forms/forms.py:376
+msgid ""
+"The value of maximum velocity per maximum cannot be less than 0 or "
+"greater than 100"
+msgstr ""
+"Wartość maksymalnej prędkości przez maks. nie może być mniejsze niż 0 ani"
+" większe niż 100"
+
+#: app/forms/forms.py:381
+msgid "The value of running cannot be less than 0 or greater than 100000"
+msgstr "Wartość biegu nie może być mniejsze niż 0 ani większe niż 100000"
+
+#: app/forms/forms.py:385
+msgid "Kinase"
+msgstr "Kinaza"
+
+#: app/forms/forms.py:386
+msgid "Edit kinase"
+msgstr "Edytuj kinaze"
+
+#: app/forms/forms.py:390
+msgid "The value of kinase cannot be less than 0 or greater than 100"
+msgstr "Wartość kinazy nie może być mniejsza niż 0 ani większa niż 100"
+
+#: app/forms/forms.py:395
+msgid "Rate of preceived exertion"
+msgstr "Wskaźnik postrzeganego wysiłku"
+
+#: app/forms/forms.py:395
+msgid "Very light activity"
+msgstr "Bardzo lekka aktywność"
+
+#: app/forms/forms.py:396 app/forms/forms.py:397
+msgid "Light activity"
+msgstr "Lekka aktywność"
+
+#: app/forms/forms.py:398
+msgid "Moderate activity"
+msgstr "Umiarkowana aktywność"
+
+#: app/forms/forms.py:399 app/forms/forms.py:400
+msgid "Moderate"
+msgstr "Umiarkowany"
+
+#: app/forms/forms.py:401
+msgid "Vigorous activiy"
+msgstr "Energiczna aktywność"
+
+#: app/forms/forms.py:402
+msgid "Vigorous"
+msgstr "Energiczny"
+
+#: app/forms/forms.py:403
+msgid "Very hard activity"
+msgstr "Bardzo ciężka aktywność"
+
+#: app/forms/forms.py:404
+msgid "Max effort activity"
+msgstr "Maksymalny wysiłek przy aktywności"
+
+#: app/forms/forms.py:406
+msgid "Give RPE answer"
+msgstr "Podaj odpowiedź RPE"
+
+#: app/forms/forms.py:414
+msgid "Select injuried partq"
+msgstr "Wybierz poszkodowaną część"
+
+#: app/forms/forms.py:414 app/forms/forms.py:464
+#: app/templates/_contusion_admin.html:176
+msgid "Head"
+msgstr "Głowa"
+
+#: app/forms/forms.py:415 app/forms/forms.py:465
+msgid "Left Shoulder"
+msgstr "Lewe ramię"
+
+#: app/forms/forms.py:416 app/forms/forms.py:466
+#: app/templates/_contusion_admin.html:181
+msgid "Right shoulder"
+msgstr "Prawe ramię"
+
+#: app/forms/forms.py:417 app/forms/forms.py:467
+#: app/templates/_contusion_admin.html:184
+msgid "Left arm"
+msgstr "Lewa ramie"
+
+#: app/forms/forms.py:418 app/forms/forms.py:468
+#: app/templates/_contusion_admin.html:186
+#, fuzzy
+msgid "Right arm"
+msgstr "Prawe przedramię"
+
+#: app/forms/forms.py:419 app/forms/forms.py:469
+#: app/templates/_contusion_admin.html:191
+msgid "Left elbow"
+msgstr "Lewy łokieć"
+
+#: app/forms/forms.py:420 app/forms/forms.py:470
+#: app/templates/_contusion_admin.html:193
+msgid "Right elbow"
+msgstr "Prawy łokieć"
+
+#: app/forms/forms.py:421 app/forms/forms.py:471
+#: app/templates/_contusion_admin.html:197
+msgid "Left forearm"
+msgstr "Lewe przedramię"
+
+#: app/forms/forms.py:422 app/forms/forms.py:472
+#: app/templates/_contusion_admin.html:199
+msgid "Right forearm"
+msgstr "Prawe przedramię"
+
+#: app/forms/forms.py:423 app/forms/forms.py:473
+#: app/templates/_contusion_admin.html:203
+msgid "Left wrist"
+msgstr "Lewy nadgarstek"
+
+#: app/forms/forms.py:424 app/forms/forms.py:474
+#: app/templates/_contusion_admin.html:205
+msgid "Left hip"
+msgstr "Lewe biodro"
+
+#: app/forms/forms.py:425 app/forms/forms.py:475
+#: app/templates/_contusion_admin.html:207
+msgid "Right hip"
+msgstr "Prawe biodro"
+
+#: app/forms/forms.py:426 app/forms/forms.py:476
+#: app/templates/_contusion_admin.html:209
+msgid "Right wrist"
+msgstr "Prawy nadgarstek"
+
+#: app/forms/forms.py:427 app/forms/forms.py:477
+#: app/templates/_contusion_admin.html:213
+msgid "Left hand"
+msgstr "Lewa ręka"
+
+#: app/forms/forms.py:428 app/forms/forms.py:478
+#: app/templates/_contusion_admin.html:217
+msgid "Right hand"
+msgstr "Prawa ręka"
+
+#: app/forms/forms.py:429 app/forms/forms.py:479
+#: app/templates/_contusion_admin.html:223
+msgid "Left thigh"
+msgstr "Lewe udo"
+
+#: app/forms/forms.py:430 app/forms/forms.py:480
+#: app/templates/_contusion_admin.html:225
+msgid "Right thigh"
+msgstr "Prawe udo"
+
+#: app/forms/forms.py:431 app/forms/forms.py:481
+#: app/templates/_contusion_admin.html:235
+msgid "Left knee"
+msgstr "Lewe kolano"
+
+#: app/forms/forms.py:432 app/forms/forms.py:482
+#: app/templates/_contusion_admin.html:237
+msgid "Right knee"
+msgstr "Prawe kolano"
+
+#: app/forms/forms.py:433 app/forms/forms.py:483
+#: app/templates/_contusion_admin.html:243
+msgid "Left Tibia"
+msgstr "Lewy piszczel"
+
+#: app/forms/forms.py:434 app/forms/forms.py:484
+#: app/templates/_contusion_admin.html:245
+msgid "Right Tibia"
+msgstr "Prawy piszczel"
+
+#: app/forms/forms.py:435 app/forms/forms.py:485
+#: app/templates/_contusion_admin.html:250
+msgid "Left ankle"
+msgstr "Lewa kostka"
+
+#: app/forms/forms.py:436 app/forms/forms.py:486
+#: app/templates/_contusion_admin.html:252
+msgid "Right ankle"
+msgstr "Prawa kostka"
+
+#: app/forms/forms.py:437 app/forms/forms.py:487
+#: app/templates/_contusion_admin.html:257
+msgid "Left foot"
+msgstr "Lewa stopa"
+
+#: app/forms/forms.py:438 app/forms/forms.py:488
+#: app/templates/_contusion_admin.html:259
+msgid "Right foot"
+msgstr "Prawa stopa"
+
+#: app/forms/forms.py:440 app/forms/forms.py:490
+#: app/templates/_contusion_admin.html:99
+#: app/templates/_contusion_admin.html:291
+msgid "Tissue"
+msgstr "Tkanka"
+
+#: app/forms/forms.py:440 app/forms/forms.py:490
+msgid "Bone"
+msgstr "Kość"
+
+#: app/forms/forms.py:440 app/forms/forms.py:490
+msgid "Tendon"
+msgstr "Ścięgno"
+
+#: app/forms/forms.py:440 app/forms/forms.py:490
+msgid "Muscle"
+msgstr "Mięsień"
+
+#: app/forms/forms.py:440 app/forms/forms.py:490
+msgid "Joint / Articulation"
+msgstr "Łączenie / Artykulacja"
+
+#: app/forms/forms.py:443 app/forms/forms.py:493
+#: app/templates/_contusion_admin.html:103
+#: app/templates/_contusion_admin.html:295
+msgid "Trauma"
+msgstr "Uraz"
+
+#: app/forms/forms.py:443 app/forms/forms.py:493
+msgid "Contusion"
+msgstr "Kontuzja"
+
+#: app/forms/forms.py:443 app/forms/forms.py:493
+msgid "Wound"
+msgstr "Rana"
+
+#: app/forms/forms.py:443 app/forms/forms.py:493
+msgid "Fracture"
+msgstr "Pęknięcie"
+
+#: app/forms/forms.py:444 app/forms/forms.py:494
+msgid "Sprain"
+msgstr "Zwichnięcie"
+
+#: app/forms/forms.py:444 app/forms/forms.py:494
+msgid "Dislocation"
+msgstr "Przemieszczenie"
+
+#: app/forms/forms.py:448 app/forms/forms.py:498
+msgid "start of injury"
+msgstr "początek kontuzji"
+
+#: app/forms/forms.py:449 app/forms/forms.py:499
+msgid "End of injury (prediction)"
+msgstr "Koniec kontuzji (przewidywanie)"
+
+#: app/forms/forms.py:450 app/forms/forms.py:500
+msgid "Add some details"
+msgstr "Dodaj kilka szczegółów"
+
+#: app/forms/forms.py:451
+msgid "Add Injury to player"
+msgstr "Dodaj kontuzję gracza"
+
+#: app/forms/forms.py:455 app/forms/forms.py:505
+msgid "You can not End a Injury before it Start!"
+msgstr "Nie możesz zakończyć kontuzji przed jej rozpoczęciem!"
+
+#: app/forms/forms.py:459 app/forms/forms.py:509
+msgid "You can not Start a Injury in the future!"
+msgstr "Nie możesz rozpocząć kontuzji w przyszłości!"
+
+#: app/forms/forms.py:464 app/templates/_contusion_admin.html:169
+msgid "Select injuried part"
+msgstr "Wybierz poszkodowaną część"
+
+#: app/forms/forms.py:501
+msgid "Edit Injury to player"
+msgstr "Edytuj kontuzję gracza"
+
+#: app/mail_utilities/mail_utilities.py:16
+#, python-format
+msgid "Your activation link is: %s"
+msgstr "Twój link aktywacyjny to: %s"
+
+#: app/mail_utilities/mail_utilities.py:26
+#, python-format
+msgid "Your link for reset password is: %s"
+msgstr "Twój link aby zresetować hasło to: %s"
+
+#: app/templates/400.html:148 app/templates/401_403_405.html:148
+#: app/templates/404.html:148 app/templates/40x.html:148
+#: app/templates/411_413_414.html:148
+msgid "Oops! Something went wrong."
+msgstr ""
+
+#: app/templates/400.html:153 app/templates/40x.html:153
+msgid "The request could not be handled by the server."
+msgstr ""
+
+#: app/templates/400.html:159 app/templates/401_403_405.html:159
+#: app/templates/404.html:159 app/templates/40x.html:159
+#: app/templates/411_413_414.html:159
+msgid "You will be redirected to the home page in: "
+msgstr ""
+
+#: app/templates/400.html:159 app/templates/401_403_405.html:159
+#: app/templates/404.html:159 app/templates/40x.html:159
+#: app/templates/411_413_414.html:159
+msgid "seconds"
+msgstr ""
+
+#: app/templates/400.html:164 app/templates/401_403_405.html:164
+#: app/templates/404.html:164 app/templates/40x.html:164
+#: app/templates/411_413_414.html:164
+msgid "Home page"
+msgstr ""
+
+#: app/templates/401_403_405.html:153
+msgid "Access denied."
+msgstr ""
+
+#: app/templates/404.html:153
+msgid "The page you are trying to access does not exist."
+msgstr ""
+
+#: app/templates/411_413_414.html:153
+msgid "The query length is too long."
+msgstr ""
+
+#: app/templates/_add_team.html:25
+msgid "Add name"
+msgstr "Nazwisko"
+
+#: app/templates/_add_team.html:27
+msgid "Team name error:  "
+msgstr "Błąd nazwy drużyny:  "
+
+#: app/templates/_add_team.html:43
+msgid "Teams in the system"
+msgstr "Zespoły w systemie"
+
+#: app/templates/_adduser.html:22
+msgid "First name: "
+msgstr ""
+
+#: app/templates/_adduser.html:27
+msgid "Last Name"
+msgstr ""
+
+#: app/templates/_adduser.html:29
+msgid "Last name: "
+msgstr ""
+
+#: app/templates/_adduser.html:43 app/templates/_users.html:261
+msgid "Role"
+msgstr ""
+
+#: app/templates/_adduser.html:50
+msgid "Team"
+msgstr "Drużyny"
+
+#: app/templates/_adduser.html:57
+msgid "Date"
+msgstr "Data"
+
+#: app/templates/_adduser.html:62
+msgid "Choose one"
+msgstr "Wybierz jeden"
+
+#: app/templates/_adduser.html:69
+msgid "Height in cm"
+msgstr "Wysokość w cm"
+
+#: app/templates/_adduser.html:71 app/templates/_profile.html:88
+msgid "Height"
+msgstr "Wzrost"
+
+#: app/templates/_adduser.html:76
+msgid "Dont lie :)"
+msgstr "Nie kłam :)"
+
+#: app/templates/_adduser.html:78 app/templates/_profile.html:96
+msgid "Weight"
+msgstr "Waga"
+
+#: app/templates/_adduser.html:83 app/templates/_profile.html:104
+msgid "Position"
+msgstr "Pozycja"
+
+#: app/templates/_adduser.html:89
+msgid "Shirt no"
+msgstr "Nr. Koszulki"
+
+#: app/templates/_adduser.html:91 app/templates/_profile.html:128
+msgid "Shirt"
+msgstr "Koszulka"
+
+#: app/templates/_contusion.html:207 app/templates/_contusion_admin.html:29
+#, fuzzy
+msgid "Injury data About Player"
+msgstr "Edytuj kontuzję gracza"
+
+#: app/templates/_contusion.html:220 app/templates/_contusion.html:240
+#: app/templates/_contusion_admin.html:45
+#: app/templates/_contusion_admin.html:75
+msgid "Days"
+msgstr "Dni"
+
+#: app/templates/_contusion.html:232
+msgid "Active Injury"
+msgstr "Aktywna kontuzja"
+
+#: app/templates/_contusion.html:245 app/templates/_contusion_admin.html:50
+#: app/templates/_contusion_admin.html:78
+msgid "Details"
+msgstr "Szczegóły"
+
+#: app/templates/_contusion_admin.html:56
+#, fuzzy
+msgid "No injury data about the player."
+msgstr "Dane dotyczące kontuzji gracza"
+
+#: app/templates/_contusion_admin.html:62
+msgid "Active Injuries"
+msgstr "Aktywne kontuzję"
+
+#: app/templates/_contusion_admin.html:80
+msgid "Touch for edit"
+msgstr "Kliknij aby edytować"
+
+#: app/templates/_contusion_admin.html:85
+#, fuzzy
+msgid "Edit Injury"
+msgstr "początek kontuzji"
+
+#: app/templates/_contusion_admin.html:93
+msgid "Body part"
+msgstr "Część ciała"
+
+#: app/templates/_contusion_admin.html:118
+#: app/templates/_contusion_admin.html:310
+msgid "Start date"
+msgstr "Data startu"
+
+#: app/templates/_contusion_admin.html:118
+#: app/templates/_contusion_admin.html:310
+msgid "End date (prediction)"
+msgstr "Data końca (przewidywana)"
+
+#: app/templates/_contusion_admin.html:126
+#: app/templates/_contusion_admin.html:318
+msgid "Additional info"
+msgstr "Dodatkowe informacje"
+
+#: app/templates/_contusion_admin.html:127
+#: app/templates/_contusion_admin.html:319
+msgid "Please, provide more information about the injury"
+msgstr "Proszę podać więcej informacji o kontuzji"
+
+#: app/templates/_contusion_admin.html:145
+#, fuzzy
+msgid "No injury active on this player."
+msgstr "Dodaj kontuzję gracza"
+
+#: app/templates/_contusion_admin.html:179
+msgid "Left shoulder"
+msgstr "Lewe ramię"
+
+#: app/templates/_contusion_admin.html:280
+msgid "Complete bellow"
+msgstr "Uzupełnij poniżej"
+
+#: app/templates/_contusion_admin.html:286
+msgid "Selected Part: "
+msgstr "Wybierz część:"
+
+#: app/templates/_contusion_admin.html:300
+msgid "Days:"
+msgstr "Dni:"
+
+#: app/templates/_event_surveys_list.html:174
+msgid "Events Completed "
+msgstr "Wydarzenia zakończone "
+
+#: app/templates/_event_surveys_list.html:177
+msgid "Search Event by name"
+msgstr "Wyszukaj wydarzenie według nazwy"
+
+#: app/templates/_event_surveys_list.html:274
+#: app/templates/_event_surveys_list.html:321
+msgid "Send reminder"
+msgstr "Wyślij przypomnienie"
+
+#: app/templates/_event_surveys_list.html:293
+#: app/templates/_event_surveys_list.html:337
+#: app/templates/_event_surveys_list.html:375
+#: app/templates/_event_surveys_list.html:412
+#: app/templates/_event_surveys_list_player.html:275
+#: app/templates/_event_surveys_list_player.html:321
+msgid "Total Completed:"
+msgstr "Łącznie Ukończono:"
+
+#: app/templates/_event_surveys_list.html:293
+#: app/templates/_event_surveys_list.html:337
+#: app/templates/_event_surveys_list.html:375
+#: app/templates/_event_surveys_list.html:412
+#: app/templates/_event_surveys_list_player.html:275
+#: app/templates/_event_surveys_list_player.html:321
+msgid "Not Completed:"
+msgstr "Nie ukończono:"
+
+#: app/templates/_event_surveys_list.html:293
+#: app/templates/_event_surveys_list.html:337
+#: app/templates/_event_surveys_list.html:375
+#: app/templates/_event_surveys_list.html:412
+#: app/templates/_event_surveys_list_player.html:275
+#: app/templates/_event_surveys_list_player.html:321
+msgid "Injured:"
+msgstr "Kontuzjowany:"
+
+#: app/templates/_event_surveys_list.html:357
+#: app/templates/_event_surveys_list.html:394
+msgid "Complete it here!"
+msgstr "Ukończ to tutaj"
+
+#: app/templates/_event_surveys_list.html:367
+#: app/templates/_event_surveys_list.html:404 app/templates/edit_data.html:23
+msgid "Edit data"
+msgstr "Edytuj dane"
+
+#: app/templates/_event_surveys_list_player.html:172
+msgid "Surveys List "
+msgstr "Lista ankiet "
+
+#: app/templates/_event_surveys_list_player.html:175
+msgid "Search Event by name and team"
+msgstr "Szukaj wydarzenia po nazwe i drużynie"
+
+#: app/templates/_event_surveys_list_player.html:256
+msgid "NOT COMPLETED"
+msgstr "Nie ukończono"
+
+#: app/templates/_event_surveys_list_player.html:265
+#: app/templates/_event_surveys_list_player.html:311
+msgid "COMPLETED"
+msgstr "Ukończono"
+
+#: app/templates/_event_surveys_list_player.html:269
+msgid "Energy"
+msgstr "Energia"
+
+#: app/templates/_event_surveys_list_player.html:269
+msgid "Muscle Soreness"
+msgstr "Ból mięśni"
+
+#: app/templates/_event_surveys_list_player.html:269
+msgid "Sleep Quality"
+msgstr "Jakość snu"
+
+#: app/templates/_event_surveys_list_player.html:302
+msgid "TO COMPLETE"
+msgstr "Do ukończenia"
+
+#: app/templates/_event_surveys_list_player.html:307
+msgid "Injuried"
+msgstr "Kontuzjowany"
+
+#: app/templates/_event_surveys_list_player.html:315
+msgid "Rpe Borge Scale"
+msgstr "Skala borge'a RPE"
+
+#: app/templates/_events_carousel.html:8
+msgid "Events"
+msgstr "wydarzenia"
+
+#: app/templates/_events_carousel.html:17
+msgid "Start:"
+msgstr "Start:"
+
+#: app/templates/_events_carousel.html:18
+#: app/templates/_events_carousel.html:123
+#: app/templates/_events_carousel.html:158
+#: app/templates/_events_carousel.html:199
+#: app/templates/_events_carousel.html:224
+msgid "End:"
+msgstr "Koniec:"
+
+#: app/templates/_events_carousel.html:19
+#: app/templates/_events_carousel.html:124
+#: app/templates/_events_carousel.html:159
+#: app/templates/_events_carousel.html:200
+#: app/templates/_events_carousel.html:225
+msgid "Type"
+msgstr "Typ"
+
+#: app/templates/_events_carousel.html:20
+#: app/templates/_events_carousel.html:125
+#: app/templates/_events_carousel.html:160
+#, fuzzy
+msgid "Training"
+msgstr "bieg"
+
+#: app/templates/_events_carousel.html:21
+#: app/templates/_events_carousel.html:126
+#: app/templates/_events_carousel.html:161
+msgid "Match - International"
+msgstr "Mecz - Międzynarodowy"
+
+#: app/templates/_events_carousel.html:22
+#: app/templates/_events_carousel.html:127
+#: app/templates/_events_carousel.html:162
+msgid "Match - Cup"
+msgstr "Mecz - Puchar"
+
+#: app/templates/_events_carousel.html:23
+#: app/templates/_events_carousel.html:128
+#: app/templates/_events_carousel.html:163
+msgid "Match - League"
+msgstr "Mecz - Ligowy"
+
+#: app/templates/_events_carousel.html:25
+#: app/templates/_events_carousel.html:130
+#: app/templates/_events_carousel.html:165
+#: app/templates/_profile_header_menu.html:91
+msgid "Medical"
+msgstr ""
+
+#: app/templates/_events_carousel.html:37
+msgid "No events to show !"
+msgstr "Brak wydarzeń do wyświetlenia"
+
+#: app/templates/_events_carousel.html:43
+msgid "Next Import to add"
+msgstr "Następny import do dodania"
+
+#: app/templates/_events_carousel.html:43
+msgid "Next Surveys"
+msgstr "Następne Ankiety"
+
+#: app/templates/_events_carousel.html:52
+msgid "Import"
+msgstr "Importuj"
+
+#: app/templates/_events_carousel.html:54
+msgid "Survey"
+msgstr "Ankiety"
+
+#: app/templates/_events_carousel.html:59
+msgid "ACTIVE"
+msgstr "AKTYWNE"
+
+#: app/templates/_events_carousel.html:59
+msgid "NOT ACTIVE"
+msgstr "NIEAKTYWNE"
+
+#: app/templates/_events_carousel.html:88
+msgid "EXPIRED"
+msgstr "MINĘŁO"
+
+#: app/templates/_events_carousel.html:100
+msgid "No Surveys to complete !"
+msgstr "Brak ankiet do wypełnienia !"
+
+#: app/templates/_events_carousel.html:102
+#, fuzzy
+msgid "No imports to complete."
+msgstr "Brak ankiet do wypełnienia !"
+
+#: app/templates/_events_carousel.html:113
+msgid "Kinase data to add"
+msgstr "Dane kinazy do dodania"
+
+#: app/templates/_events_carousel.html:141
+msgid "No KINASE events to show !"
+msgstr "Brak KIKAZY wydarzeń do wyświetlenia!"
+
+#: app/templates/_events_carousel.html:148
+msgid "Motoric data to import"
+msgstr "Dane motoryczne do importu"
+
+#: app/templates/_events_carousel.html:176
+msgid "No Motoric data to import!"
+msgstr "Brak danych motorycznych do importu!"
+
+#: app/templates/_events_carousel.html:189
+msgid "Wellness data to complete"
+msgstr "Dane wellness do ukończenia"
+
+#: app/templates/_events_carousel.html:207
+msgid "No Wellness events to show !"
+msgstr "Brak wydarzeń wellness do wyświetlenia!"
+
+#: app/templates/_events_carousel.html:214
+msgid "Rpe data to complete"
+msgstr "Dane RPE do ukończenia"
+
+#: app/templates/_events_carousel.html:232
+msgid "No RPE Surveys to show !"
+msgstr "Brak ankiet RPE do wyświetlenia!"
+
+#: app/templates/_import_users.html:17
+msgid "Add File"
+msgstr ""
+
+#: app/templates/_import_users.html:19
+msgid "File error:  "
+msgstr ""
+
+#: app/templates/_import_users.html:27
+msgid "Select team"
+msgstr ""
+
+#: app/templates/_navbar.html:265 app/templates/_navbar.html:267
+msgid "ENGLISH"
+msgstr ""
+
+#: app/templates/_navbar.html:267
+msgid "POLISH"
+msgstr ""
+
+#: app/templates/_navbar.html:279
+msgid "Search for players"
+msgstr ""
+
+#: app/templates/_navbar.html:352
+msgid "Notifications"
+msgstr "Akcje"
+
+#: app/templates/_navbar.html:431
+msgid "No notifications to show!"
+msgstr "Brak powiadomień do wyświetlenia!"
+
+#: app/templates/_profile.html:11
+msgid "BASIC INFORMATION"
+msgstr ""
+
+#: app/templates/_profile.html:39
+msgid "Fast access"
+msgstr "Szybki dostęp"
+
+#: app/templates/_profile.html:48 app/templates/_users.html:205
+msgid "Add user "
+msgstr "Dodaj użytkonika +"
+
+#: app/templates/_profile.html:58 app/templates/_users.html:214
+msgid "Import Players"
+msgstr ""
+
+#: app/templates/_profile.html:68 app/templates/_users.html:223
+msgid "Add team "
+msgstr "Dodaj drużynę +"
+
+#: app/templates/_profile.html:120
+msgid "Nationality"
+msgstr "Narodowość"
+
+#: app/templates/_profile.html:138
+msgid "Last time seen:"
+msgstr "Ostatnio widziany:"
+
+#: app/templates/_profile.html:147
+msgid "Health State:"
+msgstr "Status zdrowia:"
+
+#: app/templates/_profile.html:150 app/templates/_users.html:287
+#, fuzzy
+msgid "INJURIED"
+msgstr "Kontuzjowany"
+
+#: app/templates/_profile.html:150 app/templates/_users.html:287
+msgid "HEALTHY"
+msgstr "ZDROWIE"
+
+#: app/templates/_profile_header_menu.html:79 app/templates/_sidebar.html:23
+#: app/templates/rpe-survey.html:19 app/templates/survey_component.html:18
+msgid "Surveys"
+msgstr ""
+
+#: app/templates/_profile_header_menu.html:85
+msgid "Motoric"
+msgstr ""
+
+#: app/templates/_profile_header_menu.html:97
+msgid "Resume"
+msgstr ""
+
+#: app/templates/_settings.html:59
+msgid "Avatar"
+msgstr "Zdjęcie"
+
+#: app/templates/_settings.html:75
+msgid "Change Password"
+msgstr "hasło"
+
+#: app/templates/_settings.html:83 app/templates/reset_password_g.html:16
+msgid "New Password"
+msgstr ""
+
+#: app/templates/_settings.html:85 app/templates/reset_password_g.html:18
+msgid "Password: "
+msgstr ""
+
+#: app/templates/_settings.html:90 app/templates/reset_password_g.html:20
+msgid "Confirm Password"
+msgstr ""
+
+#: app/templates/_settings.html:92
+msgid "Repeat Password: "
+msgstr "powtórz hasło"
+
+#: app/templates/_settings.html:108
+#, fuzzy
+msgid "Push Notifications"
+msgstr "Akcje"
+
+#: app/templates/_settings.html:110
+msgid ""
+"Push notifications look like SMS text messages and mobile alerts, but "
+"they only reach users who have installed this app. It is recommended to "
+"enable this feature."
+msgstr ""
+"Powiadomienia Push wyglądają jak wiadomości tekstowe SMS i powiadomienia "
+"mobilne, ale docierają one tylko do użytkowników, którzy zainstalowali tę"
+" aplikację. Zaleca się, aby włączyć tę funkcję."
+
+#: app/templates/_settings.html:130
+msgid "Your file is bigger than 2MiB, upload another file, size: "
+msgstr "Twój plik jest większy niż 2MiB, prześlij inny plik o rozmiarze: "
+
+#: app/templates/_settings.html:133 app/templates/_settings.html:141
+#: app/templates/confirmmail.html:110 app/templates/confirmmail.html:118
+msgid "Upload another file !"
+msgstr "Prześlij inny plik !"
+
+#: app/templates/_settings.html:138 app/templates/confirmmail.html:115
+msgid "Allowed files: jpg, png."
+msgstr "Dozwolone pliki: jpg, png."
+
+#: app/templates/_sidebar.html:11
+msgid "Dashboard"
+msgstr ""
+
+#: app/templates/_sidebar.html:15
+msgid "Users"
+msgstr ""
+
+#: app/templates/_sidebar.html:23
+msgid "Event Data"
+msgstr "Wybierz rolę"
+
+#: app/templates/_sidebar.html:25
+msgid "Calendar"
+msgstr ""
+
+#: app/templates/_sidebar.html:27
+msgid "Settings"
+msgstr ""
+
+#: app/templates/_sidebar.html:29
+msgid "Support"
+msgstr ""
+
+#: app/templates/_sidebar.html:32
+msgid "Log Out"
+msgstr ""
+
+#: app/templates/_summary.html:241
+msgid "Wybierz użytkownika lub team"
+msgstr "Select a user or team"
+
+#: app/templates/_summary.html:243 app/templates/_users_message_list.html:149
+msgid "Search people by name and team"
+msgstr "Szukaj osób według nazwy i zespołu"
+
+#: app/templates/_users.html:196
+msgid "All users"
+msgstr ""
+
+#: app/templates/_users.html:236
+#, fuzzy
+msgid "Search people by name"
+msgstr "Szukaj osób według nazwy i zespołu"
+
+#: app/templates/_users.html:241
+msgid "Name"
+msgstr ""
+
+#: app/templates/_users.html:248
+msgid "Teams"
+msgstr ""
+
+#: app/templates/_users.html:251
+msgid "Health"
+msgstr "Zdrowie"
+
+#: app/templates/_users.html:257
+msgid "Mail"
+msgstr ""
+
+#: app/templates/_users.html:267
+msgid "Actions"
+msgstr ""
+
+#: app/templates/_users.html:291
+msgid "Player"
+msgstr "Importuj zawodników"
+
+#: app/templates/_users.html:291
+msgid "Staff"
+msgstr "Personel"
+
+#: app/templates/_users_message_list.html:147
+msgid "Messages "
+msgstr "Zdjęcie"
+
+#: app/templates/base.html:23
+msgid "Install our App and Add to home screen"
+msgstr "Zainstaluj naszą App i dodaj do ekranu głownego"
+
+#: app/templates/confirmmail.html:58
+msgid ""
+"You have received an invitation to join the Lechsys application - please "
+"set your password and user."
+msgstr ""
+
+#: app/templates/confirmmail.html:60
+msgid "Your mail is:"
+msgstr "Podaj mail'a"
+
+#: app/templates/confirmmail.html:61
+msgid "Full name:"
+msgstr "Pełne imie: "
+
+#: app/templates/confirmmail.html:62 app/templates/login.html:19
+msgid "Username: "
+msgstr ""
+
+#: app/templates/confirmmail.html:63
+msgid "*Password should have at least 10 characters."
+msgstr "*Hasło powinno mieć co najmniej 10 znaków."
+
+#: app/templates/confirmmail.html:70
+msgid "File"
+msgstr "Plik"
+
+#: app/templates/confirmmail.html:80 app/templates/login.html:21
+msgid "password"
+msgstr ""
+
+#: app/templates/confirmmail.html:85
+msgid "repeat password"
+msgstr ""
+
+#: app/templates/confirmmail.html:87
+msgid "Repeat password"
+msgstr "powtórz hasło"
+
+#: app/templates/confirmmail.html:107
+msgid "Your file is bigger than 5MiB, upload another file, size: "
+msgstr "Twój plik jest większy niż 5MiB, prześlij inny plik o rozmiarze: "
+
+#: app/templates/edit_data.html:156 app/templates/import_kinase.html:180
+#: app/templates/import_motoric.html:217 app/templates/survey_admin.html:71
+msgid "Participants"
+msgstr "Uczestnicy"
+
+#: app/templates/edit_data.html:174
+msgid "Edit Motoric data"
+msgstr "Edytuj dane motoryczne"
+
+#: app/templates/edit_data.html:184 app/templates/edit_data.html:233
+msgid "WAS HEALTHY"
+msgstr "BYŁ ZDROWY"
+
+#: app/templates/edit_data.html:186 app/templates/edit_data.html:235
+#: app/templates/import_kinase.html:229 app/templates/import_motoric.html:323
+msgid "CONTUSION"
+msgstr "Akcje"
+
+#: app/templates/edit_data.html:223
+msgid "Edit Kinase data"
+msgstr "Edytuj dane kinazy"
+
+#: app/templates/home.html:31
+msgid "Welcome "
+msgstr ""
+
+#: app/templates/import_kinase.html:21
+msgid "Import Kinase"
+msgstr "Imie"
+
+#: app/templates/import_kinase.html:198 app/templates/import_motoric.html:235
+msgid "Import data Manually"
+msgstr "Importuj dane ręcznie"
+
+#: app/templates/import_kinase.html:226 app/templates/import_motoric.html:320
+msgid "IMPORT COMPLETED"
+msgstr "Importuj zawodników"
+
+#: app/templates/import_kinase.html:238 app/templates/import_motoric.html:328
+msgid "Add Data"
+msgstr "Dodaj Dane"
+
+#: app/templates/import_kinase.html:248 app/templates/import_motoric.html:338
+msgid ""
+"IMPORTANT: For people without added data, the system will automatically "
+"add zeros next to the data of this event, you can always change it later,"
+" are you sure it should stay like this? "
+msgstr ""
+"WAŻNE: dla osób bez dodanych danych system doda je automatyczniedodaj "
+"zera przy danych tego wydarzenia, zawsze możesz to później zmienićCzy "
+"jesteś pewien, że tak powinno pozostać?"
+
+#: app/templates/import_kinase.html:251 app/templates/import_motoric.html:341
+msgid "Yes, it should stay like this"
+msgstr "Tak, powinno tak pozostać"
+
+#: app/templates/import_kinase.html:323 app/templates/import_motoric.html:414
+msgid "Some Value is not a number! Fill all spaces"
+msgstr "Pewna wartość nie jest liczbą! Wypełnij wszystkie miejsca"
+
+#: app/templates/import_motoric.html:20
+msgid "Import data from file"
+msgstr "Importuj dane z pliku"
+
+#: app/templates/login.html:17
+msgid "username or email"
+msgstr ""
+
+#: app/templates/login.html:24
+msgid "Remember me?"
+msgstr ""
+
+#: app/templates/login.html:26
+msgid "Forgot password?"
+msgstr ""
+
+#: app/templates/reset_request.html:16
+msgid "Put your email"
+msgstr ""
+
+#: app/templates/reset_request.html:23
+msgid "Go back for login!"
+msgstr ""
+
+#: app/templates/survey_admin.html:76 app/templates/survey_player.html:76
+msgid "Wellness Survey Resume"
+msgstr "Podsumowanie ankiet wellness"
+
+#: app/templates/survey_admin.html:82 app/templates/survey_player.html:82
+msgid "Rpe Survey Resume"
+msgstr "Podsumowanie ankiet RPE"
+
+#: app/templates/survey_admin.html:88
+msgid "Motoric Data Resume"
+msgstr "Importuj sprawozdanie motoryczne"
+
+#: app/templates/survey_admin.html:94
+msgid "Kinase Data Resume"
+msgstr "Podsumowanie danych kinazy"
+
+#: app/templates/survey_player.html:71
+msgid "Event"
+msgstr "Wydarzenie"
+
+#: app/templates/wellness_survey.html:20
+msgid "Wellness survey"
+msgstr "Ankieta wellness"
+
+#~ msgid "User with %(id) deleted {} "
+#~ msgstr ""
+
+#~ msgid "%(user) - Edit user"
+#~ msgstr ""
+
+#~ msgid "This person do not exist in the system!"
+#~ msgstr ""
+
+#~ msgid " Added user %(new_user)"
+#~ msgstr ""
+
+#~ msgid "User %(name) %(last_name) added"
+#~ msgstr ""
+
+#~ msgid "User with %(id) deleted"
+#~ msgstr ""
+
+#~ msgid "Your activation link is: %(link)"
+#~ msgstr ""
+
+#~ msgid "Your link for reset password is: %(link)"
+#~ msgstr ""
+
+#~ msgid "SPANISH"
+#~ msgstr ""
+
+#~ msgid "Add user +"
+#~ msgstr ""
+
+#~ msgid "Add team +"
+#~ msgstr ""
+
+#~ msgid "username"
+#~ msgstr ""
+
+#~ msgid "Prawa ręka"
+#~ msgstr "Prawa ręka"
+
+#~ msgid "Active Contusion"
+#~ msgstr "Aktywna kontuzja"
+
+#~ msgid "Edit contusion"
+#~ msgstr "Edytuj kontuzję"
+
+#~ msgid "LANGUAGE"
+#~ msgstr ""
+
+#~ msgid "Age"
+#~ msgstr "Zdjęcie"
+

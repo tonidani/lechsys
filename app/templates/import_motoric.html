@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+
+
+    {% endblock stylesheet %}
+
+{% block content %}
+{% set active_page = "surveys" %}
+<body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    <div class="main">
+	<div class="content">
+        <div class="hello"><h2>{{ _("Import data from file") }}</h2></div>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+    .event-space {
+        /* background: var(--leadcolor);
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);*/
+         /* border-radius: 20px;*/
+        font-family: 'Roboto', sans-serif;
+        padding: 30px 20px;
+        color: white;
+      
+        margin-left:16px;
+        margin-right:16px;
+
+    }
+
+
+.form input[type="file"] {
+    background: #3F4254;
+    display: block;
+
+    padding: 1em;
+
+    #border-radius: 0.5em;
+    border: none;
+
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.747);
+    position: relative;
+    width: 80%;
+}
+
+     .columns-30-40-30{
+
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        grid-gap:3%;
+    }
+
+       .columns-11{
+
+        display: grid;
+        grid-template-columns: repeat(11, 1fr);
+        
+    }
+
+    .form input[type="submit"], #submitManually {
+    background: rgb(80, 80, 145);
+    padding: 16px;
+    #border-radius: 1em;
+    border: 0;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+
+}
+
+
+
+
+input[type="number"]{
+    background: #3F4254;
+    display: inline-block;
+    margin: 2em auto;
+    border: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.747);
+}
+
+
+
+
+input[type="date"], select{
+    background: #3F4254;
+    display: inline-block;
+    margin: 2em auto;
+
+    padding: 1em;
+
+    border-radius: 0.5em;
+    border: none;
+
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.747);
+}
+
+
+div.input-box > input{
+        width:80px;
+        height:40px;
+}
+
+div.input-box{
+
+ display: grid;
+  grid-template-rows: auto  auto;
+
+}
+
+#error {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#error-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  color:black;         
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+
+#close {
+  color:black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-custom-cancel
+{
+background-color:darkred;
+border:0;
+padding:10px;
+color:white;
+cursor:pointer;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+
+@media screen and (max-width: 767px) {
+
+        .columns-11 {
+        grid-template-columns: repeat(3, 1fr);
+        display: grid;
+                        }
+        }
+
+
+</style>
+
+
+<div class="event-space columns-30-40-30" >
+
+   <div><h3>{{event.name}}</h3>
+    <p>{{ event.start.strftime('%d.%m.%Y')}} | {{event.end.strftime('%d.%m.%Y')}}</p>
+     <p>{{ _("Type") }} :
+                  {% if event.type_id == 4 %} {{_("Training") }}
+                  {% elif event.type_id == 3 %} {{_("Match - International") }}
+                  {% elif event.type_id == 2 %} {{_("Match - Cup") }}
+                  {% elif event.type_id == 1 %} {{_("Match - League") }}
+                  {% else %}
+                  {{_("Medical") }}
+                  {% endif %}
+
+
+              </p>
+               <p>{% if event.details != '' %} {{event.details}} {% endif %}</p>
+
+
+
+
+
+
+
+   </div>
+    <div class="form">
+
+          <form action="" method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+        <h2 style="margin-bottom:2%;">{{ form.motoric_data.label}}</h2>
+            <div class="">{{form.motoric_data}}</div>
+
+             <div style="margin-top:2%;">{{form.submit}}</div>
+
+
+        </form>
+
+    </div>
+
+    <div>
+
+        <h3>{{ _("Participants") }}</h3>
+        <div>
+       {% for player in participants %}
+             <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}}</a>,
+
+       {% endfor %}
+        </div>
+    </div>
+    <div></div>
+<div class="import-errors">
+    <br>
+    {{message}}
+     <br>
+         <div style="">
+         <p><i class="fas fa-download"></i> Przykladowy plik</p>
+         <hr>
+             <ul><li><a style="color: var(--text-light)" href="{{ url_for('download_motoric_file') }}"> Import Data file</a></li></ul>
+
+
+
+             </div>
+         <br>
+
+</div>
+
+</div>
+
+<div class="hello"><br><h2>{{ _("Import data Manually") }}</h2></div>
+
+<div class="event-space">
+       <div class="form">
+
+          <form action="" method="post" id="manually-form" onsubmit="sendData()">
+
+              {% for player in participants if "player" in player.show_role() %}
+                    {% if  ("TO-COMPLETE" in player.get_motoric_of_event(event.id)[0].state)  %}
+
+
+                        <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}} - {{player.state}}</a>
+              <hr>
+              <div class="columns-11">
+
+
+                  <div class="input-box">
+                                       <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="total_distance">{{ ("Total distance (m)") }}</label></h5></div>
+                        <input data-attr="1" id="total_distance" name="total_distance-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box">
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="sprint">{{ ("Sprint (m)") }}</label></h5></div>
+                        <input data-attr="1" id="sprint" name="sprint-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box">
+                      <div style="height:50px;"> <h5 style="margin-bottom:2%;"><label for="total_player_load">{{ ("Total player load") }}</label></h5></div>
+                        <input data-attr="1" id="total_player_load" name="total_player_load-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box" >
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="hsr"> {{ ("HSR") }}</label></h5></div>
+                        <input data-attr="1" id="hsr" name="hsr-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box" >
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="acceleration"> {{ ("Acceleration") }}</label></h5></div>
+                        <input data-attr="1" id="acceleration" name="acceleration-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box" >
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="deceleration">{{ ("Deceleration") }}</label></h5></div>
+                        <input data-attr="1" id="deceleration" name="deceleration-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box" >
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="field_time">{{ ("Field time") }}</label></h5></div>
+                        <input data-attr="1" id="field_time" name="field_time-{{player.id}}" type="number" required min=0 step="1" value="">
+                    </div>
+
+
+                  <div class="input-box" >
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="maximum_velocity"> {{ ("Max. velocity") }}</label></h5></div>
+                        <input data-attr="1" id="maximum_velocity" name="maximum_velocity-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box" >
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="meterage_per_minute">{{ ("M. per minute") }}</label></h5></div>
+                        <input data-attr="1" id="meterage_per_minute" name="meterage_per_minute-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box" >
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="max_vel_per_max">{{ ("Max. vel. per. max") }}</label></h5></div>
+                        <input data-attr="1" id="max_vel_per_max" name="max_vel_per_max-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+
+                  <div class="input-box" >
+                      <div style="height:50px;"><h5 style="margin-bottom:2%;"><label for="running">{{ ("Running") }}</label></h5></div>
+                        <input data-attr="1" id="running" name="running-{{player.id}}" type="number" required min=0 step="0.1" value="">
+                    </div>
+
+                 <button class="btn btn-primary remove-form btn-custom-cancel" onclick="removeForm(this)" type="button">X</button>
+</div>
+<br>
+                 {% elif "COMPLETED" in player.get_motoric_of_event(event.id)[0].state  %}
+               <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}} - {{ _("IMPORT COMPLETED") }}</a>
+              <hr>
+                {% else %}
+                  <a style="color: var(--text-light)"href="{{ url_for('people_page', id=player.id) }}">{{player.first_name}} {{player.last_name}} - {{ _("CONTUSION") }}</a>
+              <hr>
+              {% endif %}
+              {% endfor %}
+
+               <button type="button" id="submitManually" name="submitManually"  type="submit" onclick="sendData()">{{_('Add Data')}}</button>
+               
+               
+               <div id="error">
+                
+                   
+                   
+                    <div id="error-content">
+                        <span id="close">&times;</span>
+                        <div id="error-info"></div>
+                        <div id="error-footer" style="display:none">{{ _("IMPORTANT: For people without added data, the system will automatically add zeros next to the data of this event, you can always change it later, are you sure it should stay like this? ") }}</div>
+                        <div id="decision" style="display:none">
+            
+                            <button id="submitManually" name="submitManually"  type="submit" formaction="/{{ event.id }}/motoric-import/lock" >{{ _('Yes, it should stay like this')}}</button>
+                     
+                    </div>
+                    </div>
+                    
+                   
+
+
+               </div>
+
+
+        </form>
+
+
+    </div>
+
+
+
+    </div>
+
+
+<script>
+
+
+        let errorBox = document.querySelector("#error");
+        let errorInfo = document.querySelector("#error-info");
+        let errorFooter = document.querySelector("#error-footer");
+        let decision = document.querySelector("#decision");
+
+
+        let span = document.querySelector("#close");
+
+        span.onclick = function() {
+            errorBox.style.display = "none";
+            errorInfo.innerHTML = "";
+        }
+
+        window.onclick = function(event) {
+        if (event.target == errorBox) {
+            errorBox.style.display = "none";
+            errorInfo.innerHTML = "";
+        }
+        } 
+
+        
+
+        function removeForm(elem){
+        elem.parentNode.remove()
+         
+        }
+        
+       
+
+        function sendData(){
+            let formData = document.querySelector("#manually-form");
+
+
+            let data = new FormData(formData);
+       
+          
+
+            let lastArray = [];
+            let count = 0;
+
+            for (let [key, value] of data) {
+                let stringKey = String(key)
+                let who = stringKey.replace(/\D/g,'');
+                let what = stringKey.replace(/[0-9]/g, '');
+                if(isNaN(value) || value == "")
+                {
+                    let numboxes = document.querySelectorAll("input[type=number]");
+                    
+                    numboxes[count].style.border ="solid 3px red";
+                    document.querySelector("#error-info").innerHTML = "{{_('Some Value is not a number! Fill all spaces')}}";
+                    errorBox.style.display = "block";
+                    return false;
+                }
+
+
+                count ++;
+                let tripleSet = new Object()
+                tripleSet =  { id: parseInt(who), [what.replace(/-/g, '')] : parseFloat(value) }
+
+                
+
+                lastArray.push(tripleSet)
+
+            }
+                
+            const mergedArray = (arr) => {
+                            return arr.reduce((acc, val, ind) => {
+                                const index = acc.findIndex(el => el.id === val.id);
+                                if(index !== -1){
+                                    const key = Object.keys(val)[1];
+                                    acc[index][key] = val[key];
+                                } else {
+                                    acc.push(val);
+                                };
+                                return acc;
+                            }, []);
+                    };
+
+
+    
+
+
+            
+                let url = window.location.href + 'manually';
+
+                let response = fetch(url, {
+                            method: 'POST',
+                            headers: new Headers({'content-type': 'application/json'}),
+                            body: JSON.stringify(mergedArray(lastArray))
+                        })
+                        .then(res => res.json())
+                        .then(res => {
+                           
+
+                            for (var i = 0; i < res.length; i++) {
+                                
+                                let dict = res[i];
+                                let name = dict['name'];
+                                let secondName = dict['second_name'];
+                                let added = dict['added'];
+
+
+
+                                let result = `<div class="notification-element" style="padding:16px; color: var(--text-light);"><ul><li>${name} ${secondName} -  ${added}</li></ul></div><hr>`;
+
+                            errorInfo.innerHTML += result;
+                           
+
+
+
+                            }
+                            
+                            errorBox.style.display = "block";
+                            errorFooter.style.display = "block";
+                            decision.style.display = "block";
+                        });
+                        
+                    
+ 
+                         
+            }
+
+
+</script>
+
+
+
+
+{% endblock %}
+
+

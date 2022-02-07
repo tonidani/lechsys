@@ -1,0 +1,126 @@
+
+
+{%  block stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}" />
+{% endblock %}
+    <div class="hello">{{  title  }}</div>
+<form action="" method="post">
+    <div class="form">
+
+
+
+
+     <div class="box">
+
+
+            {{ form.hidden_tag() }}
+            {{ form.first_name.label }}
+            {{ form.first_name(size=32, placeholder=_("First name"))}}
+
+
+            {% for error in form.first_name.errors %}
+                <span style="color: red;">{{ _("First name: ")}} {{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="box">
+         {{ form.last_name.label }}
+        {{ form.last_name(size=32, placeholder=_("Last Name")) }}
+            {% for error in form.last_name.errors %}
+		     <span style="color: red;">{{ _("Last name: ")}} {{ error }}</span>
+		   {% endfor %}
+     </div>
+     <div class="box">
+      {{ form.email.label }}
+                 {{ form.email(size=32, placeholder="E-mail") }}
+    {% for error in form.email.errors %}
+		   <span style="color: red;">E-mail: {{ error }}</span>
+		   {% endfor %}
+     </div>
+    <div class="box">
+         {{ form.role.label }}
+                 {{ form.role }}
+         {% for error in form.role.errors %}
+		   <span style="color: red;">{{ _("Role") }}: {{ error }}</span>
+		   {% endfor %}
+    </div>
+     <div class="box">
+         {{ form.team.label }}
+                 {{ form.team }}
+          {% for error in form.team.errors %}
+		   <span style="color: red;">{{ _("Team") }}: {{ error }}</span>
+		   {% endfor %}
+    </div>
+            <div class="box">
+         {{ form.birth_date.label }}
+                 {{ form.birth_date }}
+        {% for error in form.birth_date.errors %}
+		   <span style="color: red;">{{ _("Date") }} : {{ error }}</span>
+		   {% endfor %}
+    </div>
+    <div class="box">
+         {{ form.nationality.label }}
+                 {{ form.nationality(placeholder=_("Choose one")) }}
+    </div>
+</div>
+
+<div id="player_form" style="display:none" class="form">
+     <div class="box">
+         {{ form.height.label }}
+                 {{ form.height(placeholder=_("Height in cm")) }}
+          {% for error in form.height.errors %}
+		   <span style="color: red;">{{ _("Height") }}: {{ error }}</span>
+		   {% endfor %}
+    </div>
+     <div class="box">
+         {{ form.weight.label }}
+                 {{ form.weight(placeholder=_("Dont lie :)")) }}
+         {% for error in form.weight.errors %}
+		   <span style="color: red;">{{ _("Weight") }}: {{ error }}</span>
+		   {% endfor %}
+    </div>
+    <div class="box">
+         {{ form.position.label }}
+                 {{ form.position(placeholder=_("Position")) }}
+
+    </div>
+
+    <div class="box">
+         {{ form.shirt.label }}
+                 {{ form.shirt(placeholder=_("Shirt no")) }}
+         {% for error in form.shirt.errors %}
+		   <span style="color: red;">{{ _("Shirt") }} : {{ error }}</span>
+		   {% endfor %}
+    </div>
+</div>
+
+    <div class="form">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="box-submit">
+        {{ form.submit() }}</div>
+    </div>
+
+
+
+</form>
+    </div>
+
+<script>
+
+    let role = document.getElementById("role");
+    let playerForm = document.getElementById("player_form")
+
+    if(role.value == 2){
+        playerForm.style.display='grid'
+    }
+    role.onchange = function() {
+            isPlayerSelected = role.value;
+
+            if(isPlayerSelected == 2){
+                playerForm.style.display='grid'
+            }
+            else playerForm.style.display='none'
+            };
+
+</script>

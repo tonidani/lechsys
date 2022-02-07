@@ -1,0 +1,104 @@
+
+<style>
+
+    .profile_menu_navbar {
+        grid-template-columns:repeat(4, 1fr);
+        border: 1px solid #ddd;
+        display: grid;
+        margin: 5px 20px 20px 20px;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .profile_menu_navbar > div{
+       /* display: flex; */
+        width:100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-menu-header {
+      position: relative;
+      padding: 1rem 2rem 0.5rem 2.5rem;
+      color: #000000;
+      border: 3px solid #776e62;
+      -webkit-transition: padding 0.3s ease-in-out;
+      transition: padding 0.3s ease-in-out;
+}
+
+
+    .button {
+          padding: 10px 20px;
+
+          color: #fff;
+          background-color: var(--bgcolor);
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+          width:100%;
+
+    }
+     .button:hover {
+          background-color: #1F3654;
+             transition:0.3s;
+
+    }
+
+
+@media screen and (max-width: 767px) {
+     .button{
+        font-size: 10px;
+       }
+       .profile{
+        height:299px;
+       }
+
+        .profile-info{
+            display:none;
+             animation-name: animatetop;
+            animation-duration: 0.4s
+            }
+            @keyframes animatetop {
+              from {top: 300px; opacity: 0}
+              to {top: 0; opacity: 1}
+            }
+            .profile_menu_navbar{
+                margin-top:80px;
+            }
+}
+
+
+</style>
+
+<div class="profile_menu_navbar">
+            <div>
+            <form>
+                <button class="button" formaction="/users/{{user.id}}/surveys"><i class="fas
+                fa-file-signature"></i>
+                    {{ _("Surveys")  }}</button>
+            </form>
+                </div>
+            <div>
+            <form>
+               <button class="button"  formaction="/users/{{user.id}}/motoric"><i class="fas fa-running"></i>
+                    {{ _("Motoric")  }}</button>
+            </form>
+                </div>
+         <div>
+            <form>
+                <button class="button"  formaction="/users/{{user.id}}/medical"><i class="fas fa-briefcase-medical"></i>
+                    {{ _("Medical")  }}</button>
+            </form>
+                </div>
+            <div>
+            <form>
+                <button class="button"  formaction="/users/{{user.id}}/resume"><i class="fas fa-chart-line"></i>
+                    {{ _("Resume")  }}</button>
+            </form>
+                </div>
+
+</div>
+
+
+

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    {% endblock stylesheet %}
+
+{% block content %}
+{% set active_page = "surveys" %}
+<body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    <div class="main">
+	<div class="content">
+
+        {% if 'admin' in current_user.show_role()  %}
+            {% include 'survey_admin.html' %}
+        {% elif 'staff' in current_user.show_role()  %}
+              {% include'_vue_survey_staff.html' %}
+        {% else %}
+            {% include 'survey_player.html' %}
+        {% endif %}
+		</div>
+         
+        
+       
+    </div>
+
+
+    
+</body>
+</html>
+
+{% endblock %}

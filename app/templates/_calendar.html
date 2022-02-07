@@ -1,0 +1,13 @@
+{% block stylesheet %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+<link href="{{ url_for('static', filename='src/vue-calendar-player/dist/css/chunk-vendors.css') }}" rel="preload" as="style">
+<link href="{{ url_for('static', filename='src/vue-calendar-player/dist/js/app.js') }}" rel="preload" as="script">
+<link href="{{ url_for('static', filename='src/vue-calendar-player/dist/js/chunk-vendors.js') }}" rel="preload" as="script">
+<link href="{{ url_for('static', filename='src/vue-calendar-player/dist/css/chunk-vendors.css') }}" rel="stylesheet">
+{% endblock %}
+
+<div id="app-calendar-player">
+    <script src="{{ url_for('static', filename='src/vue-calendar-player/dist/js/chunk-vendors.js') }}"></script>
+    <script src="{{ url_for('static', filename='src/vue-calendar-player/dist/js/app.js') }}"></script>
+</div>

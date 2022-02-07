@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    {% endblock stylesheet %}
+
+{% block content %}
+
+{% set active_page = "settings" %}
+
+    <body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    <div class="main">
+	<div class="content">
+        {% include '_alerts.html' %}
+        {% include '_settings.html' %}
+		</div>
+
+    </div>
+
+
+
+</body>
+</html>
+
+{% endblock %}

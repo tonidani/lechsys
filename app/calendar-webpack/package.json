@@ -1,0 +1,35 @@
+{
+  "name": "calendar-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack --mode production",
+    "serve": "webpack-dev-server --mode development"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "deepmerge": "^4.2.2",
+    "html-webpack-plugin": "^5.5.0",
+    "rimraf": "^3.0.2",
+    "sass": "~1.32",
+    "sass-loader": "^12.3.0",
+    "vue": "^2.6.14",
+    "vue-loader": "^15.9.8",
+    "vue-style-loader": "^4.1.3",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "dependencies": {
+    "regenerator-runtime": "^0.13.9",
+    "vuetify": "^2.6.0"
+  }
+}

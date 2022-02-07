@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+	{% block stylesheet %}
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    {% endblock stylesheet %}
+
+{% block content %}
+{% set active_page = "surveys" %}
+<body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    <div class="main">
+	<div class="content">
+        <div class="hello">{{ _("Surveys") }}</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+    .survey-title {
+        background: #282931;
+        font-family: 'Roboto', sans-serif;
+        padding: 30px 20px;
+        color: white;
+
+    }
+
+    .input[type="radio"]{
+
+
+    }
+
+    .questionarie ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        margin-bottom:5%;
+       text-align:center;
+       list-style-type:none;
+
+    }
+
+    .questionarie li > label::before {
+              content: "";
+              display: block;
+
+            }
+
+    .two-columns-30-70{
+
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+
+
+</style>
+
+
+<div class="survey-title two-columns-30-70">
+
+   <div><h3>{{event.name}}</h3>
+   <p>{{event.start}} {{event.end}}</p>
+   <p>{{event.details}}</p>
+   <p>{{event.description}}</p>
+       <p>{{event.type}}</p>
+       <p>{{event.state}}</p>
+       <p>{{event.color}}</p>
+
+   </div>
+    <div class="questionarie">
+        <!---
+        {{ form.sleep_duration.label }}
+        {{form.sleep_duration(min=1, max=5, step=1, oninput="outputUpdate(value)") }}
+       <output for="age" id="selected-sleep_duration"></output>
+       <script>
+        function outputUpdate(val) {
+            document.querySelector('#selected-sleep_duration').value = val;
+        }
+        </script>
+        -->
+        <form >
+            {{ form.hidden_tag() }}
+        {% for i in form %}
+        <h2 style="margin-bottom:2%;">{{i.label}}</h2>
+            <div class="">{{i}}</div>
+
+        {% endfor %}
+        </form>
+
+    </div>
+
+</div>
+
+    </div>
+{% endblock %}

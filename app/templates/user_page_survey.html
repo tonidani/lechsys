@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+
+	{% block stylesheet %}
+    <!--
+    		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='src/vue-userpage/dist/css/chunk-vendors.css') }}">
+-->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+            <link href="{{ url_for('static', filename='src/vue-userpage-survey/dist/css/chunk-vendors.css') }}" rel="preload" as="style">
+            <link href="{{ url_for('static', filename='src/vue-userpage-survey/dist/js/app.js') }}" rel="preload" as="script">
+            <link href="{{ url_for('static', filename='src/vue-userpage-survey/dist/js/chunk-vendors.js') }}" rel="preload" as="script">
+            <link href="{{ url_for('static', filename='src/vue-userpage-survey/dist/css/chunk-vendors.css') }}" rel="stylesheet">
+
+          
+        <style>
+        .user-content {
+        grid-template-columns: 25% 75%;
+        display: grid;
+
+    }
+        .user-content-right {
+        grid-template-columns: 50% 50%;
+        display: grid;
+        background-color: red;
+    }
+    </style>
+    {% endblock stylesheet %}
+
+
+
+
+{% block content %}
+{% set active_page = "users" %}
+<body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    
+    <div class="main">
+	<div class="content">
+    {% include "_alerts.html" %}
+        
+        
+    {% include '_profile_header_menu.html' %}
+
+        <div id="app-userpage"> 
+
+            
+        <hr>
+
+            <div class="hello">{{ user_page }}</div>
+
+        </div>
+<!--
+        <div class="user-content">
+        {% include'_profile.html' %}
+        
+        <div class="user-content-right">
+            <div>element1</div>
+             <div>element1</div>
+             <div>element1</div>
+             <div>element1</div>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ultrices lacus nec consectetur mattis. Nulla at ullamcorper risus. Pellentesque purus massa, volutpat a sem finibus, dictum tincidunt magna. Phasellus at finibus est. Duis fermentum placerat diam imperdiet dapibus. Pellentesque id lorem in lectus scelerisque ornare eget id lectus. Aliquam augue nisi, maximus ac pellentesque vitae, fermentum ac massa. Cras quis ullamcorper ligula. Phasellus elit erat, ullamcorper ut ullamcorper vel, interdum id ligula. Duis auctor urna aliquet, sollicitudin elit at, semper urna.</p>
+        </div>
+        </div>
+    -->
+		</div>
+
+    </div>
+    
+
+    <script type="text/javascript" src="{{ url_for('static', filename='src/vue-userpage-survey/dist/js/chunk-vendors.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='src/vue-userpage-survey/dist/js/app.js') }}"></script>
+    
+</body>
+</html>
+
+{% endblock %}

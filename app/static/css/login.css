@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    text-decoration: none;
+}
+
+body {
+    background: #313340;
+}
+
+.login-box {
+    width: 20em;
+    padding: 2em;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+	color: white;
+    background: rgb(36, 38, 50);
+}
+
+.login-box input[type="text"], input[type="password"] {
+    background: none;
+    display: block;
+    margin: 2em auto;
+    padding-left: 1em;
+    padding: 1em;
+    width: 100%;
+    transition: all 0.3s ease;
+    border: .2em solid rgb(160, 160, 160);
+    /*border-radius: 1em;*/
+    outline-color: white;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.747);
+}
+
+.login-box input[type="submit"], #confirm-mail-box input[type="submit"], input[type="file"] {
+    background: rgb(80, 80, 145);
+    width:100%;
+    padding-top:10px;
+    padding-bottom: 10px;
+	margin-top:20px;
+    /*border-radius: 5em;*/
+    /* outline: none; */
+    border: 0;
+    font-size: 1em;
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.login-box input:focus {
+    outline: none;
+    transform: scale(1.04);
+    border-color: rgb(204, 204, 204);
+}
+
+a {
+    padding: 2em;
+    display: block;
+    color: white;
+    font-size: .9em;
+}
+
+h1 {
+    color: rgba(255, 255, 255, 0.651);
+}
+
+img {
+    width: 5em;
+    height: auto;
+}
+

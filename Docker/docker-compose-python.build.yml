@@ -1,0 +1,7 @@
+version: "3.6"
+
+services:
+  toni-python-app-base:
+    build:
+      context: .
+      dockerfile: ./DockerfilePython

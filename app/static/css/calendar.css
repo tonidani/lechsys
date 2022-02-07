@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+
+
+	
+	.active1 {
+	    background: #36394E;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	    border-radius: 8px;
+	}
+	
+	.active2 {
+	    background: #59405B;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	    border-radius: 8px;
+	}
+	
+	.active3 {
+	    background: #7B8459;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	    border-radius: 8px;
+	}
+	
+	.active4 {
+	    background: #4B7479;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	    border-radius: 8px;
+	}
+	
+	.nextmeeting {
+	    position: fixed;
+	    width: 10%;
+	    height: 5%;
+	    left: 37%;
+	    top: 72%;
+	    font-family: Nunito;
+	    font-style: normal;
+	    font-weight: 600;
+	    font-size: 22px;
+	    line-height: 33px;
+	    margin-left: 20px;
+	    color: #D2D2D2
+	}
+	
+	.border-event {
+	    position: fixed;
+	    width: 11%;
+	    height: 15%;
+	    left: 40.5%;
+	    top: 77%;
+	    background: #313340;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	    border-radius: 30px;
+	}
+	
+	.border-event2 {
+	    position: fixed;
+	    width: 11%;
+	    height: 15%;
+	    left: 54.5%;
+	    top: 77%;
+	    background: #313340;
+	    border-radius: 30px;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+	
+	.border-event3 {
+	    position: fixed;
+	    width: 11%;
+	    height: 15%;
+	    left: 68.5%;
+	    top: 77%;
+	    background: #313340;
+	    border-radius: 30px;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+	
+	.border-event4 {
+	    position: fixed;
+	    width: 11%;
+	    height: 15%;
+	    left: 82.5%;
+	    top: 77%;
+	    background: #313340;
+	    border-radius: 30px;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+	
+	.border-event1-top {
+	    background: #36394E;
+	    border-radius: 30px 30px 0px 0px;
+	}
+	
+	.border-event2-top {
+	    background: #59405B;
+	    border-radius: 30px 30px 0px 0px;
+	}
+	
+	.border-event3-top {
+	    background: #7B8459;
+	    border-radius: 30px 30px 0px 0px;
+	}
+	
+	.border-event4-top {
+	    background: #4B7479;
+	    border-radius: 30px 30px 0px 0px;
+	}
+	
+	.font-event-top {
+	    text-align: center;
+	    font-family: Nunito;
+	    font-style: normal;
+	    font-weight: 600;
+	    font-size: 18px;
+	    line-height: 25px;
+	    color: #C0BBBB;
+	}
+	
+	.font-event {
+	    font-family: Nunito;
+	    font-style: normal;
+	    font-weight: 600;
+	    font-size: 14px;
+	    line-height: 19px;
+	    color: #FFFFFF;
+	    margin-left: 10px;
+	}
+	
+	.font-event-time {
+	    font-family: Nunito Sans;
+	    font-style: normal;
+	    font-weight: 600;
+	    font-size: 14px;
+	    line-height: 19px;
+	    margin-left: 10px;
+	    color: rgba(143, 133, 133, 0.76);
+	}
+	/* calendar css end*/
+	/* survey css start */
+	
+	.tried-players-widget {
+	    position: fixed;
+	    top: 22%;
+	    left: 36%;
+	    width: 62%;
+	    height: 15%;
+	    background: #313340;
+	    border: 2px solid #AE1313;
+	    box-sizing: border-box;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	    border-radius: 30px;
+	}
+		
+	.next-survey1 {
+	    position: fixed;
+	    top: 16%;
+	    left: 36%;
+	    font-family: Nunito;
+	    font-style: normal;
+	    font-weight: 600;
+	    font-size: 24px;
+	    line-height: 29px;
+	    color: rgba(255, 255, 255, 0.82);
+	}
+	
+	.survey-border1 {
+	    position: fixed;
+	    top: 22%;
+	    left: 36%;
+	    width: 28%;
+	    height: 15%;
+	    background: #313340;
+	    border: 2px solid #59A781;
+	    box-sizing: border-box;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	    border-radius: 30px;
+	}
+	
+	.survey-border2 {
+	    position: fixed;
+	    top: 22%;
+	    left: 69%;
+	    width: 28%;
+	    height: 15%;
+	    background: #313340;
+	    border: 2px solid #257D99;
+	    box-sizing: border-box;
+	    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	    border-radius: 30px;
+	}
+	
+	.survey-border1-top {
+	    position: absolute;
+	    left: 0%;
+	    right: 0%;
+	    top: 0%;
+	    bottom: 79%;
+	    background: #59A781;
+	    border-radius: 25px 25px 0px 0px;
+	}
+	
+	.survey-border2-top {
+	    position: absolute;
+	    left: 0%;
+	    right: 0%;
+	    top: 0%;
+	    bottom: 79%;
+	    background: #257D99;
+	    border-radius: 25px 25px 0px 0px;
+	}
+	
+	.survey-before1 {
+	    position: absolute;
+	    left: 4%;
+	    right: 40.43%;
+	    top: 33.1%;
+	    bottom: 49.66%;
+	    font-family: Nunito;
+	    font-style: normal;
+	    font-weight: 600;
+	    font-size: 18px;
+	    line-height: 25px;
+	    color: rgba(255, 255, 255, 0.82);
+	}
+	
+	.survey-clock1 {
+	    position: absolute;
+	    left: 4%;
+	    right: 12.5%;
+	    top: 56.25%;
+	    bottom: 6.25%;
+	    font-family: Nunito;
+	    font-style: normal;
+	    font-weight: 600;
+	    font-size: 18px;
+	    line-height: 25px;
+	    color: rgba(152, 155, 156, 0.82);
+	}
+	
+	.survey-play1 {
+	    position: absolute;
+	    left: 84%;
+	    right: 12.5%;
+	    top: 38.25%;
+	    bottom: 6.25%;
+	}
+	/* survey css end */
+	
+

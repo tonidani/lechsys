@@ -1,0 +1,52 @@
+{%  block stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}" />
+
+<style>
+    .right  .box{
+        padding: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border-radius: 20px;
+        background-color: var(--bgcolor);
+    }
+
+</style>
+
+{% endblock %}
+    <div class="hello">{{  title  }}</div>
+    <div class="form">
+
+    <form action="" method="post">
+    {{ form.hidden_tag() }}
+
+     <div class="box">
+
+             {{ form.name.label }}
+          {{ form.name(placeholder=_("Add name"))}}
+		   {% for error in form.name.errors %}
+		   <span style="color: red;">{{ _("Team name error:  ")}}{{ error }}</span>
+		   {% endfor %}
+     </div>
+
+
+
+    <div class="box-submit">
+        {{ form.submit() }}
+    </div>
+
+
+
+
+
+    </form>
+        <div class="right">
+        <h1 class="hello"> {{_("Teams in the system") }}</h1>
+            <hr>
+        <div class="box">
+          {% for team in teams %}
+
+            <p>{{ team.name }}</p>
+          {% endfor%}
+           </div>
+        </div>
+    </div>

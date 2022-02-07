@@ -1,0 +1,195 @@
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+{% endblock stylesheet %}
+
+
+<style>
+    .container {  
+        display: grid;
+        grid-template-columns: 44.8% 55.2%;
+        grid-template-rows: 1fr 0.7fr 1.3fr;
+        grid-auto-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "title pic"
+            "text pic"
+            "redicter pic";
+    }
+
+    .pic { 
+        grid-area: pic;
+        padding-top: 10%;
+    
+    }
+
+    .title { 
+        grid-area: title;
+        padding-top: 20%;
+        padding-left: 20%;
+     }
+
+     .title h1 {
+         color: whitesmoke;
+
+     }
+
+    .text { 
+        grid-area: text;
+        padding-top: 5%;
+        padding-left: 20%;
+    
+    }
+
+    .text h3 {
+        color: whitesmoke;
+    }
+
+    .redicter { 
+        grid-area: redicter;
+        padding-top: 0%;
+        padding-left: 20%;
+        color: whitesmoke;
+    }
+    
+    .border {
+        border-style: solid;
+        border-color: whitesmoke;
+        width: 50%;
+        border-width: 1px;
+    }
+
+    .border a {
+        color: rgb(161, 161, 212);
+        padding-top: 50px;
+        text-decoration: underline;
+    }
+
+    .pic img {
+        width: 100%;
+        height: auto;
+        max-height: 1000px !important;
+        max-width: 711px !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ez{
+        margin-left: 5%;
+    }
+
+    @media only screen and (max-width: 794px) {
+
+        .title { 
+            grid-area: title;
+            padding-top: 10%;
+            padding-left: 10%;
+        }
+
+        .title h1 {
+            font-size: x-large;
+
+        }
+
+        .text { 
+            grid-area: text;
+            padding-top: 5%;
+            padding-left: 5%;
+            font-size: large;
+        
+        }
+
+        .redicter { 
+            grid-area: redicter;
+            padding-top: 5%;
+            padding-left: 5%;
+            color: whitesmoke;
+            font-size: medium;
+        }
+    
+        .border {
+            border-style: none;
+        }
+
+        .container {  
+            display: grid;
+            grid-template-columns: 44.8% 55.2%;
+            grid-template-rows: 1.2fr 0.5fr 1.3fr;
+            grid-auto-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "title pic"
+                "text text"
+                "redicter redicter";
+            }
+
+            .title { grid-area: title; }
+
+            .pic { grid-area: pic; }
+
+            .text { grid-area: text; }
+
+            .redicter { grid-area: redicter; }
+
+  
+    }
+
+</style>
+
+  <div class="container">
+    <div class="pic">
+        <img src="./static/images/404.png">
+    </div>
+    <div class="title">
+        <h1>
+            {{ _("Oops! Something went wrong.") }}
+        </h1>
+    </div>
+    <div class="text">
+        <h3>
+            {{ _("The page you are trying to access does not exist.") }}
+        </h3>
+    </div>
+    <div class="redicter">
+        <div class="border">
+            <div class="ez">
+            <span>{{ _("You will be redirected to the home page in: ") }} </span><span id="time">00:30</span><span> {{ _("seconds") }}</span>
+            </div>
+        </div>
+        <br>
+        <br>
+        <a href="/home">{{ _("Home page") }}</a>
+    </div>
+  </div>
+
+  <script>
+    var timer = setTimeout(function() {
+        window.location='/home'
+    }, 30000);
+
+    function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+    }   
+
+        window.onload = function () {
+            var halfminut = 60 * 0.5,
+                display = document.querySelector('#time');
+            startTimer(halfminut, display);
+};
+</script>

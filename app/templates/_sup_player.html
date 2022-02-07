@@ -1,0 +1,579 @@
+{% block stylesheet %}
+<style>
+
+:root {
+  --r1: hidden;
+  --r2: hidden;
+  --r3: hidden;
+  --r4: hidden;
+  --r5: hidden;
+}
+
+.all {
+  margin: 3% 3% 3% 3%;
+}
+
+.collapsible {
+  background-color: rgb(25, 25, 56);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  text: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.collapsible2 {
+  background-color: rgb(25, 25, 56);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible2:hover {
+  background-color: #555;
+}
+
+.collapsible2:after {
+  text: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.collapsible3 {
+  background-color: rgb(25, 25, 56);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible3:hover {
+  background-color: #555;
+}
+
+.collapsible3:after {
+  text: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+
+.collapsible4 {
+  background-color: rgb(25, 25, 56);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible4:hover {
+  background-color: #555;
+}
+
+.collapsible4:after {
+  text: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.collapsible5 {
+  background-color: rgb(25, 25, 56);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible5:hover {
+  background-color: #555;
+}
+
+.collapsible5:after {
+  text: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  text: "\2212";
+}
+
+.text {
+
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  background-color: #000000;
+  visibility: var(--r1);
+
+}
+
+.text p {
+  margin-left: 2%;
+
+}
+
+.text2 {
+
+max-height: 0;
+transition: max-height 0.2s ease-out;
+background-color: #000000;
+visibility: var(--r2);
+
+}
+
+.text2 p {
+  margin-left: 2%;
+
+}
+
+.text3 {
+
+max-height: 0;
+transition: max-height 0.2s ease-out;
+background-color: #000000;
+visibility: var(--r3);
+
+}
+
+.text3 p {
+  margin-left: 2%;
+
+}
+
+.text4 {
+
+max-height: 0;
+transition: max-height 0.2s ease-out;
+background-color: #000000;
+visibility: var(--r4);
+
+}
+
+.text4 p {
+  margin-left: 2%;
+
+}
+
+.text5 {
+
+max-height: 0;
+transition: max-height 0.2s ease-out;
+background-color: #000000;
+visibility: var(--r5);
+
+}
+
+.text5 p {
+  margin-left: 2%;
+
+}
+
+.text img {
+        width: 100%;
+        height: auto;
+        max-height: 800px !important;
+        max-width: 800px !important;
+        display: block;
+        margin-bottom: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+       
+
+
+    }
+
+.text2 img {
+        width: 100%;
+        height: auto;
+        max-height: 800px !important;
+        max-width: 800px !important;
+        display: block;
+        margin-bottom: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+       
+
+
+    }
+
+.text3 img {
+        width: 100%;
+        height: auto;
+        max-height: 800px !important;
+        max-width: 800px !important;
+        display: block;
+        margin-bottom: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+       
+
+
+    }
+
+.text4 img {
+        width: 100%;
+        height: auto;
+        max-height: 800px !important;
+        max-width: 800px !important;
+        display: block;
+        margin-bottom: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+       
+
+
+    }
+
+.text5 img {
+        width: 100%;
+        height: auto;
+        max-height: 800px !important;
+        max-width: 800px !important;
+        display: block;
+        margin-bottom: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+       
+
+
+    }
+
+.rectangle1 {
+  height: 3%;
+  width: 6%;
+  background-color: #9917C7;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle2 {
+  height: 3%;
+  width: 6%;
+  background-color: #DBFF00;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle3 {
+  height: 3%;
+  width: 6%;
+  background-color: #1768C7;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle4 {
+  height: 3%;
+  width: 6%;
+  background-color: #9917C7;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle5 {
+  height: 3%;
+  width: 6%;
+  background-color: #DC0606;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle6 {
+  height: 3%;
+  width: 6%;
+  background-color: #26C0CA;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle7 {
+  height: 3%;
+  width: 6%;
+  background-color: #A82BC8;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle8 {
+  height: 3%;
+  width: 6%;
+  background-color: #55FF52;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+  
+.rectangle9 {
+  height: 3%;
+  width: 6%;
+  background-color: #DBFF00;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+  
+.rectangle10 {
+  height: 3%;
+  width: 6%;
+  background-color: #9D3DB6;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle11 {
+  height: 3%;
+  width: 6%;
+  background-color: #3DB657;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle12 {
+  height: 3%;
+  width: 6%;
+  background-color: #26C0CA;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle13 {
+  height: 3%;
+  width: 6%;
+  background-color: #9917C7;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+.rectangle14 {
+  height: 3%;
+  width: 6%;
+  background-color: #A82BC8;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+.rectangle15 {
+  height: 3%;
+  width: 6%;
+  background-color: #DBFF00;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle16 {
+  height: 3%;
+  width: 6%;
+  background-color: #DC0606;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle17 {
+  height: 3%;
+  width: 6%;
+  background-color: #DBFF00;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle18 {
+  height: 3%;
+  width: 6%;
+  background-color: #1768C7;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+.rectangle19 {
+  height: 3%;
+  width: 6%;
+  background-color: #9917C7;
+  margin-left: 2% !important;
+  margin-top: 0.5% !important;
+}
+
+@media only screen and (max-width: 794px) {
+  .all {
+    margin-top: 15%;
+  }
+}
+
+</style>
+{% endblock stylesheet %}
+<div class="all">
+<p style="font-size: 200%;">{{ _("Instructions on how to use the system") }} <span class="iconify" data-icon="oi:book"></span></p>
+
+<button class="collapsible"><span class="icon"><i class="fas fa-home"></i></span> {{ _("Dashboard:    &nbsp fill wellnes survey - fill rpe survey") }}<span style="font-size: 150%; padding-left: 2;"class="iconify" data-icon="fa-solid:hand-point-up"></span></button>
+<div class="text">
+  <img src="./static/images/sup_player2.png">
+  <div class="rectangle1"></div>
+  <p>{{ _("Click to fill wellnes survey") }}</p>
+  <div class="rectangle2"></div>
+  <p>{{ _("Click to fill rpe survey") }}</p>
+
+</div>
+
+<button class="collapsible3"><span class="icon"><i class="fas fa-file-signature"></i></span> {{ _("Event Data: &nbsp survey result") }}<span style="font-size: 150%; padding-left: 2;"class="iconify" data-icon="fa-solid:hand-point-up"></span></button>
+<div class="text3">
+  <img src="./static/images/sup_player1.png">
+  <div class="rectangle13"></div>
+  <p>{{ _("Click to see survey result") }}</p>
+</div>
+
+<button class="collapsible4"><span class="icon"><i class="fas fa-calendar"></i></span> {{ _("Calendar: &nbsp  view calendar") }}<span style="font-size: 150%; padding-left: 2;"class="iconify" data-icon="fa-solid:hand-point-up"></span></button>
+<div class="text4">
+  <img src="./static/images/sup_player3.png">
+  <p>{{ _("View events") }}</p>
+</div>
+
+<button class="collapsible5"><span class="icon"><i class="fas fa-cog"></i></span> {{ _("Settings: &nbsp change avatar - change password - enable push notification") }}<span style="font-size: 150%; padding-left: 2;"class="iconify" data-icon="fa-solid:hand-point-up"></span></button>
+<div class="text5">
+  <img src="./static/images/sup_adm7.png">
+  <div class="rectangle17"></div>
+  <p>{{ _("Change avatar") }}</p>
+  <div class="rectangle18"></div>
+  <p>{{ _("Change password") }}</p>
+  <div class="rectangle19"></div>
+  <p>{{ _("Enable push notification") }}</p>
+</div>
+
+</div>
+</div>
+  
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <script>
+
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      var r = document.querySelector(':root');
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          r.style.setProperty('--r1', 'visible');
+          var text = this.nextElementSibling;
+          if (text.style.maxHeight){
+            text.style.maxHeight = null;
+            r.style.setProperty('--r1', 'hidden');
+          } else {
+            text.style.maxHeight = text.scrollHeight + "px";
+            
+          } 
+        });
+      }
+
+      var coll2 = document.getElementsByClassName("collapsible2");
+      var j;
+      var r = document.querySelector(':root');
+      for (j = 0; j < coll2.length; j++) {
+        coll2[j].addEventListener("click", function() {
+          this.classList.toggle("active");
+          r.style.setProperty('--r2', 'visible');
+          var text = this.nextElementSibling;
+          if (text.style.maxHeight){
+            text.style.maxHeight = null;
+            r.style.setProperty('--r2', 'hidden');
+          } else {
+            text.style.maxHeight = text.scrollHeight + "px";
+            
+          } 
+        });
+      }
+
+      var coll3 = document.getElementsByClassName("collapsible3");
+      var k;
+      var r = document.querySelector(':root');
+      for (k = 0; k < coll3.length; k++) {
+        coll3[k].addEventListener("click", function() {
+          this.classList.toggle("active");
+          r.style.setProperty('--r3', 'visible');
+          var text = this.nextElementSibling;
+          if (text.style.maxHeight){
+            text.style.maxHeight = null;
+            r.style.setProperty('--r3', 'hidden');
+          } else {
+            text.style.maxHeight = text.scrollHeight + "px";
+            
+          } 
+        });
+      }
+
+      var coll4 = document.getElementsByClassName("collapsible4");
+      var l;
+      var r = document.querySelector(':root');
+      for (l = 0; l < coll4.length; l++) {
+        coll4[l].addEventListener("click", function() {
+          this.classList.toggle("active");
+          r.style.setProperty('--r4', 'visible');
+          var text = this.nextElementSibling;
+          if (text.style.maxHeight){
+            text.style.maxHeight = null;
+            r.style.setProperty('--r4', 'hidden');
+          } else {
+            text.style.maxHeight = text.scrollHeight + "px";
+            
+          } 
+        });
+      }
+
+      var coll5 = document.getElementsByClassName("collapsible5");
+      var m;
+      var r = document.querySelector(':root');
+      for (m = 0; m < coll5.length; m++) {
+        coll5[m].addEventListener("click", function() {
+          this.classList.toggle("active");
+          r.style.setProperty('--r5', 'visible');
+          var text = this.nextElementSibling;
+          if (text.style.maxHeight){
+            text.style.maxHeight = null;
+            r.style.setProperty('--r5', 'hidden');
+          } else {
+            text.style.maxHeight = text.scrollHeight + "px";
+            
+          } 
+        });
+      }
+    </script>
+    
+
+    
+    
+    

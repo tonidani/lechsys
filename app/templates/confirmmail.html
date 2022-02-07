@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+
+
+
+
+{% block content %}
+
+<style>
+
+#confirm-mail-box {
+    width: 400px;
+    padding: 2em;
+    margin-left:auto;
+    font-size: 14px;
+    margin-right:auto;
+    text-align: center;
+	color: white;
+    background: rgb(36, 38, 50);
+     margin-top:2%;
+
+}
+
+ #confirm-mail-box input[type="submit"], input[type="file"] {
+    background: rgb(80, 80, 145);
+    width:100%;
+    padding-top:10px;
+    padding-bottom: 10px;
+	margin-top:20px;
+    /*border-radius: 5em;*/
+    /* outline: none; */
+    border: 0;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 767px) {
+    #confirm-mail-box{
+        width: auto;
+        height:auto;
+        padding: 2%;
+        margin-top:auto;
+        margin-bottom:auto;
+
+
+
+}
+    }
+
+</style>
+
+ <div id="confirm-mail-box">
+
+   {{_("You have received an invitation to join the Lechsys application - please set your password and user.")}}
+    <br><br>
+    {{_("Your mail is:") }} {{ email }}<br>
+    {{_("Full name:") }} {{ user.first_name }} {{ user.last_name }}<br>
+      {{_("Username: ")}} {{ user.username }}<br>
+      {{ _("*Password should have at least 10 characters.") }}
+
+     <form method="post" enctype="multipart/form-data">
+	  {{ form.hidden_tag() }}
+          <br>
+         <img id="blah" src="{{ url_for('static', filename='images/blank_avatar.jpg') }}" alt="Preview"/>
+         <div id="message">{% for error in form.avatar.errors %}
+                     <span class="error-file" style="color: red;">{{_("File") }} : {{ error }}</span>
+                   {% endfor %}</div>
+         <br>
+         <br>
+            {{ form.avatar(id="imgInp", placeholder="Add photo") }}
+         <br>
+
+
+
+
+			   {{ form.password(size=32, placeholder=_("password")) }}
+
+          {% for error in form.password.errors %}
+                   <span style="color: red;">{{_("Password") }} : {{ error }}</span>
+                   {% endfor %}
+            {{ form.password2(size=32, placeholder=_("repeat password")) }}
+         {% for error in form.password2.errors %}
+                   <span style="color: red;">{{_("Repeat password") }} : {{ error }}</span>
+                   {% endfor %}
+
+
+	        {{ form.submit() }}
+     </form>
+		</div>
+
+    <script>
+
+
+        imgInp.onchange = evt => {
+              const [file] = imgInp.files
+              let fileSize = file.size
+              let mbSize =  parseInt(fileSize / 1024 / 1024)
+              if (file) {
+                blah.src = URL.createObjectURL(file)
+
+                if (fileSize > parseInt(5 * 1024 * 1024)){
+
+                    document.querySelector("#message").innerHTML = `{{_("Your file is bigger than 5MiB, upload another file, size: ")}}${mbSize} MiB`;
+                    document.querySelector("#message").style.color = "red";
+                    document.querySelector("#submit").disabled = true;
+                    document.querySelector("#submit").value = `{{_("Upload another file !")}}`;
+                    imgInp.value = "";
+
+              }
+              else if( /\.(jpe?g|png)$/i.test(file.name) === false){
+                document.querySelector("#message").innerHTML = `{{_("Allowed files: jpg, png.")}}`;
+                    document.querySelector("#message").style.color = "red";
+                    document.querySelector("#submit").disabled = true;
+                    document.querySelector("#submit").value = `{{_("Upload another file !")}}`;
+                    imgInp.value = "";
+
+              }
+              else{
+
+                    document.querySelector("#message").innerHTML = "";
+                    document.querySelector("#message").style.color = "red";
+                    document.querySelector("#submit").disabled = false;
+                    document.querySelector("#submit").type = 'submit';
+                    document.querySelector("#submit").value = `{{_("Set user and password")}}`;
+
+
+              }
+            }
+            }
+
+
+    </script>
+
+{% endblock %}

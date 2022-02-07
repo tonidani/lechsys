@@ -1,0 +1,65 @@
+{%  block stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}" />
+{% endblock %}
+    <div class="hello">{{  title  }}</div>
+
+    <form action="" method="post">
+       <div class="form">
+      
+        <div class="box">
+             {{ form.hidden_tag() }}
+            {{ form.username.label }}
+            {{ form.username(size=32, placeholder="username")}}
+
+            {% for error in form.first_name.errors %}
+                <span style="color: red;">Username: {{ error }}</span>
+            {% endfor %}
+
+        </div>
+        <div class="box">
+
+            {{ form.first_name.label }}
+            {{ form.first_name(size=32, placeholder="first_name")}}
+
+
+            {% for error in form.first_name.errors %}
+                <span style="color: red;">Name: {{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="box">
+         {{ form.last_name.label }}
+        {{ form.last_name(size=32, placeholder="last_name") }}
+            {% for error in form.last_name.errors %}
+		     <span style="color: red;">Last name: {{ error }}</span>
+		   {% endfor %}
+     </div>
+     <div class="box">
+      {{ form.email.label }}
+                 {{ form.email(size=32, placeholder="email") }}
+    {% for error in form.email.errors %}
+		   <span style="color: red;">Email: {{ error }}</span>
+		   {% endfor %}
+     </div>
+    <div class="box">
+         {{ form.role.label }}
+                 {{ form.role }}
+    </div>
+     <div class="box">
+         {{ form.team.label }}
+                 {{ form.team }}
+    </div>
+    <div class="box">
+         {{ form.active.label }}
+        {{ form.active }}
+    </div>
+    <div class="box-submit">
+        {{ form.submit(placeholder="Edit user") }}
+     {% for error in form.email.errors %}
+		   <span style="color: red;">Form: {{ error }}</span>
+		   {% endfor %}
+    </div>
+
+
+
+</form>
+    </div>

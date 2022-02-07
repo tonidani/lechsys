@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+	{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" xmlns="http://www.w3.org/1999/html"/>
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    {% endblock stylesheet %}
+
+{% block content %}
+{% set active_page = "home" %}
+
+<style>
+    .all-page{
+        grid-template-columns:400px  70%;
+        display: grid;
+    }
+    @media (max-width: 600px) {
+             .all-page {
+                  display: block;
+                  }
+}
+    </style>
+<body>
+
+    {% include '_navbar.html' %}
+
+    {% include '_sidebar.html' %}
+
+    <div class="main">
+	<div class="content">
+         {% include '_alerts.html' %}
+        <div class="hello">{{ _("Welcome ") }} {{ current_user.username }} {{ user_page }}</div>
+        <div class="all-page">
+        {% include'_profile.html' %}
+
+
+         {% if 'player' or 'admin' in current_user.show_role()  %}
+
+            {% include '_events_carousel.html'  %}
+
+         {% endif %}
+        </div>
+
+        </div>
+    </div>
+   <!-- <footer style="clear:both; text-align:center">powered by: <img style="border-radius:200px;" height="25px" width="25px" src="{{ url_for('static', filename='images/logo_our.png') }}"/> </footer>
+-->
+</body>
+</html>
+
+
+
+
+{% endblock %}
